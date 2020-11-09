@@ -1,0 +1,108 @@
+@font-face {
+  font-family: "open-sans-light";
+  src: url("../../fonts/Open_Sans/OpenSans-Light.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: "open-sans-italic-light";
+  src: url("../../fonts/Open_Sans/OpenSans-LightItalic.ttf") format('truetype'),
+}
+
+nav{
+
+    display: flex;
+    height: 50px;
+    justify-content: center;
+
+    .underline{
+        position: relative;
+        top: -5px;
+        width: 120%;
+        height: 1px;
+        border-top: solid white 1px;
+        position: relative;
+        left: -10%;
+        transform: scaleX(0);
+        transition: transform 200ms;
+
+    }
+
+   
+        
+
+    >ul{
+        list-style: none;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        padding-inline-start: 0;
+        width: 380px;
+
+        
+        >li{
+            div:hover{
+                cursor: pointer;
+                .underline{
+                    transform: scaleX(1);
+                }
+
+            }
+
+            >div{
+                p{
+                    font-family: "open-sans-light";
+                    font-size: 0.9em;
+                    letter-spacing: 0.05em;
+                }
+            }
+
+            p{
+                margin-block-start: 0;
+                padding: 5px;
+            }
+
+            
+
+            >p{
+                text-align: center;
+            }
+
+        }
+
+
+
+
+
+
+
+        > li:nth-child(2){
+            ul{
+                position: relative;
+                top: -10px;
+                border-radius: 2px;
+                list-style: none;
+                overflow: hidden;
+                display: none;
+                opacity: 0;
+                padding-inline-start: 0;
+                margin-top: 20px;
+                background-color: rgba(63, 55, 55, 0.61);
+                transition: opacity 300ms;
+                padding: 0 5px 10px 5px;
+                width: 110%;
+                li{
+
+                    p{
+                        margin-block-end: 0;
+                        padding: 10px 5px 10px 5px;
+                        font-family: "open-sans-italic-light";
+                        font-size: 0.9em;
+                        letter-spacing: 0.1em;
+                    }
+                }
+            }
+        }
+
+    }
+
+}

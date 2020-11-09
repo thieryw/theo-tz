@@ -1,8 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Home} from "./components/Home/Home";
+import {Evt} from "evt";
+
+
+export const evtScrolling: Evt<void> = Evt.create();
+
+function App() {
+  return (
+    <div onScroll={()=> evtScrolling.post()} className="App">
+      <Home />
+
+    </div>
+   
+  );
+}
+
 
 ReactDOM.render(
   <React.StrictMode>
