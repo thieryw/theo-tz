@@ -1,35 +1,111 @@
 import React, {useEffect} from "react";
 
 export function useAnimation(params: {
-    parentRef: React.RefObject<HTMLElement>;
+    parentRef?: React.RefObject<HTMLElement>;
     ref: React.RefObject<HTMLElement>;
-    orientation: "horizontal" | "vertical"
-    offset: number;
+    offset?: number;
+    direction? : "vertical" | "horizontal";
+    animationDuration? : number;
+    fadeDuration?: number;
+    animationDelay?: number;
+    distanceFromViewPortToTrigger?: number;
+
 }){
 
-    const {parentRef, ref, orientation, offset} = params;
+    const {
+        parentRef, 
+        ref, 
+        offset, 
+        direction, 
+        animationDuration, 
+        fadeDuration,
+        animationDelay,
+        distanceFromViewPortToTrigger
+    } = params;
 
-    const translate = orientation === "horizontal" ? `translateX(${offset}px)` :
-                `translateY(${offset}px)`;
+    let translate: string | undefined = undefined;
 
+    const distanceToTrigger = distanceFromViewPortToTrigger ?
+    distanceFromViewPortToTrigger : 0;
+
+    if(offset){
+        translate = direction === "horizontal" ? `translateX(${offset}px)` :
+                    `translateY(${offset}px)`;
+
+    }
+    
 
     useEffect(()=>{
-
-        if(!parentRef || !parentRef.current || !ref || !ref.current){
-            return;
-        }
-
-        const bounding = parentRef.current.getBoundingClientRect();
-        if(bounding.y < window.innerHeight){
-            ref.current.style.opacity = "1";
-            ref.current.style.transform = 
-                orientation === "horizontal" ? "translateX(0)" : "translateY(0)";
-
+        if(!ref || !ref.current){
             return;
         }
 
         ref.current.style.opacity = "0";
+        ref.current.style.transition = 
+        `transform ${animationDuration ? animationDuration : 800}ms, 
+        opacity ${fadeDuration ? fadeDuration : 300}ms`;
+
+
+        if(!translate){
+            return;
+        }
+
         ref.current.style.transform = translate;
+        
+    },[])
+
+
+
+
+
+
+    useEffect(()=>{
+
+        const triggerAnimation = async ()=>{
+
+            if(animationDelay){
+                await new Promise<void>(resolve => setTimeout(resolve, animationDelay));
+            }
+
+            if(!ref || !ref.current){
+
+                return;
+            }
+
+            const bounding = !parentRef || !parentRef.current ? ref.current.getBoundingClientRect() :
+            parentRef.current.getBoundingClientRect();
+
+            if(bounding.y < window.innerHeight + distanceToTrigger){
+
+                ref.current.style.opacity = "1";
+
+
+                if(translate){
+                    ref.current.style.transform = direction === "horizontal" ?
+                    "translateX(0)" : "translateY(0)";
+
+                }
+
+            
+
+
+                return;
+            }
+
+            ref.current.style.opacity = "0";
+
+            if(!translate){
+                return;
+            }
+
+            ref.current.style.transform = translate;
+
+
+        }
+
+        triggerAnimation();
+
+               
 
     })
 

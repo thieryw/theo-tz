@@ -1,4 +1,4 @@
-import React,{useState, useEffect, useCallback, useReducer} from "react";
+import React,{useReducer, useRef} from "react";
 import birdUrl from "./media/PortfolioPresentation/bird.jpg";
 import musicUrl from "./media/PortfolioPresentation/music.jpg";
 import danceUrl from "./media/PortfolioPresentation/dance.jpg";
@@ -11,7 +11,7 @@ import fancyUnderlineUrl from "./media/PortfolioPresentation/fancy-underline.jpg
 export const PortfolioPresentation: React.FunctionComponent = ()=>{
 
     const [, forceUpdate] = useReducer(x=>x+1,0);
-    const ref: React.RefObject<HTMLDivElement> = React.createRef<HTMLDivElement>();
+    const ref: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
     type TitlePosition = "top" | "bottom";
 
@@ -21,6 +21,7 @@ export const PortfolioPresentation: React.FunctionComponent = ()=>{
     const titles = ["naturalisme", "portraits", "évènements"];
 
     const titlePositions: TitlePosition[]= ["top", "bottom", "top"];
+
 
     useEvt(ctx =>{
         evtScrolling.attach(
@@ -50,20 +51,18 @@ export const PortfolioPresentation: React.FunctionComponent = ()=>{
                         return <div key={index}>
                             {
                                 titlePositions[index] === "top" ? 
-                                <Title title={titles[index]} titlePosition="bottom" /> : ""
+                                <Title parentRef={ref} title={titles[index]} titlePosition="bottom" /> : ""
                             }
                             <AnimatedDiv 
                                 imgSrc={url}
                                 imgAlt={imgAlts[index]}
                                 offset={offsets[index]}
-                                opacity="0"
-                                orientation="vertical"
                                 parentRef={ref}
                             />
 
                             {
                                 titlePositions[index] === "top" ?
-                                "" : <Title title={titles[index]} titlePosition="top" />
+                                "" : <Title parentRef={ref} title={titles[index]} titlePosition="top" />
 
                             }
                         </div>
@@ -76,14 +75,26 @@ export const PortfolioPresentation: React.FunctionComponent = ()=>{
 }
 
 const Title: React.FunctionComponent<{
-    title: string
-    titlePosition: "top" | "bottom"
+    title: string;
+    titlePosition: "top" | "bottom";
+    parentRef: React.RefObject<HTMLDivElement>;
 }> = (props)=>{
 
-    const {title, titlePosition} = props
+    const {title, titlePosition, parentRef} = props
+
+    const ref = useRef<HTMLDivElement>(null);
+
+    useAnimation({
+        parentRef,
+        ref,
+        "fadeDuration" : 800,
+        "distanceFromViewPortToTrigger": -500
+        
+
+    })
 
     return(
-        <div>
+        <div ref={ref}>
             {
                 titlePosition === "top" ? 
                 <div className="portfolio-divider"></div> : 
@@ -105,23 +116,16 @@ const Title: React.FunctionComponent<{
 const AnimatedDiv: React.FunctionComponent<{
     imgSrc: string;
     imgAlt: string;
-    opacity: string;
     offset: number;
-    orientation: "vertical" | "horizontal"
 
     parentRef: React.RefObject<HTMLDivElement>;
 }> = (props)=>{
 
-    const {imgAlt, imgSrc, offset, orientation, opacity, parentRef} = props;
-    const ref: React.RefObject<HTMLImageElement> = React.createRef<HTMLImageElement>();
-
-    const translate = orientation === "horizontal" ? `translateX(${offset}px)` :
-                `translateY(${offset}px)`;
+    const {imgAlt, imgSrc, offset, parentRef} = props;
+    const ref: React.RefObject<HTMLImageElement> = useRef<HTMLImageElement>(null);
 
 
-
-
-    useAnimation({parentRef, ref, offset, orientation});
+    useAnimation({parentRef, ref, offset, distanceFromViewPortToTrigger: -500});
 
 
     return(
@@ -130,11 +134,7 @@ const AnimatedDiv: React.FunctionComponent<{
             ref={ref}
             src={imgSrc} 
             alt={imgAlt}
-            style={{
-                transform: translate,
-                opacity: opacity,
-                transition: "transform 800ms, opacity 300ms"
-            }}
+
         />
     )
 }
