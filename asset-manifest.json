@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/theo-tz/static/css/main.78c68a4c.chunk.css",
+    "main.js": "/theo-tz/static/js/main.20d8f93b.chunk.js",
+    "main.js.map": "/theo-tz/static/js/main.20d8f93b.chunk.js.map",
+    "runtime-main.js": "/theo-tz/static/js/runtime-main.00d1cd75.js",
+    "runtime-main.js.map": "/theo-tz/static/js/runtime-main.00d1cd75.js.map",
+    "static/js/2.50264b0b.chunk.js": "/theo-tz/static/js/2.50264b0b.chunk.js",
+    "static/js/2.50264b0b.chunk.js.map": "/theo-tz/static/js/2.50264b0b.chunk.js.map",
+    "static/js/3.99caaec5.chunk.js": "/theo-tz/static/js/3.99caaec5.chunk.js",
+    "static/js/3.99caaec5.chunk.js.map": "/theo-tz/static/js/3.99caaec5.chunk.js.map",
+    "index.html": "/theo-tz/index.html",
+    "static/css/main.78c68a4c.chunk.css.map": "/theo-tz/static/css/main.78c68a4c.chunk.css.map",
+    "static/js/2.50264b0b.chunk.js.LICENSE.txt": "/theo-tz/static/js/2.50264b0b.chunk.js.LICENSE.txt",
+    "static/media/Home.scss": "/theo-tz/static/media/Ruthie-Regular.c7d840fa.ttf",
+    "static/media/Nav.scss": "/theo-tz/static/media/OpenSans-LightItalic.0e63c9e7.ttf",
+    "static/media/acceuil-1-min.9c8ea67f.jpg": "/theo-tz/static/media/acceuil-1-min.9c8ea67f.jpg",
+    "static/media/acceuil-2-min.17944fef.jpg": "/theo-tz/static/media/acceuil-2-min.17944fef.jpg",
+    "static/media/acceuil-3-min.25034ad9.jpg": "/theo-tz/static/media/acceuil-3-min.25034ad9.jpg",
+    "static/media/bird.92eaef5f.jpg": "/theo-tz/static/media/bird.92eaef5f.jpg",
+    "static/media/dance.55ff0540.jpg": "/theo-tz/static/media/dance.55ff0540.jpg",
+    "static/media/music.1d8c1967.jpg": "/theo-tz/static/media/music.1d8c1967.jpg",
+    "static/media/signature.f01214a2.png": "/theo-tz/static/media/signature.f01214a2.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.00d1cd75.js",
+    "static/js/2.50264b0b.chunk.js",
+    "static/css/main.78c68a4c.chunk.css",
+    "static/js/main.20d8f93b.chunk.js"
+  ]
+}
