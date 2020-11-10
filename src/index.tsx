@@ -1,16 +1,15 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {Home} from "./components/Home/Home";
-import {Evt} from "evt";
 
 
-export const evtScrolling: Evt<void> = Evt.create();
+
 
 function App() {
   return (
-    <div onScroll={()=> evtScrolling.post()} className="App">
+    <div className="App">
       <Home />
 
     </div>

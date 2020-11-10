@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export const BackgroundSlideShow: React.FunctionComponent<{
+const BackgroundSlideShow: React.FunctionComponent<{
     animationDuration: number;
     backgroundImageUrls: string[];
 
@@ -93,3 +93,5 @@ export const BackgroundSlideShow: React.FunctionComponent<{
     )
 
 }
+
+export default BackgroundSlideShow;

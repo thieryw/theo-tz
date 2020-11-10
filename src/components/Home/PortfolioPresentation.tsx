@@ -2,16 +2,16 @@ import React,{useReducer, useRef} from "react";
 import birdUrl from "./media/PortfolioPresentation/bird.jpg";
 import musicUrl from "./media/PortfolioPresentation/music.jpg";
 import danceUrl from "./media/PortfolioPresentation/dance.jpg";
-import {evtScrolling} from "../../index";
-import {useEvt} from "evt/hooks";
 import {useAnimation} from "../../customHooks/useAnimation";
 import fancyUnderlineUrl from "./media/PortfolioPresentation/fancy-underline.jpg";
 
 
-export const PortfolioPresentation: React.FunctionComponent = ()=>{
 
-    const [, forceUpdate] = useReducer(x=>x+1,0);
+
+const PortfolioPresentation: React.FunctionComponent = ()=>{
+
     const ref: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
+    const [, forceUpdate] = useReducer(x=>x+1, 0);
 
     type TitlePosition = "top" | "bottom";
 
@@ -23,13 +23,9 @@ export const PortfolioPresentation: React.FunctionComponent = ()=>{
     const titlePositions: TitlePosition[]= ["top", "bottom", "top"];
 
 
-    useEvt(ctx =>{
-        evtScrolling.attach(
-            ctx,
-            () => forceUpdate()
-        );
+    window.onscroll = ()=> forceUpdate();
 
-    }, []);
+    
 
 
 
@@ -53,7 +49,7 @@ export const PortfolioPresentation: React.FunctionComponent = ()=>{
                                 titlePositions[index] === "top" ? 
                                 <Title parentRef={ref} title={titles[index]} titlePosition="bottom" /> : ""
                             }
-                            <AnimatedDiv 
+                            <AnimatedImage 
                                 imgSrc={url}
                                 imgAlt={imgAlts[index]}
                                 offset={offsets[index]}
@@ -88,7 +84,7 @@ const Title: React.FunctionComponent<{
         parentRef,
         ref,
         "fadeDuration" : 800,
-        "distanceFromViewPortToTrigger": -500
+        "distanceFromViewPortToTrigger": -400
         
 
     })
@@ -113,7 +109,7 @@ const Title: React.FunctionComponent<{
 
 
 
-const AnimatedDiv: React.FunctionComponent<{
+const AnimatedImage: React.FunctionComponent<{
     imgSrc: string;
     imgAlt: string;
     offset: number;
@@ -125,13 +121,15 @@ const AnimatedDiv: React.FunctionComponent<{
     const ref: React.RefObject<HTMLImageElement> = useRef<HTMLImageElement>(null);
 
 
-    useAnimation({parentRef, ref, offset, distanceFromViewPortToTrigger: -500});
+    useAnimation({parentRef, ref, offset, distanceFromViewPortToTrigger: -400});
 
 
     return(
         <img 
 
             ref={ref}
+            width="333px"
+            height="500px"
             src={imgSrc} 
             alt={imgAlt}
 
@@ -141,6 +139,7 @@ const AnimatedDiv: React.FunctionComponent<{
 
 
 
+export default PortfolioPresentation;
 
 
 

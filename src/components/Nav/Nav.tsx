@@ -1,19 +1,27 @@
-import React, {useState, useRef, useCallback} from "react";
+import React, {useState, useRef, useCallback, useEffect, useReducer} from "react";
 import "./Nav.scss";
 
 
 
-export const Nav: React.FunctionComponent = ()=>{
+export const Nav: React.FunctionComponent<{
+    parentRef?: React.RefObject<HTMLElement>;
+}> = (props)=>{
 
+    const {parentRef} = props
 
     return (
-        <nav>
+        <nav style={{
+            zIndex: 3
+        }}>
             <ul>
-                <ListElement name="ACCUEIL" subListElements={undefined}/>
+                <ListElement name="ACCUEIL"/>
                 <ListElement name="PORTFOLIO" subListElements={
                     ["Naturalisme", "Portraits", "Evènements"]
-                }/>
-                <ListElement name="AUTEUR" subListElements={undefined}/>
+
+                }
+                parentRef={parentRef}
+                />
+                <ListElement name="AUTEUR"/>
 
                 
             </ul>
@@ -24,30 +32,23 @@ export const Nav: React.FunctionComponent = ()=>{
 
 const ListElement: React.FunctionComponent<{
     name: string
-    subListElements: undefined | string[];
+    subListElements?: string[];
+    parentRef?: React.RefObject<HTMLElement>;
 }> = (props)=>{
 
-    const {name, subListElements} = props;
+    const {name, subListElements, parentRef} = props;
     const [isSubListDisplayed, setIsSubListDisplayed] = useState(false);
     const subListRef = useRef<HTMLUListElement>(null);
+    const [, forceUpdate] = useReducer(x=>x+1, 0);
 
-    const styleSubList = useCallback(async ()=>{
 
+    const hideSubList = useCallback(async ()=>{
         if(!subListRef || !subListRef.current){
             return;
         }
-        setIsSubListDisplayed(!isSubListDisplayed);
 
-        if(isSubListDisplayed){
-
-            subListRef.current.style.display = "block";
-
-            await new Promise<void>(resolve => setTimeout(resolve, 1));
-
-            subListRef.current.style.opacity = "1";
-
+        if(!isSubListDisplayed){
             return;
-
         }
 
         subListRef.current.style.opacity = "0";
@@ -56,11 +57,57 @@ const ListElement: React.FunctionComponent<{
 
         subListRef.current.style.display = "none";
 
+        setIsSubListDisplayed(!isSubListDisplayed);
+
+
+
+
+
+
+    },[isSubListDisplayed])
+
+
+
+    const toggleSubList = useCallback(async ()=>{
+
+        if(!subListRef || !subListRef.current){
+            return;
+        }
+
+
+        if(isSubListDisplayed){
+
+            hideSubList();
+            return;
+
+
+        }
+
+        subListRef.current.style.display = "block";
+
+        await new Promise<void>(resolve => setTimeout(resolve, 1));
+
+        subListRef.current.style.opacity = "1";
+
+        setIsSubListDisplayed(!isSubListDisplayed);
 
        
 
-    },[isSubListDisplayed]);
+    },[hideSubList, isSubListDisplayed]);
 
+/*    useEffect(()=>{
+        if(!parentRef || !parentRef.current || !isSubListDisplayed){
+            return;
+        }
+
+        parentRef.current.onclick = ()=>{
+            hideSubList();
+        }
+    }, [isSubListDisplayed, hideSubList])*/
+
+    
+
+    
 
 
 
@@ -76,7 +123,7 @@ const ListElement: React.FunctionComponent<{
         <li className="elem-with-subList">
             <div>
                 <p
-                    onClick={styleSubList}
+                    onClick={toggleSubList}
                 >
                     {name} <span style={{
                         position: "relative",

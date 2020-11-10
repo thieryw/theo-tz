@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 
+
 export function useAnimation(params: {
     parentRef?: React.RefObject<HTMLElement>;
     ref: React.RefObject<HTMLElement>;
@@ -23,28 +24,40 @@ export function useAnimation(params: {
         distanceFromViewPortToTrigger
     } = params;
 
-    let translate: string | undefined = undefined;
+    let translate: string | undefined = (()=>{
+        if(!offset){
+            return undefined;
+        }
+        return direction === "horizontal" ? `translateX(${offset}px)` :
+                    `translateY(${offset}px)`;
+    })();
+
 
     const distanceToTrigger = distanceFromViewPortToTrigger ?
     distanceFromViewPortToTrigger : 0;
-
-    if(offset){
-        translate = direction === "horizontal" ? `translateX(${offset}px)` :
-                    `translateY(${offset}px)`;
-
-    }
-    
+       
 
     useEffect(()=>{
         if(!ref || !ref.current){
             return;
         }
 
-        ref.current.style.opacity = "0";
+        const bounding = !parentRef || !parentRef.current ?
+        ref.current.getBoundingClientRect() : 
+        parentRef.current.getBoundingClientRect();
+
+        
+
+
         ref.current.style.transition = 
         `transform ${animationDuration ? animationDuration : 800}ms, 
         opacity ${fadeDuration ? fadeDuration : 300}ms`;
+        
+        if(bounding.y < window.innerHeight + distanceToTrigger){
+            return;
+        }
 
+        ref.current.style.opacity = "0";
 
         if(!translate){
             return;
@@ -52,14 +65,18 @@ export function useAnimation(params: {
 
         ref.current.style.transform = translate;
         
-    },[])
+    },[
+        animationDuration, 
+        distanceToTrigger, 
+        fadeDuration, 
+        parentRef, 
+        ref, 
+        translate
+    ]);
 
 
-
-
-
-
-    useEffect(()=>{
+    useEffect(() => {
+        
 
         const triggerAnimation = async ()=>{
 
@@ -86,7 +103,6 @@ export function useAnimation(params: {
 
                 }
 
-            
 
 
                 return;
@@ -105,8 +121,9 @@ export function useAnimation(params: {
 
         triggerAnimation();
 
-               
+    });
 
-    })
+
+
 
 }

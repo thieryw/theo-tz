@@ -1,12 +1,4 @@
-@font-face {
-  font-family: "open-sans-light";
-  src: url("../../fonts/Open_Sans/OpenSans-Light.ttf") format('truetype');
-}
 
-@font-face {
-  font-family: "open-sans-italic-light";
-  src: url("../../fonts/Open_Sans/OpenSans-LightItalic.ttf") format('truetype'),
-}
 
 nav{
 
@@ -50,7 +42,7 @@ nav{
 
             >div{
                 p{
-                    font-family: "open-sans-light";
+                    font-family: "Open Sans", sans-serif;
                     font-size: 0.9em;
                     letter-spacing: 0.05em;
                 }
@@ -95,7 +87,8 @@ nav{
                     p{
                         margin-block-end: 0;
                         padding: 10px 5px 10px 5px;
-                        font-family: "open-sans-italic-light";
+                        font-family: "Open Sans";
+                        font-style: italic;
                         font-size: 0.9em;
                         letter-spacing: 0.1em;
                     }

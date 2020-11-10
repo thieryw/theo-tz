@@ -9364,6 +9364,11 @@ react-app-polyfill@^2.0.0:
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.4.1"
 
+react-async-hook@^3.6.2:
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/react-async-hook/-/react-async-hook-3.6.2.tgz#360018e5cd6ecc8841152a79875841b9e49dbdba"
+  integrity sha512-RkwHCJ8V7I6umKZLHneapuTRWf+eO4LOj0qUwUDsSn27jrAOcW6ClbV3x22Z4hVxH9bA0zb7y+ozDJDJ8PnZoA==
+
 react-dev-utils@^11.0.0:
   version "11.0.0"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-11.0.0.tgz#9fdb1b173f4ffc1f23fcf98465d93b16a860b73e"
@@ -9425,11 +9430,6 @@ react-lazy-load-image-component@^1.5.0:
   dependencies:
     lodash.debounce "^4.0.8"
     lodash.throttle "^4.1.1"
-
-react-lazyload@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/react-lazyload/-/react-lazyload-3.1.0.tgz#2d2b172ede29f0a72dc4b329af6f1626ffd637d2"
-  integrity sha512-WNkWS2jlLnAud2uEqi/Ud4TEjzOQzsN97NzbeRodB9k0TepnoadXDU2bee3PvfP3vpbepsZ716FjSb+xS1W4UQ==
 
 react-refresh@^0.8.3:
   version "0.8.3"
