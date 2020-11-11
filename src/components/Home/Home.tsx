@@ -1,4 +1,4 @@
-import React, {useRef, useReducer} from "react";
+import React, {useRef, useReducer, useEffect} from "react";
 import {Nav} from "../Nav/Nav";
 import "./Home.scss";
 import background1 from "./media/acceuil-1-min.jpg";
@@ -10,12 +10,6 @@ import {Loader} from "../../Loader";
 import {BackgroundParallax} from "./BackgroundParallax";
 //@ts-ignore
 import loadable from "@loadable/component";
-import {Evt} from "evt";
-
-export const evtScrolled = new Evt<void>();
-
-window.onscroll = ()=> evtScrolled.post();
-
 
 const BackgroundSlideShow = loadable(()=> import("./BackgroundSlideShow"), {
     fallback: <div className="temp-background"></div>
@@ -27,24 +21,9 @@ const PortfolioPresentation = loadable(()=> import("./PortfolioPresentation"),{
 });
 
 
-
-
-
-
 export const Home: React.FunctionComponent = ()=>{
 
     const ref = useRef<HTMLDivElement>(null);
-
-    const [, forceUpdate] = useReducer(x=>x+1, 0);
-
-
-
-
-    
-
-
-
-
 
     return(
         <div ref={ref} className="Home">
