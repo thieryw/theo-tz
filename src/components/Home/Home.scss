@@ -39,7 +39,7 @@
         justify-content: center;
         align-items: center;
         overflow: hidden;
-        height: 100vh;
+        height: 950px;
         .portfolio-heading{
             display: flex;
             flex-direction: column;
@@ -57,7 +57,6 @@
             }
         }
         .wrapper{
-            height: 70vh;
             display: flex;
             flex-direction: row;
             position: relative;

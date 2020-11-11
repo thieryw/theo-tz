@@ -4,7 +4,8 @@ import musicUrl from "./media/PortfolioPresentation/music.jpg";
 import danceUrl from "./media/PortfolioPresentation/dance.jpg";
 import {useAnimation} from "../../customHooks/useAnimation";
 import fancyUnderlineUrl from "./media/PortfolioPresentation/fancy-underline.jpg";
-
+import {useEvt} from "evt/hooks";
+import {evtScrolled} from "./Home";
 
 
 
@@ -23,9 +24,22 @@ const PortfolioPresentation: React.FunctionComponent = ()=>{
     const titlePositions: TitlePosition[]= ["top", "bottom", "top"];
 
 
-    window.onscroll = ()=> forceUpdate();
 
-    
+    useEvt(ctx =>{
+        evtScrolled.attach(
+            ()=> {
+                if(!ref || !ref.current){
+                    return false;
+                }
+
+                return ref.current.getBoundingClientRect().y < window.innerHeight;
+            },
+            ctx,
+            ()=> forceUpdate()
+        );
+
+
+    },[])
 
 
 

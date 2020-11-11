@@ -35,6 +35,7 @@ export function useAnimation(params: {
 
     const distanceToTrigger = distanceFromViewPortToTrigger ?
     distanceFromViewPortToTrigger : 0;
+
        
 
     useEffect(()=>{
