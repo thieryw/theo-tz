@@ -2,9 +2,10 @@
 
 
 .Home{
+    width: 100vw;
     header{
         position: relative;
-        width: 100vw;
+        width: 100%;
         min-height: 400px;
         height: 100vh;
         box-sizing: border-box;
@@ -31,6 +32,48 @@
         }
 
         
+    }
+
+    .AuthorPresentation{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 150px 100px 150px;
+
+        >div{
+            display: flex;
+            >img{
+                width: 40vw;
+                height: auto;
+                -webkit-box-shadow: -1px 0px 15px 0px rgba(0,0,0,0.52); 
+                box-shadow: -1px 0px 15px 0px rgba(0,0,0,0.52);
+                align-self: center;
+            }
+
+            >div{
+                div{
+                    h2{
+                        font-weight: 200;
+                        font-size: 3em;
+                        margin-bottom: 20px;
+                    }
+                    padding-bottom: 30px;
+                }
+
+                p{
+                    margin-left: 50px;
+                }
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-right: 160px;
+
+            }
+        }
+
+        
+
     }
 
     .PortfolioPresentation{

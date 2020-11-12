@@ -2,8 +2,8 @@ import React, {useEffect} from "react";
 
 
 export function useAnimation(params: {
-    parentRef?: React.RefObject<HTMLElement>;
     ref: React.RefObject<HTMLElement>;
+    parentRef?: React.RefObject<HTMLElement>;
     offset?: number;
     direction? : "vertical" | "horizontal";
     animationDuration? : number;

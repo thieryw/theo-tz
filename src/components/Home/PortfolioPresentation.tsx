@@ -1,10 +1,10 @@
-import React,{useReducer, useRef} from "react";
+import React,{useReducer, useRef, useEffect} from "react";
 import birdUrl from "./media/PortfolioPresentation/bird.jpg";
 import musicUrl from "./media/PortfolioPresentation/music.jpg";
 import danceUrl from "./media/PortfolioPresentation/dance.jpg";
 import {useAnimation} from "../../customHooks/useAnimation";
 import fancyUnderlineUrl from "./media/PortfolioPresentation/fancy-underline.jpg";
-import {useEvt} from "evt/hooks";
+import {useScroll} from "../../customHooks/useScroll";
 
 
 
@@ -19,8 +19,30 @@ const PortfolioPresentation: React.FunctionComponent = ()=>{
     const offsets = [200, -200, 200];
     const imgAlts = ["bird", "dance", "music"];
     const titles = ["naturalisme", "portraits", "évènements"];
-
     const titlePositions: TitlePosition[]= ["top", "bottom", "top"];
+    
+
+
+    /*useEvt(ctx =>{
+        Evt.from(ctx, window, "scroll").attach(
+            ()=>{
+                if(!ref.current){
+                    return;
+                }
+
+                return ref.current.getBoundingClientRect().y < window.innerHeight ||
+                ref.current.getBoundingClientRect().y
+            }
+        )
+        
+    },[])*/
+
+
+    useScroll(ref);
+
+
+
+
 
 
 

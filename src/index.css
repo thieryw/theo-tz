@@ -14,6 +14,15 @@ h2{
 
 h3{
   font-family: "Libre Baskerville", serif;
+
+}
+
+.general-text{
+  font-family: "Libre Baskerville", serif;
+  color: rgb(90, 86, 86);
+  font-size: 0.82em;
+  letter-spacing: 0.1em;
+  line-height: 2em;
 }
 
 code {

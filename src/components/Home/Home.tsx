@@ -10,6 +10,7 @@ import {Loader} from "../../Loader";
 import {BackgroundParallax} from "./BackgroundParallax";
 //@ts-ignore
 import loadable from "@loadable/component";
+import {AuthorPresentation} from "./AuthorPresentation";
 
 const BackgroundSlideShow = loadable(()=> import("./BackgroundSlideShow"), {
     fallback: <div className="temp-background"></div>
@@ -48,9 +49,7 @@ export const Home: React.FunctionComponent = ()=>{
                 imageUrl={lizardImg}
             />
 
-            <div style={{
-                height: "2000px"
-            }}></div>
+            <AuthorPresentation />
 
 
 
