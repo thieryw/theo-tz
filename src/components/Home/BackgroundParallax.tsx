@@ -1,6 +1,4 @@
-import React, { useRef, useEffect, useReducer } from "react";
-import { useEvt } from "evt/hooks";
-import { Evt } from "evt";
+import React, { useRef, useEffect } from "react";
 import { assert } from "evt/tools/typeSafety/assert";
 import {useScroll} from "../../customHooks/useScroll";
 
@@ -11,7 +9,6 @@ export const BackgroundParallax: React.FunctionComponent<{
 
     const { imageUrl } = props;
 
-    const [, forceUpdate] = useReducer(x => x + 1, 0);
     const ref = useRef<HTMLDivElement>(null);
 
     const evtScrolled = useScroll(ref);
@@ -46,7 +43,7 @@ export const BackgroundParallax: React.FunctionComponent<{
                 backgroundPositionX: "center",
                 backgroundPositionY: "50px",
                 width: "100vw",
-                height: "400px"
+                height: "400px",
 
             }}
         >

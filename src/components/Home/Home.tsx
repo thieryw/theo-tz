@@ -1,4 +1,4 @@
-import React, {useRef, useReducer, useEffect} from "react";
+import React, {useRef} from "react";
 import {Nav} from "../Nav/Nav";
 import "./Home.scss";
 import background1 from "./media/acceuil-1-min.jpg";
@@ -11,6 +11,7 @@ import {BackgroundParallax} from "./BackgroundParallax";
 //@ts-ignore
 import loadable from "@loadable/component";
 import {AuthorPresentation} from "./AuthorPresentation";
+import {ServicePresentation} from "./ServicePresentation";
 
 const BackgroundSlideShow = loadable(()=> import("./BackgroundSlideShow"), {
     fallback: <div className="temp-background"></div>
@@ -50,6 +51,8 @@ export const Home: React.FunctionComponent = ()=>{
             />
 
             <AuthorPresentation />
+
+            <ServicePresentation />
 
 
 

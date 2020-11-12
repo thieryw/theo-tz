@@ -1,5 +1,5 @@
 
-
+$boxShadow: -1px 0px 15px 0px rgba(0,0,0,0.52);
 
 .Home{
     width: 100vw;
@@ -34,27 +34,103 @@
         
     }
 
+    .ServicePresentation{
+        position: relative;
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(232,232,232,1) 0%, rgba(255,255,255,1) 100%);
+        margin-top: 20px;
+        height: 700px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .title{
+            margin-top: -100px;
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h2{
+                margin-bottom: 0;
+            }
+            img{
+                width: 120px;
+            }
+        }
+
+        .wrapper{
+            display: flex;
+        }
+
+        input{
+      
+        }
+
+        .ServiceBox{
+            width: 220px;
+            margin: 10px;
+            text-align: center;
+            padding: 50px 15px 50px 15px;
+            background-color: white;
+            border: solid black 1px;
+            transition: border 300ms, transform 800ms, box-shadow 300ms !important;
+            svg{
+                font-size: 3em;
+                fill: grey;
+                transition: fill 300ms, transform 300ms;
+            }
+
+            svg:hover{
+                transform: scale(1.1);
+                fill: lightgreen;
+            }
+        }
+
+        .ServiceBox:hover{
+            border: solid lightgreen 1px;
+            box-shadow: $boxShadow;
+            -webkit-box-shadow: $boxShadow;
+
+        }
+
+
+
+        .skew{
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            top: 0;
+            left: 0;
+            height: 200px;
+            transform: skewX(2deg) rotate(2deg) ;
+            transform-origin: top right;
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(232,232,232,1) 0%, rgba(255,255,255,1) 100%);
+        }
+    }
+
     .AuthorPresentation{
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 100px 150px 100px 150px;
+        padding: 100px 0 100px 0;
+        width: 100%;
+        position: relative;
 
         >div{
             display: flex;
+            width: 90%;
+            position: relative;
             >img{
-                width: 40vw;
-                height: auto;
-                -webkit-box-shadow: -1px 0px 15px 0px rgba(0,0,0,0.52); 
-                box-shadow: -1px 0px 15px 0px rgba(0,0,0,0.52);
+                height: 25vw;
+                width: auto;
+                -webkit-box-shadow: $boxShadow; 
+                box-shadow: $boxShadow;
                 align-self: center;
             }
 
             >div{
                 div{
                     h2{
-                        font-weight: 200;
-                        font-size: 3em;
+                      
                         margin-bottom: 20px;
                     }
                     padding-bottom: 30px;
@@ -62,6 +138,14 @@
 
                 p{
                     margin-left: 50px;
+                    span{
+                        text-decoration: underline;
+                        margin-left: 5px;
+                        color: black;
+                    }
+                    span:hover{
+                        cursor: pointer;
+                    }
                 }
 
                 display: flex;
@@ -75,6 +159,7 @@
         
 
     }
+
 
     .PortfolioPresentation{
         display: flex;
@@ -94,10 +179,6 @@
                 width: 120px;
             }
 
-            h2{
-                font-weight: 200;
-                font-size: 3.5em;
-            }
         }
         .wrapper{
             display: flex;
@@ -114,8 +195,8 @@
                 img{
                     height: 500px;
                     width: auto;
-                    -webkit-box-shadow: -1px 0px 15px 0px rgba(0,0,0,0.52); 
-                    box-shadow: -1px 0px 15px 0px rgba(0,0,0,0.52);
+                    -webkit-box-shadow: $boxShadow; 
+                    box-shadow: $boxShadow;
                     
                 }
                 img:hover{
@@ -129,13 +210,7 @@
                     align-items: center;
                     position: relative;
                     
-                    h3{
-                        text-transform: uppercase;
-                        font-weight: 100;
-                        letter-spacing: 0.3em;
-                        font-size: 0.9em;
-
-                    }
+                    
                     .portfolio-divider{
                         position: relative;
                         width: 100px;

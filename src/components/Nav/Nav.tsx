@@ -1,4 +1,4 @@
-import React, {useState, useRef, useCallback, useEffect, useReducer} from "react";
+import React, {useState, useRef, useCallback} from "react";
 import "./Nav.scss";
 
 
@@ -36,10 +36,9 @@ const ListElement: React.FunctionComponent<{
     parentRef?: React.RefObject<HTMLElement>;
 }> = (props)=>{
 
-    const {name, subListElements, parentRef} = props;
+    const {name, subListElements} = props;
     const [isSubListDisplayed, setIsSubListDisplayed] = useState(false);
     const subListRef = useRef<HTMLUListElement>(null);
-    const [, forceUpdate] = useReducer(x=>x+1, 0);
 
 
     const hideSubList = useCallback(async ()=>{

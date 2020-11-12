@@ -1,4 +1,4 @@
-import React,{useReducer, useRef, useEffect} from "react";
+import React,{useRef} from "react";
 import birdUrl from "./media/PortfolioPresentation/bird.jpg";
 import musicUrl from "./media/PortfolioPresentation/music.jpg";
 import danceUrl from "./media/PortfolioPresentation/dance.jpg";
@@ -11,7 +11,6 @@ import {useScroll} from "../../customHooks/useScroll";
 const PortfolioPresentation: React.FunctionComponent = ()=>{
 
     const ref: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
-    const [, forceUpdate] = useReducer(x=>x+1, 0);
 
     type TitlePosition = "top" | "bottom";
 

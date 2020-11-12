@@ -3,6 +3,7 @@ import authorImageUrl from "./media/theo-min.jpg";
 import brush from "./media/brush1.png";
 import {useAnimation} from "../../customHooks/useAnimation";
 import {useScroll} from "../../customHooks/useScroll";
+import {authorText} from "./texts"
 
 
 
@@ -42,15 +43,11 @@ export const AuthorPresentation:React.FunctionComponent = ()=>{
                         <img src={brush} alt="brush divider"/>
 
                     </div>
-                    <p className="general-text">J'ai toujours été émerveillé par la nature, 
-                        une des seules choses sur terre qui me 
-                        parait vraie, universelle et sans artifices. 
-                        Nous vivons dans un monde ultra connecté, où 
-                        contempler et vivre l’instant présent est devenu 
-                        un privilège. C’est pourtant, à mon sens, 
-                        la base même de la vie ; s’imprégner du vivant, 
-                        randonner en pleine nature est pour moi une formidable 
-                        bouteille d'oxygène, un ré-enracinement profond à la vie...
+                    <p className="general-text">                        
+                        {authorText}
+
+
+                    <span>Lire la suite</span>
                     </p>
                 </div>
 

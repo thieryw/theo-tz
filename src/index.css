@@ -8,13 +8,40 @@ body {
 
 }
 
+html{
+  overflow-x: hidden;
+}
+
 h2{
   font-family: "Ruthie", cursive;
+  font-weight: 200;
+  font-size: 3.5em;
+}
+
+.button{
+   border: none;
+   margin-top: 50px;
+   background-color: rgb(90, 85, 85);
+   color: white;
+   padding: 10px 20px 10px 20px;
+   text-shadow: 2px 2px 4px #000000;
+   transition: background-color 300ms;
+
+}
+
+.button:hover{
+  background-color: black;
+}
+
+h3, .button{
+  font-family: "Libre Baskerville", serif;
+  text-transform: uppercase;
+  font-weight: 100;
+  font-size: 0.9em;
 }
 
 h3{
-  font-family: "Libre Baskerville", serif;
-
+  letter-spacing: 0.3em;
 }
 
 .general-text{
