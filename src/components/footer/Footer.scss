@@ -1,0 +1,93 @@
+footer{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+
+    p{
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        padding-bottom: 30px;
+        font-style: italic;
+        background: rgb(0,0,0);
+        background: linear-gradient(0deg, rgba(0,0,0,0.9374124649859944) 56%, rgba(0,0,0,0) 100%);
+        span{
+            text-decoration: underline;
+        }
+
+    }
+    >div{
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(3, 1fr);
+        position: relative;
+        img{
+            width: 25vw;
+            height: auto;
+        }
+        form{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            input{
+                width: 300px;
+                height: 35px;
+                margin-bottom: 15px;
+                border: none;
+                padding-left: 5px;
+                outline: none;
+            }
+            textarea{
+                resize: none;
+                height: 150px;
+                width: 300px;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                padding: 5px 0 0 5px;
+                margin-bottom: 15px;
+                border: none;
+                outline: none;
+            }
+            .submit{
+                width: 150px;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                text-transform: uppercase;
+                color: white;
+                border: solid white 1px;;
+                background-color: rgba(53, 43, 43, 0.575);
+            }
+        }
+        div{
+            margin: 0 80px 0 80px;
+        display: flex;
+        justify-content: center;
+            svg{
+                fill: white;
+                font-size: 3em;
+                transition: fill 300ms, transform 300ms;
+            }
+
+            svg:hover{
+                transform: scale(1.1);
+            }
+
+            svg:nth-child(1){
+                margin-right: 10px;
+            }
+
+            svg:nth-child(1):hover{
+                fill: lightblue;
+            }
+
+            
+            svg:nth-child(2){
+                margin-left: 10px;
+            }
+
+            svg:nth-child(2):hover{
+                fill: lightcoral;
+            }
+        }
+    }
+}

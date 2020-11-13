@@ -48,6 +48,8 @@ export const ServicePresentation: React.FunctionComponent = ()=>{
 
             <input className="button" type="button" value="contact"/>
 
+            <div className="skew-1"></div>
+
 
 
         </div>
@@ -72,7 +74,8 @@ const ServiceBox: React.FunctionComponent<{
         parentRef,
         "direction": "horizontal",
         "offset": offset,
-        "distanceFromViewPortToTrigger": -300
+        "distanceFromViewPortToTrigger": -300,
+        "extraTransitions": ["border 300ms", "box-shadow 300ms"]
     })
 
     return(

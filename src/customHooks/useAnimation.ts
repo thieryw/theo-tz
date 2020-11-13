@@ -10,6 +10,7 @@ export function useAnimation(params: {
     fadeDuration?: number;
     animationDelay?: number;
     distanceFromViewPortToTrigger?: number;
+    extraTransitions?: string[];
 
 }){
 
@@ -21,7 +22,8 @@ export function useAnimation(params: {
         animationDuration, 
         fadeDuration,
         animationDelay,
-        distanceFromViewPortToTrigger
+        distanceFromViewPortToTrigger,
+        extraTransitions
     } = params;
 
     let translate: string | undefined = (()=>{
@@ -49,10 +51,15 @@ export function useAnimation(params: {
 
         
 
-
         ref.current.style.transition = 
+
         `transform ${animationDuration ? animationDuration : 800}ms, 
-        opacity ${fadeDuration ? fadeDuration : 300}ms`;
+
+        opacity ${fadeDuration ? fadeDuration : 300}ms
+
+        ${extraTransitions ? `, ${extraTransitions.map(transition => `${transition}`)}` : ""}
+
+        `;
         
         if(bounding.y < window.innerHeight + distanceToTrigger){
             return;
@@ -72,7 +79,8 @@ export function useAnimation(params: {
         fadeDuration, 
         parentRef, 
         ref, 
-        translate
+        translate,
+        extraTransitions
     ]);
 
 
