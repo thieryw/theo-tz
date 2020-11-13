@@ -68,24 +68,24 @@ footer{
                 transition: fill 300ms, transform 300ms;
             }
 
-            svg:hover{
+            a svg:hover{
                 transform: scale(1.1);
             }
 
-            svg:nth-child(1){
+            a:nth-child(1) svg{
                 margin-right: 10px;
             }
 
-            svg:nth-child(1):hover{
+            a:nth-child(1) svg:hover{
                 fill: lightblue;
             }
 
             
-            svg:nth-child(2){
+            a:nth-child(2) svg{
                 margin-left: 10px;
             }
 
-            svg:nth-child(2):hover{
+            a:nth-child(2) svg:hover{
                 fill: lightcoral;
             }
         }
