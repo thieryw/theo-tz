@@ -5,6 +5,29 @@ nav{
     display: flex;
     height: 50px;
     justify-content: center;
+    width: 100vw;
+    @media screen and (max-width: 500px){
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    >div{
+        background-color: black;
+        padding: 0 10px 5px 10px;
+        margin-top: 15px;
+        border-radius: 5px;
+        width: 33px;
+        display: none;
+        @media screen and (max-width: 500px){
+            display: block;
+        }
+        svg{
+            font-size: 2em;
+            fill: white;
+            margin-top: 7px;
+        }
+
+    }
 
     .underline{
         position: relative;
@@ -29,16 +52,45 @@ nav{
         justify-content: space-between;
         padding-inline-start: 0;
         width: 380px;
+        transition: opacity 300ms;
+
+        @media screen and (max-width: 500px){
+            flex-direction: column;
+            align-items: center;
+            width: 100vw;
+            background-color: rgba(29, 26, 26, 0.87);
+
+
+
+        }
+
+
+    
+        @media screen and (max-width: 500px){
+
+            >li:nth-child(1){
+                margin-top: 10px;
+
+            }
+ 
+        }
+
+           
 
         
         >li{
-            div:hover{
-                cursor: pointer;
-                .underline{
-                    transform: scaleX(1);
-                }
 
+            @media screen and (min-width: 501px){
+                div:hover{
+                    cursor: pointer;
+                    .underline{
+                        transform: scaleX(1);
+                    }
+
+                }
             }
+        
+            
 
             >div{
                 p{
@@ -68,20 +120,31 @@ nav{
 
 
         > li:nth-child(2){
+            @media screen and (max-width: 500px){
+                width: 100%;
+                text-align: center;
+                p{
+                    margin-bottom: -10px;
+                }
+            }
+
             ul{
                 position: relative;
                 top: -10px;
                 border-radius: 2px;
                 list-style: none;
                 overflow: hidden;
-                display: none;
                 opacity: 0;
                 padding-inline-start: 0;
                 margin-top: 20px;
                 background-color: rgba(63, 55, 55, 0.61);
-                transition: opacity 300ms;
+                transition: opacity 300ms, height 300ms;
                 padding: 0 5px 10px 5px;
                 width: 110%;
+                @media screen and (max-width: 500px){
+                    background-color: rgba(0, 0, 0, 0.89);
+                    width: 100%;
+                }
                 li{
 
                     p{

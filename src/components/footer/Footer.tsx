@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef, useCallback} from "react";
 import signatureUrl from "../Home/media/signature.png";
 import {Facebook, Instagram} from "../../iconComponents/index";
 import "./Footer.scss";
@@ -10,8 +10,36 @@ export const Footer: React.FunctionComponent<{
 }> = (props)=>{
 
     const {backgroundImageUrl} = props;
+    const emailRef= useRef<HTMLParagraphElement>(null);
+    const copyMessageRef = useRef<HTMLElement>(null);
 
-    console.log(backgroundImageUrl);
+    const handleEmailClick = useCallback(()=>{
+
+        if(!emailRef.current || !copyMessageRef.current){
+            return;
+        }
+
+        const range = document.createRange();
+        range.selectNode(emailRef.current);
+        window.getSelection()?.removeAllRanges();
+        window.getSelection()?.addRange(range);
+        document.execCommand("copy");
+        window.getSelection()?.removeAllRanges();
+
+        copyMessageRef.current.style.opacity = "100";
+
+        setTimeout(()=>{
+            if(!copyMessageRef.current){
+                return;
+            }
+
+            copyMessageRef.current.style.opacity = "0";
+        },5000)
+
+
+
+    },[]);
+
 
 
     return(
@@ -50,16 +78,20 @@ export const Footer: React.FunctionComponent<{
 
                 </div>
 
-                <form>
+                <span>
+                    <p 
+                        className="general-text"
+                        ref={emailRef}
+                        onClick={handleEmailClick}
+                    >
+                        theo.tzelepoglou@gmail.com
+                    </p>
 
-                    <input type="text" placeholder="Prénom/nom"/>
-                    <input type="text" placeholder="email"/>
-                    <textarea placeholder="Votre message"></textarea>
+                    <em ref={copyMessageRef}>
+                        Email copié dans le press papier !
+                    </em>
 
-                    <input className="submit" type="submit" value="envoyer"/>
-
-                </form>
-
+                </span>
 
             </div>
 

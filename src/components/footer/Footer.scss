@@ -5,7 +5,7 @@ footer{
     align-items: center;
     padding-top: 80px;
 
-    p{
+    >p{
         width: 100%;
         text-align: center;
         margin: 0;
@@ -16,6 +16,9 @@ footer{
         span{
             text-decoration: underline;
         }
+        span:hover{
+            cursor: pointer;
+        }
 
     }
     >div{
@@ -23,41 +26,43 @@ footer{
         align-items: center;
         grid-template-columns: repeat(3, 1fr);
         position: relative;
+
         img{
             width: 25vw;
             height: auto;
         }
-        form{
+
+
+        span{
             display: flex;
-            align-items: center;
-            flex-direction: column;
-            input{
-                width: 300px;
-                height: 35px;
-                margin-bottom: 15px;
-                border: none;
-                padding-left: 5px;
-                outline: none;
+            position: relative;
+            p{
+                color: white !important;
+                text-decoration: underline;
+                padding: 0 5px 0 5px;
             }
-            textarea{
-                resize: none;
-                height: 150px;
-                width: 300px;
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-                padding: 5px 0 0 5px;
-                margin-bottom: 15px;
-                border: none;
-                outline: none;
+            p:hover{
+                cursor: pointer;
             }
-            .submit{
-                width: 150px;
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-                text-transform: uppercase;
-                color: white;
-                border: solid white 1px;;
-                background-color: rgba(53, 43, 43, 0.575);
+
+
+            em{
+                position: absolute;
+                opacity: 0;
+                bottom: -40px;
+                border: solid white 1px;
+                padding: 10px;
+                background-color: rgba(32, 30, 30, 0.836);
+                transition: opacity 300ms;
+
+            }
+            em:hover{
+                cursor: default;
             }
         }
+
+        
+        
         div{
             margin: 0 80px 0 80px;
         display: flex;

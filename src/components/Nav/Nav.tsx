@@ -1,25 +1,81 @@
-import React, {useState, useRef, useCallback} from "react";
+import React, {useState, useRef, useCallback, useEffect, useReducer} from "react";
+import {useWindowResize} from "../../customHooks/useWindowResize";
+import {Menu} from "../../iconComponents/index";
 import "./Nav.scss";
 
 
 
-export const Nav: React.FunctionComponent<{
-    parentRef?: React.RefObject<HTMLElement>;
-}> = (props)=>{
+export const Nav: React.FunctionComponent = (props)=>{
 
-    const {parentRef} = props
+    const [isMenuUnrolled, setIsMenuUnrolled] = useState(false);
+    const [, forceUpdate] = useReducer(x=>x+1, 0);
+
+    const menuRef = useRef<HTMLUListElement>(null);
+
+    useWindowResize(()=>{
+        if(!menuRef.current){
+            return;
+        }
+
+        setIsMenuUnrolled(false);
+
+        if(window.innerWidth > 500){
+            menuRef.current.style.opacity = "1";
+            menuRef.current.style.pointerEvents = "stroke";
+
+            return;
+
+        }
+
+
+        menuRef.current.style.opacity = "0";
+        menuRef.current.style.pointerEvents = "none";
+
+        
+
+
+    });
+
+    const toggleMenu = useCallback(()=>{
+
+        if(!menuRef.current){
+            return;
+        }
+
+        menuRef.current.style.opacity = isMenuUnrolled ? "0" : "100";
+        menuRef.current.style.pointerEvents = isMenuUnrolled ? "none" : "stroke";
+        setIsMenuUnrolled(!isMenuUnrolled);
+
+    },[isMenuUnrolled]);
+
+
+    useEffect(()=>{
+        if(!menuRef.current){
+            return;
+        }
+
+        if(window.innerWidth > 500){
+            return;
+        }
+
+        menuRef.current.style.opacity = "0";
+        menuRef.current.style.pointerEvents = "none";
+
+    },[])
+
 
     return (
         <nav style={{
             zIndex: 3
         }}>
-            <ul>
+            <div onClick={toggleMenu}><Menu /></div>
+
+            <ul ref={menuRef}>
                 <ListElement name="ACCUEIL"/>
                 <ListElement name="PORTFOLIO" subListElements={
                     ["Naturalisme", "Portraits", "Evènements"]
 
                 }
-                parentRef={parentRef}
                 />
                 <ListElement name="AUTEUR"/>
 
@@ -36,73 +92,62 @@ const ListElement: React.FunctionComponent<{
     parentRef?: React.RefObject<HTMLElement>;
 }> = (props)=>{
 
-    const {name, subListElements} = props;
-    const [isSubListDisplayed, setIsSubListDisplayed] = useState(false);
+    const {name, subListElements, parentRef} = props;
+    const [isSubListExpanded, setIsSubListExpanded] = useState(false);
+    const [,forceUpdate] = useReducer(x=>x+1, 0);
+
     const subListRef = useRef<HTMLUListElement>(null);
 
-
-    const hideSubList = useCallback(async ()=>{
-        if(!subListRef || !subListRef.current){
+    useWindowResize(()=>{
+        if(!subListRef.current){
             return;
         }
 
-        if(!isSubListDisplayed){
-            return;
-        }
 
         subListRef.current.style.opacity = "0";
-        
-        await new Promise<void>(resolve => setTimeout(resolve, 300));
+        setIsSubListExpanded(false);
 
-        subListRef.current.style.display = "none";
+        if(window.innerWidth <= 500){
+            subListRef.current.style.height = "0";
+            return;
+        }
 
-        setIsSubListDisplayed(!isSubListDisplayed);
-
-
-
-
-
-
-    },[isSubListDisplayed])
+        subListRef.current.style.height = "120px";
 
 
 
-    const toggleSubList = useCallback(async ()=>{
+    })
 
-        if(!subListRef || !subListRef.current){
+    const toggleSubList = useCallback(()=>{
+        if(!subListRef.current){
             return;
         }
 
 
-        if(isSubListDisplayed){
+        subListRef.current.style.opacity = isSubListExpanded ? "0" : "100";
+        subListRef.current.style.pointerEvents = isSubListExpanded ? "none" : "stroke";
 
-            hideSubList();
-            return;
-
-
+        if(window.innerWidth <= 500){
+            subListRef.current.style.height = isSubListExpanded ? "0" : "120px";
         }
 
-        subListRef.current.style.display = "block";
+        setIsSubListExpanded(!isSubListExpanded);
 
-        await new Promise<void>(resolve => setTimeout(resolve, 1));
 
-        subListRef.current.style.opacity = "1";
+    },[isSubListExpanded]);
 
-        setIsSubListDisplayed(!isSubListDisplayed);
-
-       
-
-    },[hideSubList, isSubListDisplayed]);
-
-/*    useEffect(()=>{
-        if(!parentRef || !parentRef.current || !isSubListDisplayed){
+    useEffect(()=>{
+        if(!subListRef.current){
             return;
         }
 
-        parentRef.current.onclick = ()=>{
-            hideSubList();
+        subListRef.current.style.pointerEvents = "none";
+
+        if(window.innerWidth <= 500){
+            subListRef.current.style.opacity = "0";
+            subListRef.current.style.height = "0";
         }
-    }, [isSubListDisplayed, hideSubList])*/
+    },[])
 
     
 
@@ -119,10 +164,9 @@ const ListElement: React.FunctionComponent<{
                 <div className="underline"></div>
             </div>
         </li> : 
-        <li className="elem-with-subList">
+        <li onClick={toggleSubList} className="elem-with-subList">
             <div>
                 <p
-                    onClick={toggleSubList}
                 >
                     {name} <span style={{
                         position: "relative",

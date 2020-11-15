@@ -18,7 +18,6 @@ $boxShadow: -1px 0px 15px 0px rgba(0,0,0,0.52);
             height: 100%;
             background-color: black;
             z-index: -1;
-
         }
 
         img{
@@ -27,6 +26,13 @@ $boxShadow: -1px 0px 15px 0px rgba(0,0,0,0.52);
             margin-left: 60px;
             min-width: 400px;
 
+            @media screen and (max-width: 500px){
+                width: 300px;
+                min-width: unset;
+                margin-left: unset;
+                align-self: center;
+                justify-self: center;
+            }
 
 
         }

@@ -22,21 +22,6 @@ const PortfolioPresentation: React.FunctionComponent = ()=>{
     
 
 
-    /*useEvt(ctx =>{
-        Evt.from(ctx, window, "scroll").attach(
-            ()=>{
-                if(!ref.current){
-                    return;
-                }
-
-                return ref.current.getBoundingClientRect().y < window.innerHeight ||
-                ref.current.getBoundingClientRect().y
-            }
-        )
-        
-    },[])*/
-
-
     useScroll(ref);
 
 
