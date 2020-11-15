@@ -1,21 +1,17 @@
 {
   "files": {
-    "main.css": "/theo-tz/static/css/main.a5c603c1.chunk.css",
-    "main.js": "/theo-tz/static/js/main.526d156a.chunk.js",
-    "main.js.map": "/theo-tz/static/js/main.526d156a.chunk.js.map",
-    "runtime-main.js": "/theo-tz/static/js/runtime-main.45881736.js",
-    "runtime-main.js.map": "/theo-tz/static/js/runtime-main.45881736.js.map",
-    "static/js/2.c2bfe152.chunk.js": "/theo-tz/static/js/2.c2bfe152.chunk.js",
-    "static/js/2.c2bfe152.chunk.js.map": "/theo-tz/static/js/2.c2bfe152.chunk.js.map",
-    "static/js/3.77053682.chunk.js": "/theo-tz/static/js/3.77053682.chunk.js",
-    "static/js/3.77053682.chunk.js.map": "/theo-tz/static/js/3.77053682.chunk.js.map",
-    "static/js/4.d493efd6.chunk.js": "/theo-tz/static/js/4.d493efd6.chunk.js",
-    "static/js/4.d493efd6.chunk.js.map": "/theo-tz/static/js/4.d493efd6.chunk.js.map",
-    "static/js/5.9c803b79.chunk.js": "/theo-tz/static/js/5.9c803b79.chunk.js",
-    "static/js/5.9c803b79.chunk.js.map": "/theo-tz/static/js/5.9c803b79.chunk.js.map",
+    "main.css": "/theo-tz/static/css/main.9d32e345.chunk.css",
+    "main.js": "/theo-tz/static/js/main.a75fb1e3.chunk.js",
+    "main.js.map": "/theo-tz/static/js/main.a75fb1e3.chunk.js.map",
+    "runtime-main.js": "/theo-tz/static/js/runtime-main.06665c2d.js",
+    "runtime-main.js.map": "/theo-tz/static/js/runtime-main.06665c2d.js.map",
+    "static/js/2.6dc47368.chunk.js": "/theo-tz/static/js/2.6dc47368.chunk.js",
+    "static/js/2.6dc47368.chunk.js.map": "/theo-tz/static/js/2.6dc47368.chunk.js.map",
+    "static/js/3.bf26ab22.chunk.js": "/theo-tz/static/js/3.bf26ab22.chunk.js",
+    "static/js/3.bf26ab22.chunk.js.map": "/theo-tz/static/js/3.bf26ab22.chunk.js.map",
     "index.html": "/theo-tz/index.html",
-    "static/css/main.a5c603c1.chunk.css.map": "/theo-tz/static/css/main.a5c603c1.chunk.css.map",
-    "static/js/2.c2bfe152.chunk.js.LICENSE.txt": "/theo-tz/static/js/2.c2bfe152.chunk.js.LICENSE.txt",
+    "static/css/main.9d32e345.chunk.css.map": "/theo-tz/static/css/main.9d32e345.chunk.css.map",
+    "static/js/2.6dc47368.chunk.js.LICENSE.txt": "/theo-tz/static/js/2.6dc47368.chunk.js.LICENSE.txt",
     "static/media/acceuil-1-min.9c8ea67f.jpg": "/theo-tz/static/media/acceuil-1-min.9c8ea67f.jpg",
     "static/media/acceuil-2-min.17944fef.jpg": "/theo-tz/static/media/acceuil-2-min.17944fef.jpg",
     "static/media/acceuil-3-min.25034ad9.jpg": "/theo-tz/static/media/acceuil-3-min.25034ad9.jpg",
@@ -24,13 +20,14 @@
     "static/media/lezard-min.65a67e58.jpg": "/theo-tz/static/media/lezard-min.65a67e58.jpg",
     "static/media/music.1d8c1967.jpg": "/theo-tz/static/media/music.1d8c1967.jpg",
     "static/media/signature.f01214a2.png": "/theo-tz/static/media/signature.f01214a2.png",
+    "static/media/small-device-background.fde72eaa.jpg": "/theo-tz/static/media/small-device-background.fde72eaa.jpg",
     "static/media/theo-min.d640ddfc.jpg": "/theo-tz/static/media/theo-min.d640ddfc.jpg",
     "static/media/waterfall-min.1d114208.jpg": "/theo-tz/static/media/waterfall-min.1d114208.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.45881736.js",
-    "static/js/2.c2bfe152.chunk.js",
-    "static/css/main.a5c603c1.chunk.css",
-    "static/js/main.526d156a.chunk.js"
+    "static/js/runtime-main.06665c2d.js",
+    "static/js/2.6dc47368.chunk.js",
+    "static/css/main.9d32e345.chunk.css",
+    "static/js/main.a75fb1e3.chunk.js"
   ]
 }
