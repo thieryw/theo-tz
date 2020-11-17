@@ -20,22 +20,29 @@ import PortfolioPresentation from "./PortfolioPresentation";
 export const Home: React.FunctionComponent = ()=>{
 
     const ref = useRef<HTMLDivElement>(null);
-    const [isSmallDevice, setIsSmallDevice] = useState(false);
+    const [deviceSize, setDeviceSize] = useState<"small" | "medium" | "large">("large");
 
     const handleResize = useCallback(()=>{
         if(window.innerWidth <= 500){
-            setIsSmallDevice(true);
+            setDeviceSize("small");
             return;
         }
 
-        setIsSmallDevice(false);
+        if(window.innerWidth <= 1020 && window.innerWidth > 500){
+            setDeviceSize("medium");
+            return;
+            
+        }
+
+        setDeviceSize("large");
 
 
-    },[isSmallDevice])
+
+    },[]);
 
     useWindowResize(handleResize);
 
-    useEffect(handleResize, []);
+    useEffect(handleResize, [handleResize]);
 
 
     return(
@@ -47,7 +54,7 @@ export const Home: React.FunctionComponent = ()=>{
                 <img src={`${signature}`} alt="signature logo Théo Tzélépoglou"/>
 
                 {
-                    isSmallDevice ? <div style={{
+                    deviceSize === "small" ? <div style={{
                         backgroundImage: `url("${smallBackground}")`,
                         backgroundSize: "cover",
                         position: "absolute",
@@ -71,7 +78,7 @@ export const Home: React.FunctionComponent = ()=>{
             </header>
 
 
-            <PortfolioPresentation />
+            <PortfolioPresentation deviceSize={deviceSize} />
 
             <BackgroundParallax 
                 imageUrl={lizardImg}

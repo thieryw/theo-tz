@@ -8,7 +8,13 @@ import {useScroll} from "../../customHooks/useScroll";
 
 
 
-const PortfolioPresentation: React.FunctionComponent = ()=>{
+const PortfolioPresentation: React.FunctionComponent<{
+    deviceSize: "small" | "medium" | "large";
+}> = (props)=>{
+
+
+    const {deviceSize} = props;
+
 
     const ref: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
@@ -16,6 +22,7 @@ const PortfolioPresentation: React.FunctionComponent = ()=>{
 
     const imgUrls = [birdUrl, danceUrl, musicUrl];
     const offsets = [200, -200, 200];
+
     const imgAlts = ["bird", "dance", "music"];
     const titles = ["naturalisme", "portraits", "évènements"];
     const titlePositions: TitlePosition[]= ["top", "bottom", "top"];
@@ -58,6 +65,7 @@ const PortfolioPresentation: React.FunctionComponent = ()=>{
                                 imgAlt={imgAlts[index]}
                                 offset={offsets[index]}
                                 parentRef={ref}
+                                deviceSize={deviceSize}
                             />
 
                             {
@@ -117,15 +125,23 @@ const AnimatedImage: React.FunctionComponent<{
     imgSrc: string;
     imgAlt: string;
     offset: number;
-
     parentRef: React.RefObject<HTMLDivElement>;
+    deviceSize: "small" | "medium" | "large";
 }> = (props)=>{
 
-    const {imgAlt, imgSrc, offset, parentRef} = props;
+    const {imgAlt, imgSrc, offset, parentRef, deviceSize} = props;
     const ref: React.RefObject<HTMLImageElement> = useRef<HTMLImageElement>(null);
 
 
-    useAnimation({parentRef, ref, offset, distanceFromViewPortToTrigger: -400});
+
+    useAnimation({
+        parentRef: deviceSize === "medium" || deviceSize ==="small" ? undefined : parentRef,  
+        ref, 
+        offset, 
+        distanceFromViewPortToTrigger: deviceSize === "medium" || deviceSize ==="small" ? -50 : -400,
+        "direction": deviceSize === "medium" || deviceSize ==="small" ? "horizontal" : "vertical"
+    });
+
 
 
     return(

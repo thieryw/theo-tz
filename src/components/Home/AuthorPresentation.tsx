@@ -36,6 +36,12 @@ export const AuthorPresentation:React.FunctionComponent = ()=>{
     return (
         <div ref={authorRef} className="AuthorPresentation">
             <div>
+                <h2 ref={titleRef}>Qui suis-je ?</h2>
+                <img src={brush} alt="brush divider"/>
+            </div>
+            <div>
+
+               
 
                 <div>
                     <div>

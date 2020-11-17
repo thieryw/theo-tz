@@ -44,11 +44,11 @@ $boxShadow: -1px 0px 15px 0px rgba(0,0,0,0.52);
         position: relative;
         background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(232,232,232,1) 0%, rgba(255,255,255,1) 100%);
         margin-top: 20px;
-        height: 700px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        padding: 100px 0 70px 0;
         .title{
             margin-top: -100px;
             margin-bottom: 50px;
@@ -65,6 +65,8 @@ $boxShadow: -1px 0px 15px 0px rgba(0,0,0,0.52);
 
         .wrapper{
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
 
@@ -126,21 +128,53 @@ $boxShadow: -1px 0px 15px 0px rgba(0,0,0,0.52);
         padding: 100px 0 100px 0;
         width: 100%;
         position: relative;
+        @media screen and (max-width: 1020px){
+            flex-direction: column;
+            padding: 25px 0 100px 0;
+            >div:nth-child(2){
+                flex-direction: column;
+            }
+        }
+        >div:nth-child(1){
+            display: none;
+            @media screen and (max-width: 1020px){
+                display: block;
+                margin-bottom: 50px;
+                h2{
+                    margin-bottom: 0;
+                }
 
-        >div{
+            }
+        }
+
+        >div:nth-child(2){
             display: flex;
             width: 90%;
             position: relative;
+
+            @media screen and (max-width: 1020px){
+                flex-direction: column-reverse;
+            }
+            
             >img{
                 height: 25vw;
                 width: auto;
                 -webkit-box-shadow: $boxShadow; 
                 box-shadow: $boxShadow;
                 align-self: center;
+                @media screen and (max-width: 1020px){
+                    height: 50vw;
+                    margin-bottom: 50px;
+                }
             }
+
+            
 
             >div{
                 div{
+                    @media screen and (max-width: 1020px){
+                        display: none;
+                    }
                     h2{
                       
                         margin-bottom: 20px;
@@ -165,6 +199,14 @@ $boxShadow: -1px 0px 15px 0px rgba(0,0,0,0.52);
                 justify-content: center;
                 padding-right: 160px;
 
+                @media screen and (max-width: 1020px){
+                    padding-right: unset;
+                    p{
+                        margin-left: unset;
+                        text-align: center;
+                    }
+                }
+
             }
         }
 
@@ -180,6 +222,11 @@ $boxShadow: -1px 0px 15px 0px rgba(0,0,0,0.52);
         align-items: center;
         overflow: hidden;
         height: 950px;
+
+        @media screen and (max-width: 1020px){
+            height: auto;
+        }
+
         .portfolio-heading{
             display: flex;
             flex-direction: column;
@@ -198,17 +245,31 @@ $boxShadow: -1px 0px 15px 0px rgba(0,0,0,0.52);
             position: relative;
             top: -70px;
 
+            @media screen and (max-width: 1020px) {
+                flex-direction: column;
+                
+            }
+
+
+
+            
 
             >div{
                 display: flex;
                 flex-direction: column;
                 padding: 50px;
 
+
+
                 img{
                     height: 500px;
                     width: auto;
                     -webkit-box-shadow: $boxShadow; 
                     box-shadow: $boxShadow;
+                    @media screen and(max-width: 1250px){
+                        height: 400px;
+                    }
+
                     
                 }
                 img:hover{
@@ -238,16 +299,32 @@ $boxShadow: -1px 0px 15px 0px rgba(0,0,0,0.52);
 
             }
             >div:nth-child(2){
+                @media screen and(max-width: 1020px){
+                    flex-direction: column-reverse;
+                    
+                }
                 img{
                     position: relative;
                     top: 20px;
+                    @media screen and (max-width: 1020px) {
+                        top: 50px;
+                        
+                    }
                     
                 }
                 .portfolio-divider{
                     bottom: 10px;
+                    @media screen and (max-width: 1020px) {
+                        bottom: -10px;
+                        
+                    }
                 }
                 >div{
                     top: 70px;
+                    @media screen and (max-width: 1020px){
+                        flex-direction: column-reverse;
+                        top: 0px;
+                    }
                 }
 
             }

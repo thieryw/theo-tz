@@ -1,4 +1,4 @@
-import React, {useState, useRef, useCallback, useEffect, useReducer} from "react";
+import React, {useState, useRef, useCallback, useEffect} from "react";
 import {useWindowResize} from "../../customHooks/useWindowResize";
 import {Menu} from "../../iconComponents/index";
 import "./Nav.scss";
@@ -8,7 +8,6 @@ import "./Nav.scss";
 export const Nav: React.FunctionComponent = (props)=>{
 
     const [isMenuUnrolled, setIsMenuUnrolled] = useState(false);
-    const [, forceUpdate] = useReducer(x=>x+1, 0);
 
     const menuRef = useRef<HTMLUListElement>(null);
 
@@ -89,12 +88,10 @@ export const Nav: React.FunctionComponent = (props)=>{
 const ListElement: React.FunctionComponent<{
     name: string
     subListElements?: string[];
-    parentRef?: React.RefObject<HTMLElement>;
 }> = (props)=>{
 
-    const {name, subListElements, parentRef} = props;
+    const {name, subListElements} = props;
     const [isSubListExpanded, setIsSubListExpanded] = useState(false);
-    const [,forceUpdate] = useReducer(x=>x+1, 0);
 
     const subListRef = useRef<HTMLUListElement>(null);
 
