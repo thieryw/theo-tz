@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/theo-tz/static/css/main.d02b681e.chunk.css",
-    "main.js": "/theo-tz/static/js/main.759710b3.chunk.js",
-    "main.js.map": "/theo-tz/static/js/main.759710b3.chunk.js.map",
+    "main.js": "/theo-tz/static/js/main.8fe3918d.chunk.js",
+    "main.js.map": "/theo-tz/static/js/main.8fe3918d.chunk.js.map",
     "runtime-main.js": "/theo-tz/static/js/runtime-main.06665c2d.js",
     "runtime-main.js.map": "/theo-tz/static/js/runtime-main.06665c2d.js.map",
     "static/js/2.ed25d5e3.chunk.js": "/theo-tz/static/js/2.ed25d5e3.chunk.js",
@@ -17,17 +17,17 @@
     "static/media/acceuil-3-min.25034ad9.jpg": "/theo-tz/static/media/acceuil-3-min.25034ad9.jpg",
     "static/media/bird.92eaef5f.jpg": "/theo-tz/static/media/bird.92eaef5f.jpg",
     "static/media/dance.55ff0540.jpg": "/theo-tz/static/media/dance.55ff0540.jpg",
+    "static/media/footer-min.f95a94af.jpg": "/theo-tz/static/media/footer-min.f95a94af.jpg",
     "static/media/lezard-min.65a67e58.jpg": "/theo-tz/static/media/lezard-min.65a67e58.jpg",
     "static/media/music.1d8c1967.jpg": "/theo-tz/static/media/music.1d8c1967.jpg",
     "static/media/signature.f01214a2.png": "/theo-tz/static/media/signature.f01214a2.png",
     "static/media/small-device-background.fde72eaa.jpg": "/theo-tz/static/media/small-device-background.fde72eaa.jpg",
-    "static/media/theo-min.d640ddfc.jpg": "/theo-tz/static/media/theo-min.d640ddfc.jpg",
-    "static/media/waterfall-min.1d114208.jpg": "/theo-tz/static/media/waterfall-min.1d114208.jpg"
+    "static/media/theo-min.d640ddfc.jpg": "/theo-tz/static/media/theo-min.d640ddfc.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.06665c2d.js",
     "static/js/2.ed25d5e3.chunk.js",
     "static/css/main.d02b681e.chunk.css",
-    "static/js/main.759710b3.chunk.js"
+    "static/js/main.8fe3918d.chunk.js"
   ]
 }
