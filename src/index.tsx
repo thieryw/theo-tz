@@ -4,7 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {Home} from "./components/Home/Home";
 import {Footer} from "./components/footer/Footer";
-import waterfallUrl from "./components/Home/media/waterfall-min.jpg";
+import backgroundImageUrl from "./components/footer/footer-min.jpg";
 
 
 
@@ -20,7 +20,7 @@ function App() {
 
 
       <Home />
-      <Footer backgroundImageUrl={waterfallUrl} />
+      <Footer backgroundImageUrl={backgroundImageUrl} />
 
     </div>
 

@@ -1,20 +1,20 @@
 import React, {useRef} from "react";
-import {Camera, Chat, Gift, Monitor} from "../../iconComponents/index";
-import {shootingText, designText, discussionText, impressionText} from "./texts";
+import {Camera, Portraits, Printing, PenTool} from "../../iconComponents/index";
+import {portrait, photoReport, journalism, impression} from "./texts";
 import {useAnimation} from "../../customHooks/useAnimation";
 import {useScroll} from "../../customHooks/useScroll";
 import brush from "./media/brush.png";
 
 export const ServicePresentation: React.FunctionComponent = ()=>{
 
-    const icons = [Chat, Camera, Gift, Monitor];
-    const texts = [discussionText, shootingText, impressionText, designText];
+    const icons = [Portraits, Camera, PenTool, Printing];
+    const texts = [portrait, photoReport, journalism, impression];
     const ref = useRef<HTMLDivElement>(null);
     const titles = [
-        "envie de discuter ?",
-        "shooting photo",
-        "offrez-vous un tirage",
-        "web design"
+        "portrait",
+        "reportage photo",
+        "journalisme",
+        "tirage"
     ];
 
     useScroll(ref);

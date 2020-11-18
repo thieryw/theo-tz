@@ -11,10 +11,10 @@ export const authorText = `J'ai toujours été émerveillé par la nature,
                         
 
 
-export const discussionText = `N'hésitez pas : des détails techniques jusqu'aux questions naturalistes, je vous répondrai avec grand plaisir !`;
+export const portrait = `En studio ou en extérieur, je vous propose de saisir des instants de vie qui vous ressemblent. Seul, en couple ou en groupe, je m’adapterai à vos envies. Je peux également me déplacer à domicile.`;
 
-export const shootingText = `Si vous êtes tentés par l'expérience, nous pouvons programmer ensemble votre séance photo privée en extérieur.`;
+export const photoReport = `Vous souhaitez promouvoir votre activité, immortaliser un évènement ou avoir des illustrations pour votre site internet ? Je saurai capturer l’authenticité de l’instant.`;
 
-export const impressionText = `Toutes les photographies présentes sur ce site sont disponibles à la vente. Je vous proposerai différents formats et supports.`;
+export const journalism = `Interview, portrait, reportage, je me munirai de ma plus belle plume pour raconter votre histoire. `;
 
-export const designText = `Vous souhaitez créer votre site internet ? Vous avez besoin de photographies de qualité ? `;
+export const impression = `Toutes les photographies présentes sur le site sont disponibles à la vente. Je vous propose plusieurs formats et supports, n’hésitez pas à me contacter.`;
