@@ -1,5 +1,4 @@
 import React, {useRef, useState, useEffect, useCallback} from "react";
-import {Nav} from "../Nav/Nav";
 import "./Home.scss";
 import background1 from "./media/acceuil-1-min.jpg";
 import background2 from "./media/acceuil-2-min.jpg";
@@ -49,7 +48,6 @@ export const Home: React.FunctionComponent = ()=>{
         <div ref={ref} className="Home">
             
             <header>
-                <Nav/>
 
                 <img src={`${signature}`} alt="signature logo Théo Tzélépoglou"/>
 

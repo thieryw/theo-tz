@@ -1,4 +1,4 @@
-import {createRouter, defineRoute, param} from "type-route";
+import {createRouter, defineRoute} from "type-route";
 
 
 

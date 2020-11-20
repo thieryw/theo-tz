@@ -2,10 +2,14 @@ import React, {useState, useRef, useCallback, useEffect} from "react";
 import {useWindowResize} from "../../customHooks/useWindowResize";
 import {Menu} from "../../iconComponents/index";
 import "./Nav.scss";
+import {routes} from "../../router";
 
 
+export const Nav: React.FunctionComponent<{
+    routeName: false | "home" | "author" | "portraits" | "naturalism" | "events"
+}> = props=>{
 
-export const Nav: React.FunctionComponent = (props)=>{
+    const {routeName} = props;
 
     const [isMenuUnrolled, setIsMenuUnrolled] = useState(false);
 
@@ -64,19 +68,19 @@ export const Nav: React.FunctionComponent = (props)=>{
 
 
     return (
-        <nav style={{
+        <nav className={`${routeName ? routeName : ""}-nav`} style={{
             zIndex: 3
         }}>
             <div onClick={toggleMenu}><Menu /></div>
 
             <ul ref={menuRef}>
-                <ListElement name="ACCUEIL"/>
+                <ListElement route={routes.home} name="ACCUEIL"/>
                 <ListElement name="PORTFOLIO" subListElements={
                     ["Naturalisme", "Portraits", "Evènements"]
 
                 }
                 />
-                <ListElement name="AUTEUR"/>
+                <ListElement route={routes.author} name="AUTEUR"/>
 
                 
             </ul>
@@ -88,10 +92,17 @@ export const Nav: React.FunctionComponent = (props)=>{
 const ListElement: React.FunctionComponent<{
     name: string
     subListElements?: string[];
+    route?: any;
 }> = (props)=>{
 
-    const {name, subListElements} = props;
+    const {name, subListElements, route} = props;
     const [isSubListExpanded, setIsSubListExpanded] = useState(false);
+
+    const subRoutes = [
+        routes.naturalism,
+        routes.portraits,
+        routes.events
+    ]
 
     const subListRef = useRef<HTMLUListElement>(null);
 
@@ -155,7 +166,7 @@ const ListElement: React.FunctionComponent<{
     return(
 
         subListElements === undefined ? 
-        <li>
+        <li {...route().link}>
             <div>
                 <p>{name}</p>
                 <div className="underline"></div>
@@ -181,7 +192,11 @@ const ListElement: React.FunctionComponent<{
 
             <ul ref={subListRef}>
                 {
-                    subListElements.map((elem, index) => <li key={index}><p>{elem}</p></li>)
+                    subListElements.map((elem, index) => <li 
+                    {...subRoutes[index]().link}
+                    key={index}>
+                        <p>{elem}</p>
+                    </li>)
                 }
             </ul>
             

@@ -4,6 +4,7 @@ import brush from "./media/brush1.png";
 import {useAnimation} from "../../customHooks/useAnimation";
 import {useScroll} from "../../customHooks/useScroll";
 import {authorText} from "./texts"
+import {routes} from "../../router";
 
 
 
@@ -53,7 +54,7 @@ export const AuthorPresentation:React.FunctionComponent = ()=>{
                         {authorText}
 
 
-                    <span>Lire la suite</span>
+                    <span {...routes.author().link}>Lire la suite</span>
                     </p>
                 </div>
 

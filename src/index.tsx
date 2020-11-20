@@ -5,6 +5,9 @@ import reportWebVitals from './reportWebVitals';
 import {Home} from "./components/Home/Home";
 import {Footer} from "./components/footer/Footer";
 import backgroundImageUrl from "./components/footer/footer-min.jpg";
+import {Nav} from "./components/Nav/Nav";
+import {useRoute, RouteProvider} from "./router";
+import {Author} from "./components/Author/Author";
 
 
 
@@ -15,11 +18,17 @@ import backgroundImageUrl from "./components/footer/footer-min.jpg";
 
 function App() {
 
+  const route = useRoute();
+
   return (
     <div className="App">
 
 
-      <Home />
+      <Nav routeName={route.name} />
+
+      {route.name === "home" && <Home/>}
+      {route.name === "author" && <Author/>}
+
       <Footer backgroundImageUrl={backgroundImageUrl} />
 
     </div>
@@ -33,9 +42,12 @@ function App() {
 
 
 ReactDOM.render(
+  <RouteProvider>
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
+  </RouteProvider>
+  ,
   document.getElementById('root')
 );
 

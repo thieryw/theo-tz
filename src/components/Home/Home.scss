@@ -10,6 +10,9 @@ $boxShadow: -1px 0px 15px 0px rgba(0,0,0,0.52);
         height: 100vh;
         box-sizing: border-box;
         display: grid;
+        align-items: center;
+
+        
         .temp-background{
             position: absolute;
             top: 0;
@@ -30,8 +33,8 @@ $boxShadow: -1px 0px 15px 0px rgba(0,0,0,0.52);
                 width: 300px;
                 min-width: unset;
                 margin-left: unset;
-                align-self: center;
                 justify-self: center;
+                align-self: flex-end;
             }
 
 
