@@ -18,7 +18,7 @@ export const AuthorPresentation: React.FunctionComponent = ()=>{
     useAnimation({
         "ref": imgRef,
         "distanceFromViewPortToTrigger": -100,
-        "offset": -200
+        "offset": 200
     });
 
     useAnimation({
