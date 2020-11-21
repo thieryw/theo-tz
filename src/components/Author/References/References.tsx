@@ -1,15 +1,31 @@
 import React, {useRef} from "react";
 import "./References.scss";
 import brushDivider from "../media/brush1.png";
-
 import {useAnimation} from "../../../customHooks/useAnimation";
 import {useScroll} from "../../../customHooks/useScroll";
+import {useAsync, UseAsyncReturn} from "react-async-hook";
+import {fetchTextData} from "../../../logic";
+//@ts-ignore
+import text from "./texts/references.txt";
+
+fetch("https://docs.google.com/document/d/1xgbu0xTOB_BcM2e9zpC6R8zum2TmON3494GZxG4tbus/edit").then(
+    response =>{
+        return response.text();
+
+    }
+).then(
+    data =>{
+        console.log(data);
+    }
+)
 
 
 export const References: React.FunctionComponent = ()=>{
 
     const ref = useRef<HTMLElement>(null);
     const childRef = useRef<HTMLDivElement>(null);
+
+    const asyncExtractText = useAsync(fetchTextData, [text]);
 
     useScroll(ref);
 
@@ -30,53 +46,42 @@ export const References: React.FunctionComponent = ()=>{
 
                 <div>
                     <ul>
-                        <li><p className="general-text">
-                            Tzélépoglou, T. (2019). La Martinique : écrin de 
-                            biodiversité riche et fragile. 
-                            L’oiseau Mag n°134, Rubrique Ballade, 78-83.
-
-                        </p></li>
-
-                        <li><p className="general-text">
-                            Marechal, P. Tzélépoglou, T. Dewynter, M. (2019). 
-                            Définition de périmètres d’habitat favorables 
-                            au Matoutou falaise (Caribena versicolor). 
-                            48p. Biotope, DEAL Martinique.
-                        </p></li>
-
-                        <li><p className="general-text">
-                            Marechal, P. Tzélépoglou, T. Dewynter, M. (2019). 
-                            Définition de périmètres d’habitat favorables au 
-                            Matoutou falaise (Caribena versicolor). 48p. 
-                            Biotope, DEAL Martinique. 
-                        </p></li>
+                        {
+                            [0,1,2].map(
+                                textNumber => 
+                                <ListItem 
+                                    asyncFunction={asyncExtractText}
+                                    textNumber={textNumber}
+                                    key={textNumber}
+                                />
+                            )
+                        }
                     </ul>
 
                     <ul>
-                        <li><p className="general-text">
-                            Dewynter M. & Tzélépoglou T. (2018). 
-                            Le rocher de la Caravelle en Martinique : 
-                            un important reposoir pour les oiseaux marins 
-                            et un site de nidification de la Sterne bridée 
-                            (Onychoprion anaethetus). Les cahiers de la 
-                            fondation Biotope 20 : 1- 13.
-                        </p></li>
-
-                        <li><p className="general-text">
-                            Tzélépoglou, T. Connen de Kerillis, T. (2018). 
-                            Recherche d’une population d’Allobates chalcopis 
-                            sur les Pitons du Carbet. 20p. Biotope, ONF, 
-                            Deal Martinique. 
-                        </p></li>
+                        {
+                            [3,4].map(
+                                textNumber => 
+                                <ListItem 
+                                    asyncFunction={asyncExtractText}
+                                    textNumber={textNumber}
+                                    key={textNumber}
+                                />
+                            )
+                        }
 
                         <img src={brushDivider} alt="brush divider"/>
-                        <li><p className="general-text">
-                            Prix “coup de cœur” – Concours photo du Salon De l’Écologie 2018
-                        </p></li>
-
-                        <li><p className="general-text">
-                            1er prix catégorie Golden Hour & 2ème prix catégorie Invisible/Visible – Concours ANUMA 2020
-                        </p></li>
+                 
+                        {
+                            [5,6].map(
+                                textNumber => 
+                                <ListItem 
+                                    asyncFunction={asyncExtractText}
+                                    textNumber={textNumber}
+                                    key={textNumber}
+                                />
+                            )
+                        }
                     </ul>
                 </div>
 
@@ -86,5 +91,23 @@ export const References: React.FunctionComponent = ()=>{
 
             <span className="skew"></span>
         </section>
+    )
+}
+
+
+const ListItem: React.FunctionComponent<{
+    textNumber: number;
+    asyncFunction: UseAsyncReturn<string[], [url: any]>;
+
+}> = props =>{
+    const {asyncFunction, textNumber} = props;
+    return(
+        <li><p className="general-text">
+            {
+                asyncFunction.loading || !asyncFunction.result ?
+                "Chargement..." : asyncFunction.result[textNumber]
+            }
+
+        </p></li>
     )
 }

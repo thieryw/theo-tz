@@ -26,7 +26,7 @@ export function useAnimation(params: {
         extraTransitions
     } = params;
 
-    let translate: string | undefined = (()=>{
+    const translate: string | undefined = (()=>{
         if(!offset){
             return undefined;
         }
@@ -41,37 +41,47 @@ export function useAnimation(params: {
        
 
     useEffect(()=>{
-        if(!ref || !ref.current){
-            return;
+
+        const asyncEffect = async ()=>{
+
+            if(!ref || !ref.current){
+                return;
+            }
+
+            const bounding = !parentRef || !parentRef.current ?
+            ref.current.getBoundingClientRect() : 
+            parentRef.current.getBoundingClientRect();
+
+            if(bounding.y > window.innerHeight + distanceToTrigger){
+                ref.current.style.opacity = "0";
+            };
+
+            if(translate){
+                ref.current.style.transform = translate;
+            };
+
+
+            await new Promise<void>(resolve => setTimeout(resolve, 1));
+        
+            ref.current.style.transition = 
+
+            `transform ${animationDuration ? animationDuration : 800}ms, 
+
+            opacity ${fadeDuration ? fadeDuration : 300}ms
+
+            ${extraTransitions ? `, ${extraTransitions.map(transition => `${transition}`)}` : ""}
+
+            `;
         }
 
-        const bounding = !parentRef || !parentRef.current ?
-        ref.current.getBoundingClientRect() : 
-        parentRef.current.getBoundingClientRect();
+        asyncEffect();
+        
 
         
 
-        ref.current.style.transition = 
 
-        `transform ${animationDuration ? animationDuration : 800}ms, 
 
-        opacity ${fadeDuration ? fadeDuration : 300}ms
 
-        ${extraTransitions ? `, ${extraTransitions.map(transition => `${transition}`)}` : ""}
-
-        `;
-        
-        if(bounding.y < window.innerHeight + distanceToTrigger){
-            return;
-        }
-
-        ref.current.style.opacity = "0";
-
-        if(!translate){
-            return;
-        }
-
-        ref.current.style.transform = translate;
         
     },[
         animationDuration, 
