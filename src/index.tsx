@@ -8,6 +8,7 @@ import backgroundImageUrl from "./components/footer/footer-min.jpg";
 import {Nav} from "./components/Nav/Nav";
 import {useRoute, RouteProvider} from "./router";
 import {Author} from "./components/Author/Author";
+import {Naturalism} from "./components/Naturalism/Naturalism";
 
 
 
@@ -28,6 +29,7 @@ function App() {
 
       {route.name === "home" && <Home/>}
       {route.name === "author" && <Author/>}
+      {route.name === "naturalism" && <Naturalism/>}
 
       <Footer backgroundImageUrl={backgroundImageUrl} />
 

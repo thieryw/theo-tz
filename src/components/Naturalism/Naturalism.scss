@@ -1,0 +1,58 @@
+.Naturalism{
+    header{
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background: url("./media/background-min.jpg") no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        display: grid;
+
+        img{
+            position: absolute;
+            top: 0;
+            left: 15px;
+            height: 80px;
+            @media screen and (max-width: 950px) and (min-width: 501px){
+                display: none;
+            }
+
+            
+        }
+
+        h3{
+            color: white;
+            font-size: 1.5em;
+            justify-self: center;
+            align-self: center;
+            letter-spacing: 0.9em;
+        }
+
+
+
+    }
+
+    section{
+        display: flex;
+        justify-content: center;
+        div{
+            width: 1200px;
+            -webkit-box-shadow: 2px 0px 14px 9px rgba(0,0,0,0.58); 
+            box-shadow: 2px 0px 14px 9px rgba(0,0,0,0.58);
+            margin-top: -200px;
+            z-index: 2;
+            background-color: white;
+            text-align: center;
+            p{
+                padding: 50px;
+                text-align: justify;
+            }
+
+            img{
+                justify-self: center;
+            }
+        }
+        
+
+    }
+}

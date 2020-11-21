@@ -8,16 +8,7 @@ import {fetchTextData} from "../../../logic";
 //@ts-ignore
 import text from "./texts/references.txt";
 
-fetch("https://docs.google.com/document/d/1xgbu0xTOB_BcM2e9zpC6R8zum2TmON3494GZxG4tbus/edit").then(
-    response =>{
-        return response.text();
 
-    }
-).then(
-    data =>{
-        console.log(data);
-    }
-)
 
 
 export const References: React.FunctionComponent = ()=>{
