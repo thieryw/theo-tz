@@ -1,21 +1,22 @@
 {
   "files": {
     "main.css": "/theo-tz/static/css/main.ab39eb8e.chunk.css",
-    "main.js": "/theo-tz/static/js/main.4d8f9be6.chunk.js",
-    "main.js.map": "/theo-tz/static/js/main.4d8f9be6.chunk.js.map",
-    "runtime-main.js": "/theo-tz/static/js/runtime-main.4497dbcd.js",
-    "runtime-main.js.map": "/theo-tz/static/js/runtime-main.4497dbcd.js.map",
-    "static/js/2.0cf6f5b5.chunk.js": "/theo-tz/static/js/2.0cf6f5b5.chunk.js",
-    "static/js/2.0cf6f5b5.chunk.js.map": "/theo-tz/static/js/2.0cf6f5b5.chunk.js.map",
-    "static/js/3.7ddf497a.chunk.js": "/theo-tz/static/js/3.7ddf497a.chunk.js",
-    "static/js/3.7ddf497a.chunk.js.map": "/theo-tz/static/js/3.7ddf497a.chunk.js.map",
+    "main.js": "/theo-tz/static/js/main.9a74c629.chunk.js",
+    "main.js.map": "/theo-tz/static/js/main.9a74c629.chunk.js.map",
+    "runtime-main.js": "/theo-tz/static/js/runtime-main.5db8721a.js",
+    "runtime-main.js.map": "/theo-tz/static/js/runtime-main.5db8721a.js.map",
+    "static/js/2.6b831899.chunk.js": "/theo-tz/static/js/2.6b831899.chunk.js",
+    "static/js/2.6b831899.chunk.js.map": "/theo-tz/static/js/2.6b831899.chunk.js.map",
+    "static/js/3.55bb9a49.chunk.js": "/theo-tz/static/js/3.55bb9a49.chunk.js",
+    "static/js/3.55bb9a49.chunk.js.map": "/theo-tz/static/js/3.55bb9a49.chunk.js.map",
     "index.html": "/theo-tz/index.html",
     "static/css/main.ab39eb8e.chunk.css.map": "/theo-tz/static/css/main.ab39eb8e.chunk.css.map",
-    "static/js/2.0cf6f5b5.chunk.js.LICENSE.txt": "/theo-tz/static/js/2.0cf6f5b5.chunk.js.LICENSE.txt",
+    "static/js/2.6b831899.chunk.js.LICENSE.txt": "/theo-tz/static/js/2.6b831899.chunk.js.LICENSE.txt",
     "static/media/acceuil-1-min.9c8ea67f.jpg": "/theo-tz/static/media/acceuil-1-min.9c8ea67f.jpg",
     "static/media/acceuil-2-min.17944fef.jpg": "/theo-tz/static/media/acceuil-2-min.17944fef.jpg",
     "static/media/acceuil-3-min.25034ad9.jpg": "/theo-tz/static/media/acceuil-3-min.25034ad9.jpg",
     "static/media/author-portrait-min.7496a8f5.jpg": "/theo-tz/static/media/author-portrait-min.7496a8f5.jpg",
+    "static/media/authorPresentation.4aafe631.txt": "/theo-tz/static/media/authorPresentation.4aafe631.txt",
     "static/media/Author.scss": "/theo-tz/static/media/bannier.29b327c8.jpg",
     "static/media/bird.92eaef5f.jpg": "/theo-tz/static/media/bird.92eaef5f.jpg",
     "static/media/dance.55ff0540.jpg": "/theo-tz/static/media/dance.55ff0540.jpg",
@@ -23,15 +24,16 @@
     "static/media/lezard-min.65a67e58.jpg": "/theo-tz/static/media/lezard-min.65a67e58.jpg",
     "static/media/PretentiousQuote.scss": "/theo-tz/static/media/menuin-min.0ef2c41c.jpg",
     "static/media/music.1d8c1967.jpg": "/theo-tz/static/media/music.1d8c1967.jpg",
+    "static/media/references.99a72bd0.txt": "/theo-tz/static/media/references.99a72bd0.txt",
     "static/media/signature.146106dd.png": "/theo-tz/static/media/signature.146106dd.png",
     "static/media/signature.f01214a2.png": "/theo-tz/static/media/signature.f01214a2.png",
     "static/media/small-device-background.fde72eaa.jpg": "/theo-tz/static/media/small-device-background.fde72eaa.jpg",
     "static/media/theo-min.d640ddfc.jpg": "/theo-tz/static/media/theo-min.d640ddfc.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.4497dbcd.js",
-    "static/js/2.0cf6f5b5.chunk.js",
+    "static/js/runtime-main.5db8721a.js",
+    "static/js/2.6b831899.chunk.js",
     "static/css/main.ab39eb8e.chunk.css",
-    "static/js/main.4d8f9be6.chunk.js"
+    "static/js/main.9a74c629.chunk.js"
   ]
 }
