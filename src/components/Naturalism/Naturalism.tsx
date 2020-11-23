@@ -7,6 +7,7 @@ import brush from "./media/brush1.png";
 
 import {fetchTextData} from "../../logic";
 import {useAsync} from "react-async-hook";
+import {France} from "./France/France";
 
 export const Naturalism: React.FunctionComponent = ()=>{
 
@@ -30,6 +31,8 @@ export const Naturalism: React.FunctionComponent = ()=>{
                     </p>
 
                     <img src={brush} alt="brush divider"/>
+
+                    <France />
 
                 </div>
             </section>
