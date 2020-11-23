@@ -2,6 +2,7 @@ import React, {useRef, useEffect, useCallback, useState} from "react";
 import "./Gallery.scss";
 
 
+
 export const Gallery: React.FunctionComponent<{
     imageUrls: string[];
     imageTitles?: any;
@@ -45,26 +46,7 @@ const Image: React.FunctionComponent<{
     const imgRef = useRef<HTMLImageElement>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);
 
-    useEffect(()=>{
-        if(!imgRef.current || !wrapperRef.current){
-            return;
-        }
-
-        const imgStyle = imgRef.current.style;
-        const wrapperStyle = wrapperRef.current.style;
-
-
-        imgStyle.height = "250px";
-        imgStyle.width = "auto";
-
-        wrapperStyle.width = `${imgRef.current.clientWidth}px`;
-
-        imgStyle.objectFit = "cover";
-        imgStyle.width = "100%";
-        imgStyle.height = "100%";
-        imgStyle.verticalAlign = "middle";
-
-    });
+    
 
 
     const __handleClick = useCallback(()=>{
@@ -77,11 +59,35 @@ const Image: React.FunctionComponent<{
 
     },[handleClick, imgIndex])
 
+    const handleImgLoad = useCallback(()=>{
+        if(!imgRef.current || !wrapperRef.current){
+            return;
+        }
+
+
+        const imgStyle = imgRef.current.style;
+        const wrapperStyle = wrapperRef.current.style;
+
+        imgStyle.height = "250px";
+        imgStyle.width = "auto";
+
+        wrapperStyle.width = `${imgRef.current.clientWidth}px`;
+
+        imgStyle.objectFit = "cover";
+        imgStyle.width = "100%";
+        imgStyle.height = "100%";
+        imgStyle.verticalAlign = "middle";
+    },[])
+
+
+
 
 
     return (
+        
+
         <div onClick={__handleClick} ref={wrapperRef} className="image-wrapper">
-            <img ref={imgRef} src={imgUrl} alt={imageTitle ? imageTitle : "non descried"}/>
+            <img onLoad={handleImgLoad} width="300" height="200" ref={imgRef} src={imgUrl} alt={imageTitle ? imageTitle : "non descried"}/>
             <div className="title">
                 <p className="general-text">
                     {
