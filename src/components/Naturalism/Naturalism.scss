@@ -26,6 +26,9 @@
             justify-self: center;
             align-self: center;
             letter-spacing: 0.9em;
+            @media screen and (max-width: 500px){
+                font-size: 1em;
+            }
         }
 
 
@@ -44,9 +47,14 @@
             z-index: 2;
             background-color: white;
             text-align: center;
+            max-width: 100%;
             p{
                 padding: 50px;
                 text-align: justify;
+                @media screen and (max-width: 500px){
+                    text-align: left;
+                    padding: 20px;
+                }
             }
 
             img{

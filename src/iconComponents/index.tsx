@@ -1,4 +1,5 @@
 export { default as Camera } from './Camera'
+export { default as Cancel } from './Cancel'
 export { default as Facebook } from './Facebook'
 export { default as Instagram } from './Instagram'
 export { default as Menu } from './Menu'

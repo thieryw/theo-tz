@@ -1,4 +1,5 @@
 import React, {useRef, useEffect, useCallback, useState} from "react";
+import {Cancel} from "../../iconComponents";
 import "./Gallery.scss";
 
 
@@ -25,7 +26,7 @@ export const Gallery: React.FunctionComponent<{
 
             {
                 zoomedImageNumber === undefined ? 
-                "" : <LightBox imgUrl={imageUrls[zoomedImageNumber]} />
+                "" : <LightBox quitLightBox={setZoomedImageNumber} imgUrl={imageUrls[zoomedImageNumber]} />
             }
 
 
@@ -77,6 +78,7 @@ const Image: React.FunctionComponent<{
         imgStyle.width = "100%";
         imgStyle.height = "100%";
         imgStyle.verticalAlign = "middle";
+
     },[])
 
 
@@ -87,7 +89,14 @@ const Image: React.FunctionComponent<{
         
 
         <div onClick={__handleClick} ref={wrapperRef} className="image-wrapper">
-            <img onLoad={handleImgLoad} width="300" height="200" ref={imgRef} src={imgUrl} alt={imageTitle ? imageTitle : "non descried"}/>
+            <img 
+                onLoad={handleImgLoad} 
+                width="300" 
+                height="200" 
+                ref={imgRef} 
+                src={imgUrl} 
+                alt={imageTitle ? imageTitle : "non descried"}
+            />
             <div className="title">
                 <p className="general-text">
                     {
@@ -104,10 +113,12 @@ const Image: React.FunctionComponent<{
 const LightBox: React.FunctionComponent<{
     imgUrl: string;
     imgTitle?: string;
+    quitLightBox: React.Dispatch<React.SetStateAction<number | undefined>>;
 
 }> = props =>{
-    const {imgUrl, imgTitle} = props
+    const {imgUrl, imgTitle, quitLightBox} = props
     const lightBoxRef = useRef<HTMLDivElement>(null);
+
 
     useEffect(()=>{
 
@@ -116,21 +127,38 @@ const LightBox: React.FunctionComponent<{
                 return;
             }
 
-            lightBoxRef.current.style.display = "flex";
 
-            await new Promise<void>(resolve => setTimeout(resolve, 10));
 
             lightBoxRef.current.style.opacity = "1";
+
+
         }
 
         displayLightBox();
 
 
-    },[])
+    })
+
+    const __quitLightBox = useCallback(async()=>{
+        if(!lightBoxRef.current){
+            return;
+        }
+        lightBoxRef.current.style.opacity = "0";
+
+        await new Promise<void>(resolve => setTimeout(resolve, 500));
+
+
+        quitLightBox(undefined);
+
+
+    },[quitLightBox]);
 
 
     return (
         <div ref={lightBoxRef} className="LightBox">
+            <div onClick={__quitLightBox} className="close-button">
+                <Cancel />
+            </div>
 
             <div className="image-wrapper">
                 <img src={imgUrl} alt={imgTitle ? imgTitle : "non descried"}/>

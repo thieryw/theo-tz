@@ -9,22 +9,66 @@
         position: fixed;
         align-items: center;
         justify-content: center;
+        box-sizing: border-box;
         top: 0;
         left: 0;
         height: 100vh;
         width: 100vw;
-        background-color: rgba(0, 0, 0, 0.671);
-        display: none;
+        background-color: rgba(0, 0, 0, 0.897);
+        display: flex;
         opacity: 0;
         z-index: 3;
         transition: opacity 500ms;
+        padding: 7%;
+        .close-button{
+            border-radius: 100%;
+            padding: 6px;
+            position: absolute;
+            top: 30px; 
+            right: 30px;
+            transition: transform 300ms;
+            z-index: 4;
+            svg{
+                fill: white;
+                font-size: 2.5em;
+                transition: fill 300ms;
+            }
+        }
+
+        .close-button:hover{
+            transform: rotate(180deg);
+            svg{
+                fill: orangered;
+            }
+        }
+        .image-wrapper{
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            img{
+                height: 100%;
+                width: auto;
+                @media screen and (orientation: portrait){
+                    width: 100%;
+                    height: auto;
+                }
+                @media screen and (orientation: landscape) {
+                    height: 100%;
+                    width: auto;
+                    
+                }
+            }
+        }
     }
     .image-wrapper{
         overflow: hidden;
         position: relative;
         flex: auto;
         padding: 3px;
-        transition: filter 300ms;
+
 
         .title{
             position: absolute;
