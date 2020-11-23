@@ -37,7 +37,6 @@ export const ServicePresentation: React.FunctionComponent = ()=>{
                         SvgLike={icon}
                         description={texts[index]}
                         title={titles[index]}
-                        parentRef={ref}
                         offset={index < icons.length / 2 ? -200 : 200}
                     />)
                 }
@@ -61,21 +60,19 @@ const ServiceBox: React.FunctionComponent<{
     SvgLike: React.FunctionComponent;
     title: string;
     description: string;
-    parentRef: React.RefObject<HTMLElement>;
     offset: number;
 
 }> = (props)=>{
 
-    const {SvgLike, title, description, parentRef, offset} = props;
+    const {SvgLike, title, description, offset} = props;
     const ref = useRef<HTMLDivElement>(null);
 
     useAnimation({
         ref,
-        parentRef,
         "direction": "horizontal",
         "offset": offset,
-        "distanceFromViewPortToTrigger": -300,
-        "extraTransitions": ["border 300ms", "box-shadow 300ms"]
+        "distanceFromViewPortToTrigger": -150,
+        /*"extraTransitions": ["border 300ms", "box-shadow 300ms"]*/
     })
 
     return(
