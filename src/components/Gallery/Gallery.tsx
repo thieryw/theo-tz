@@ -1,5 +1,5 @@
 import React, {useRef, useEffect, useCallback, useState} from "react";
-import {Cancel} from "../../iconComponents";
+import {Cancel, Next} from "../../iconComponents";
 import "./Gallery.scss";
 
 
@@ -26,7 +26,13 @@ export const Gallery: React.FunctionComponent<{
 
             {
                 zoomedImageNumber === undefined ? 
-                "" : <LightBox quitLightBox={setZoomedImageNumber} imgUrl={imageUrls[zoomedImageNumber]} />
+                "" : <LightBox 
+                        imgIndex={zoomedImageNumber} 
+                        galleryLength={imageUrls.length} 
+                        setImageIndex={setZoomedImageNumber} 
+                        imgUrls={imageUrls} 
+                        imgTitles={imageTitles}
+                    />
             }
 
 
@@ -82,9 +88,6 @@ const Image: React.FunctionComponent<{
     },[])
 
 
-
-
-
     return (
         
 
@@ -111,35 +114,35 @@ const Image: React.FunctionComponent<{
 }
 
 const LightBox: React.FunctionComponent<{
-    imgUrl: string;
-    imgTitle?: string;
-    quitLightBox: React.Dispatch<React.SetStateAction<number | undefined>>;
+    imgUrls: string[];
+    imgTitles?: string[];
+    setImageIndex: React.Dispatch<React.SetStateAction<number | undefined>>;
+    galleryLength: number;
+    imgIndex: number;
 
 }> = props =>{
-    const {imgUrl, imgTitle, quitLightBox} = props
+    const {imgUrls, imgTitles, setImageIndex, imgIndex, galleryLength} = props
     const lightBoxRef = useRef<HTMLDivElement>(null);
+
+    
 
 
     useEffect(()=>{
 
-        const displayLightBox = async ()=>{
-            if(!lightBoxRef.current){
-                return;
-            }
-
-
-
-            lightBoxRef.current.style.opacity = "1";
-
-
+        if(!lightBoxRef.current){
+            return;
         }
 
-        displayLightBox();
 
 
-    })
+        lightBoxRef.current.style.opacity = "1";
 
-    const __quitLightBox = useCallback(async()=>{
+
+
+
+    },[])
+
+    const quitLightBox = useCallback(async()=>{
         if(!lightBoxRef.current){
             return;
         }
@@ -148,24 +151,108 @@ const LightBox: React.FunctionComponent<{
         await new Promise<void>(resolve => setTimeout(resolve, 500));
 
 
-        quitLightBox(undefined);
+        setImageIndex(undefined);
 
 
-    },[quitLightBox]);
+    },[setImageIndex]);
 
+    const prevNextImage = useCallback((direction: "prev" | "next")=>{
+        if(direction === "next"){
+            if(imgIndex === galleryLength - 1){
+                setImageIndex(0);
+                return;
+            }
+
+            setImageIndex(imgIndex + 1);
+            return;
+        }
+
+        if(imgIndex === 0){
+            setImageIndex(galleryLength - 1);
+            return;
+        }
+
+        setImageIndex(imgIndex - 1);
+
+    },[galleryLength, imgIndex, setImageIndex]);
+
+  
 
     return (
         <div ref={lightBoxRef} className="LightBox">
-            <div onClick={__quitLightBox} className="close-button">
+            <div onClick={quitLightBox} className="close-button">
                 <Cancel />
             </div>
 
-            <div className="image-wrapper">
-                <img src={imgUrl} alt={imgTitle ? imgTitle : "non descried"}/>
+            <div onClick={() =>prevNextImage("prev")} className="prev-button">
+                <Next />
             </div>
+            <div onClick={()=> prevNextImage("next")} className="next-button">
+                <Next/>
+            </div>
+            
+            <div className="image-wrapper">
+                {
+                    imgUrls.map((imgUrl, index) => <LightBoxImg
+                        key={index}
+                        imgUrl={imgUrl}
+                        imgTitle={imgTitles ? imgTitles[index] : undefined}
+                        isCurrentlyForShow={imgIndex === index}
+                    />)
+                }
+            </div>
+
+            
+
 
 
         </div>
     )
 
+}
+
+
+
+const LightBoxImg: React.FunctionComponent<{
+    imgUrl: string;
+    imgTitle?: string;
+    isCurrentlyForShow: boolean;
+}> = props =>{
+    const {imgUrl, imgTitle, isCurrentlyForShow} = props;
+    const ref = useRef<HTMLImageElement>(null);
+
+    useEffect(()=>{
+
+        (async()=>{
+            if(!ref.current){
+                return;
+            }
+
+            const {style} = ref.current;
+
+            if(!isCurrentlyForShow){
+                style.display = "none";
+                style.opacity = "0.2";
+                return;
+            }
+
+
+            style.display = "block";
+
+            await new Promise<void>(resolve => setTimeout(resolve, 20));
+
+            style.opacity = "1";
+
+
+        })();
+
+        
+
+
+    },[isCurrentlyForShow]);
+
+    return(
+        <img ref={ref} src={imgUrl} alt={imgTitle ? imgTitle : "non descried"}/>
+
+    )
 }

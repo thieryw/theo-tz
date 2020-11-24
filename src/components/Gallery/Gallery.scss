@@ -23,6 +23,7 @@
         .close-button{
             border-radius: 100%;
             padding: 6px;
+            order: 4;
             position: absolute;
             top: 30px; 
             right: 30px;
@@ -30,9 +31,36 @@
             z-index: 4;
             svg{
                 fill: white;
-                font-size: 2.5em;
+                font-size: 2em;
                 transition: fill 300ms;
             }
+        }
+
+        .prev-button, .next-button{
+            z-index: 4;
+            transition: transform 300ms;
+            svg{
+                fill: white;
+                font-size: 2.5em;
+            }
+        }
+
+        .next-button:hover{
+            transform: scale(1.2);
+        }
+
+        .prev-button:hover{
+            transform: rotate(180deg) scale(1.2);
+        }
+
+        .prev-button{
+            transform: rotate(180deg);
+            justify-self: flex-start;
+            order: 1;
+        }
+        .next-button{
+            justify-self: flex-end;
+            order: 3;
         }
 
         .close-button:hover{
@@ -43,6 +71,7 @@
         }
         .image-wrapper{
             position: relative;
+            order: 2;
             height: 100%;
             overflow: hidden;
             display: grid;
@@ -51,6 +80,8 @@
             img{
                 height: 100%;
                 width: auto;
+                user-select: none;
+                transition: opacity 500ms;
                 @media screen and (orientation: portrait){
                     width: 100%;
                     height: auto;
