@@ -10,6 +10,7 @@ import {useAsync} from "react-async-hook";
 import {France} from "./France/France";
 import {routes} from "../../router";
 import {createGroup, Route} from "type-route";
+import {Antilles} from "./Antilles/Antilles"
 
 export const natureRouteGroup = createGroup([
     routes.naturalism,
@@ -90,7 +91,7 @@ export const Naturalism: React.FunctionComponent<{
                     </div>
                     
                     {route.name === "france" && <France />}
-                    {route.name === "antilles" && <h1>Antilles</h1>}
+                    {route.name === "antilles" && <Antilles />}
                     {route.name === "canada" && <h1>Canada</h1>}
                     {route.name === "reunion" && <h1>Reunion</h1>}
 
