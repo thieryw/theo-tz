@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/theo-tz/static/css/main.30e773c9.chunk.css",
-    "main.js": "/theo-tz/static/js/main.721c7213.chunk.js",
-    "main.js.map": "/theo-tz/static/js/main.721c7213.chunk.js.map",
+    "main.js": "/theo-tz/static/js/main.86f323fc.chunk.js",
+    "main.js.map": "/theo-tz/static/js/main.86f323fc.chunk.js.map",
     "runtime-main.js": "/theo-tz/static/js/runtime-main.24adb62c.js",
     "runtime-main.js.map": "/theo-tz/static/js/runtime-main.24adb62c.js.map",
     "static/js/2.8240da6a.chunk.js": "/theo-tz/static/js/2.8240da6a.chunk.js",
@@ -82,7 +82,6 @@
     "static/media/za-min.03256c04.jpg": "/theo-tz/static/media/za-min.03256c04.jpg",
     "static/media/zb-min.613c88b9.jpg": "/theo-tz/static/media/zb-min.613c88b9.jpg",
     "static/media/zc-min.a7a13c29.jpg": "/theo-tz/static/media/zc-min.a7a13c29.jpg",
-    "static/media/zd-min.a7a13c29.jpg": "/theo-tz/static/media/zd-min.a7a13c29.jpg",
     "static/media/ze-min.209eac54.jpg": "/theo-tz/static/media/ze-min.209eac54.jpg",
     "static/media/zf-min.52e6dda7.jpg": "/theo-tz/static/media/zf-min.52e6dda7.jpg",
     "static/media/zg-min.34d02451.jpg": "/theo-tz/static/media/zg-min.34d02451.jpg",
@@ -97,6 +96,6 @@
     "static/js/runtime-main.24adb62c.js",
     "static/js/2.8240da6a.chunk.js",
     "static/css/main.30e773c9.chunk.css",
-    "static/js/main.721c7213.chunk.js"
+    "static/js/main.86f323fc.chunk.js"
   ]
 }
