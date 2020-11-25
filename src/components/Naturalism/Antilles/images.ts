@@ -27,16 +27,15 @@ import img26 from "./media/z-min.jpg";
 import img27 from "./media/za-min.jpg";
 import img28 from "./media/zb-min.jpg";
 import img29 from "./media/zc-min.jpg";
-import img30 from "./media/zd-min.jpg";
-import img31 from "./media/ze-min.jpg";
-import img32 from "./media/zf-min.jpg";
-import img33 from "./media/zg-min.jpg";
-import img34 from "./media/zh-min.jpg";
-import img35 from "./media/zi-min.jpg";
-import img36 from "./media/zj-min.jpg";
-import img37 from "./media/zk-min.jpg";
-import img38 from "./media/zl-min.jpg";
-import img39 from "./media/zm-min.jpg";
+import img30 from "./media/ze-min.jpg";
+import img31 from "./media/zf-min.jpg";
+import img32 from "./media/zg-min.jpg";
+import img33 from "./media/zh-min.jpg";
+import img34 from "./media/zi-min.jpg";
+import img35 from "./media/zj-min.jpg";
+import img36 from "./media/zk-min.jpg";
+import img37 from "./media/zl-min.jpg";
+import img38 from "./media/zm-min.jpg";
 export const images = [
 img1,
 img2,
@@ -76,5 +75,4 @@ img35,
 img36,
 img37,
 img38,
-img39,
 ];
