@@ -1,25 +1,35 @@
-import {createRouter, defineRoute} from "type-route";
+import {createRouter, defineRoute, RouterOpts} from "type-route";
 
 
 
 
+const opts: RouterOpts = {
+    scrollToTop: false
+}
 
 
-const publicUrl = process.env["PUBLIC_URL"];
 
-const root = publicUrl ? defineRoute(publicUrl) : {"extend": defineRoute};
+const root = defineRoute(process.env["PUBLIC_URL"]);
 
-
-export const {RouteProvider, useRoute, routes} = createRouter({
+const naturalism = root.extend("/naturalisme");
 
 
-    home: root.extend("/"),
+export const {RouteProvider, useRoute, routes} = createRouter(opts,{
+
+
+    home: root,
 
     author: root.extend("/auteur"),
 
     portraits: root.extend("/portraits"),
-    
-    naturalism: root.extend("/naturalisme"),
+
+    naturalism,
+    antilles: naturalism.extend("/antilles"),
+    reunion: naturalism.extend("/reunion"),
+    canada: naturalism.extend("/ouest-canadien"),
+    france: naturalism.extend("/france"),
+
+
 
     events: root.extend("/evenements")
 
@@ -27,4 +37,4 @@ export const {RouteProvider, useRoute, routes} = createRouter({
 
 
 
-})
+});

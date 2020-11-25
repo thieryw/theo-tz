@@ -1,5 +1,4 @@
 .Gallery{
-    margin-top: 100px;
     width: 100%;
     padding: 3px;
     display: flex;
@@ -7,6 +6,7 @@
     box-sizing: border-box;
     .LightBox{
         position: fixed;
+        outline: none;
         align-items: center;
         justify-content: center;
         box-sizing: border-box;
@@ -81,7 +81,7 @@
                 height: 100%;
                 width: auto;
                 user-select: none;
-                transition: opacity 500ms;
+                transition: opacity 800ms;
                 @media screen and (orientation: portrait){
                     width: 100%;
                     height: auto;

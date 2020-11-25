@@ -6,7 +6,7 @@ import {routes} from "../../router";
 
 
 export const Nav: React.FunctionComponent<{
-    routeName: false | "home" | "author" | "portraits" | "naturalism" | "events"
+    routeName: string | boolean;
 }> = props=>{
 
     const {routeName} = props;
@@ -99,7 +99,7 @@ const ListElement: React.FunctionComponent<{
     const [isSubListExpanded, setIsSubListExpanded] = useState(false);
 
     const subRoutes = [
-        routes.naturalism,
+        routes.france,
         routes.portraits,
         routes.events
     ]

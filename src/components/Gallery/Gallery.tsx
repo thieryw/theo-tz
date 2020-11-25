@@ -124,6 +124,7 @@ const LightBox: React.FunctionComponent<{
     const {imgUrls, imgTitles, setImageIndex, imgIndex, galleryLength} = props
     const lightBoxRef = useRef<HTMLDivElement>(null);
 
+
     
 
 
@@ -176,10 +177,36 @@ const LightBox: React.FunctionComponent<{
 
     },[galleryLength, imgIndex, setImageIndex]);
 
+    const prevNextImageWithKey = useCallback((e: React.KeyboardEvent<HTMLDivElement>)=>{
+
+
+        if(e.key !== "Escape" && e.key !== "ArrowRight" && e.key !== "ArrowLeft"){
+            return;
+        }
+
+
+        if(e.key === "Escape"){
+            quitLightBox();
+            return;
+        }
+
+        if(e.key === "ArrowRight"){
+            prevNextImage("next");
+            return;
+        }
+
+
+        prevNextImage("prev");
+
+
+
+
+    }, [prevNextImage, quitLightBox]);
+
   
 
     return (
-        <div ref={lightBoxRef} className="LightBox">
+        <div onLoad={()=> lightBoxRef.current?.focus()} tabIndex={0} onKeyDown={e => prevNextImageWithKey(e)} ref={lightBoxRef} className="LightBox">
             <div onClick={quitLightBox} className="close-button">
                 <Cancel />
             </div>
