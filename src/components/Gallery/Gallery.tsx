@@ -140,7 +140,7 @@ const LightBox: React.FunctionComponent<{
                 return;
             }
 
-            await new Promise<void>(resolve => setTimeout(resolve, 300));
+            await new Promise<void>(resolve => setTimeout(resolve, 100));
 
 
 
