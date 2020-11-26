@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/theo-tz/static/css/main.30e773c9.chunk.css",
-    "main.js": "/theo-tz/static/js/main.86f323fc.chunk.js",
-    "main.js.map": "/theo-tz/static/js/main.86f323fc.chunk.js.map",
+    "main.css": "/theo-tz/static/css/main.f55b35a8.chunk.css",
+    "main.js": "/theo-tz/static/js/main.9f6d3d90.chunk.js",
+    "main.js.map": "/theo-tz/static/js/main.9f6d3d90.chunk.js.map",
     "runtime-main.js": "/theo-tz/static/js/runtime-main.24adb62c.js",
     "runtime-main.js.map": "/theo-tz/static/js/runtime-main.24adb62c.js.map",
     "static/js/2.8240da6a.chunk.js": "/theo-tz/static/js/2.8240da6a.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.ab56f138.chunk.js": "/theo-tz/static/js/3.ab56f138.chunk.js",
     "static/js/3.ab56f138.chunk.js.map": "/theo-tz/static/js/3.ab56f138.chunk.js.map",
     "index.html": "/theo-tz/index.html",
-    "static/css/main.30e773c9.chunk.css.map": "/theo-tz/static/css/main.30e773c9.chunk.css.map",
+    "static/css/main.f55b35a8.chunk.css.map": "/theo-tz/static/css/main.f55b35a8.chunk.css.map",
     "static/js/2.8240da6a.chunk.js.LICENSE.txt": "/theo-tz/static/js/2.8240da6a.chunk.js.LICENSE.txt",
     "static/media/a-min.a38eebc5.jpg": "/theo-tz/static/media/a-min.a38eebc5.jpg",
     "static/media/a.9bd474bc.jpg": "/theo-tz/static/media/a.9bd474bc.jpg",
@@ -24,6 +24,7 @@
     "static/media/Naturalism.scss": "/theo-tz/static/media/background-min.b51a7caa.jpg",
     "static/media/Author.scss": "/theo-tz/static/media/bannier.29b327c8.jpg",
     "static/media/bird.92eaef5f.jpg": "/theo-tz/static/media/bird.92eaef5f.jpg",
+    "static/media/black-signature.d6ac36f5.png": "/theo-tz/static/media/black-signature.d6ac36f5.png",
     "static/media/c-min.e9794c03.jpg": "/theo-tz/static/media/c-min.e9794c03.jpg",
     "static/media/c.74b88376.jpg": "/theo-tz/static/media/c.74b88376.jpg",
     "static/media/d-min.64660926.jpg": "/theo-tz/static/media/d-min.64660926.jpg",
@@ -33,7 +34,7 @@
     "static/media/e.6fec9819.jpg": "/theo-tz/static/media/e.6fec9819.jpg",
     "static/media/f-min.b80f23d6.jpg": "/theo-tz/static/media/f-min.b80f23d6.jpg",
     "static/media/f.2420ff6d.jpg": "/theo-tz/static/media/f.2420ff6d.jpg",
-    "static/media/footer-min.f95a94af.jpg": "/theo-tz/static/media/footer-min.f95a94af.jpg",
+    "static/media/Footer.scss": "/theo-tz/static/media/footer-min.cdc74d64.jpg",
     "static/media/g-min.a00fc33e.jpg": "/theo-tz/static/media/g-min.a00fc33e.jpg",
     "static/media/g.89531089.jpg": "/theo-tz/static/media/g.89531089.jpg",
     "static/media/h-min.f9e27c64.jpg": "/theo-tz/static/media/h-min.f9e27c64.jpg",
@@ -41,6 +42,7 @@
     "static/media/i-min.b9cb5966.jpg": "/theo-tz/static/media/i-min.b9cb5966.jpg",
     "static/media/i.1a3a8f8b.jpg": "/theo-tz/static/media/i.1a3a8f8b.jpg",
     "static/media/imageTitles.5c7ab19c.txt": "/theo-tz/static/media/imageTitles.5c7ab19c.txt",
+    "static/media/imageTitles.9d21fa1e.txt": "/theo-tz/static/media/imageTitles.9d21fa1e.txt",
     "static/media/j-min.539d4b8b.jpg": "/theo-tz/static/media/j-min.539d4b8b.jpg",
     "static/media/j.fb034292.jpg": "/theo-tz/static/media/j.fb034292.jpg",
     "static/media/k-min.25281caf.jpg": "/theo-tz/static/media/k-min.25281caf.jpg",
@@ -95,7 +97,7 @@
   "entrypoints": [
     "static/js/runtime-main.24adb62c.js",
     "static/js/2.8240da6a.chunk.js",
-    "static/css/main.30e773c9.chunk.css",
-    "static/js/main.86f323fc.chunk.js"
+    "static/css/main.f55b35a8.chunk.css",
+    "static/js/main.9f6d3d90.chunk.js"
   ]
 }
