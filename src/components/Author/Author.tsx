@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import whiteBrushPng from "./media/white-brush.png";
 import signaturePng from "./media/signature.png";
 import whiteBrushVerticalPng from "./media/white-brush-vertical.png";
@@ -11,6 +11,9 @@ import {References} from "./References/References";
 
 export const Author: React.FunctionComponent = ()=>{
 
+    useEffect(()=>{
+        window.scrollTo(0,0);
+    },[])
 
     return (
         <div className="Author">
