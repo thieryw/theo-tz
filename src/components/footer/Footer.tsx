@@ -1,17 +1,18 @@
 import React, {useRef, useCallback} from "react";
 import signatureUrl from "../Home/media/signature.png";
+import blackSignatureUrl from "./black-signature.png";
 import {Facebook, Instagram} from "../../iconComponents/index";
 import "./Footer.scss";
 
 
 
 export const Footer: React.FunctionComponent<{
-    backgroundImageUrl?: string;
-}> = (props)=>{
+    routeName?: string;
+}> = props=>{
 
-    const {backgroundImageUrl} = props;
     const emailRef= useRef<HTMLParagraphElement>(null);
     const copyMessageRef = useRef<HTMLElement>(null);
+
 
     const handleEmailClick = useCallback(()=>{
 
@@ -40,33 +41,17 @@ export const Footer: React.FunctionComponent<{
 
     },[]);
 
+    console.log(props.routeName);
 
 
     return(
-        <footer style={{
-            position: "relative"
-
-        }}>
-            <div className="background" style={
-                {
-                    backgroundImage: backgroundImageUrl ? `url("${backgroundImageUrl}")` : "",
-                    backgroundSize: "cover",
-                    backgroundRepeat: "no-repeat",
-                    backgroundPositionY: "center",
-                    width: "100%",
-                    height: "100%",
-                    position: "absolute",
-                    top:"0",
-                    left:"0",
-                    filter:"brightness(60%)",
-                    zIndex: -200
-          
-                }
-            }>
+        <footer className={props.routeName ? `${props.routeName}-footer` : ""}>
+            <div className="background">
 
             </div>
             <div>
-                <img src={signatureUrl} alt="signature"/>
+                <img className="white-signature" src={signatureUrl} alt="signature"/>
+                <img className="black-signature" src={blackSignatureUrl} alt="black-signature"/>
                 <div>
                     <a href="https://www.facebook.com/theotzelepoglouphotography/">
                         <Facebook />

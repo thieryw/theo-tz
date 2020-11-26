@@ -7,10 +7,11 @@ import "./Gallery.scss";
 export const Gallery: React.FunctionComponent<{
     imageUrls: string[];
     imageTitles?: any;
+    initialImageHeight?: number;
 
 }> = props =>{
 
-    const {imageUrls, imageTitles} = props;
+    const {imageUrls, imageTitles, initialImageHeight} = props;
     const [zoomedImageNumber, setZoomedImageNumber] = useState<number | undefined>(undefined);
 
 
@@ -21,7 +22,10 @@ export const Gallery: React.FunctionComponent<{
             {
                 imageUrls.map((url, index) => <Image handleClick={setZoomedImageNumber} imageTitle={
                     imageTitles ? imageTitles[index] : ""
-                } imgIndex={index} key={index} imgUrl={url}/>)
+                    } imgIndex={index} key={index} 
+                    imgUrl={url} 
+                    initialImageHeight={initialImageHeight ? initialImageHeight : undefined}
+                />)
             }
 
             {
@@ -46,9 +50,10 @@ const Image: React.FunctionComponent<{
     imageTitle?: string;
     imgIndex?: number;
     handleClick?: React.Dispatch<React.SetStateAction<number | undefined>>;
+    initialImageHeight?: number;
 }> = props =>{
 
-    const {imgUrl, imageTitle, handleClick, imgIndex} = props;
+    const {imgUrl, imageTitle, handleClick, imgIndex, initialImageHeight} = props;
 
     const imgRef = useRef<HTMLImageElement>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);
@@ -75,7 +80,7 @@ const Image: React.FunctionComponent<{
         const imgStyle = imgRef.current.style;
         const wrapperStyle = wrapperRef.current.style;
 
-        imgStyle.height = "250px";
+        imgStyle.height = `${initialImageHeight ? initialImageHeight : 250}px`;
         imgStyle.width = "auto";
 
         wrapperStyle.width = `${imgRef.current.clientWidth}px`;
@@ -85,7 +90,7 @@ const Image: React.FunctionComponent<{
         imgStyle.height = "100%";
         imgStyle.verticalAlign = "middle";
 
-    },[])
+    },[initialImageHeight]);
 
 
     return (

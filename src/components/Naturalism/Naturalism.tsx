@@ -28,6 +28,10 @@ export const Naturalism: React.FunctionComponent<{
 
     const {route} = props;
 
+    useEffect(()=>{
+        window.scrollTo(0,0);
+    },[])
+
 
 
     const asyncGetText = useAsync(fetchTextData, [text]);

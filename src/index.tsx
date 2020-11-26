@@ -4,7 +4,6 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {Home} from "./components/Home/Home";
 import {Footer} from "./components/footer/Footer";
-import backgroundImageUrl from "./components/footer/footer-min.jpg";
 import {Nav} from "./components/Nav/Nav";
 import {useRoute, RouteProvider} from "./router";
 import {Author} from "./components/Author/Author";
@@ -32,7 +31,8 @@ function App() {
       {route.name === "author" && <Author/>}
       {natureRouteGroup.has(route) && <Naturalism route={route}/>}
 
-      <Footer backgroundImageUrl={backgroundImageUrl} />
+
+      <Footer routeName={route.name as string}/>
 
     </div>
 

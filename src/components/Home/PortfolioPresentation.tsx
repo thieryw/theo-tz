@@ -5,6 +5,7 @@ import danceUrl from "./media/PortfolioPresentation/dance.jpg";
 import {useAnimation} from "../../customHooks/useAnimation";
 import fancyUnderlineUrl from "./media/PortfolioPresentation/fancy-underline.jpg";
 import {useScroll} from "../../customHooks/useScroll";
+import {routes} from "../../router";
 
 
 
@@ -26,6 +27,18 @@ const PortfolioPresentation: React.FunctionComponent<{
     const imgAlts = ["bird", "dance", "music"];
     const titles = ["naturalisme", "portraits", "évènements"];
     const titlePositions: TitlePosition[]= ["top", "bottom", "top"];
+
+    const portfolioRoutes = [
+        routes.france,
+        routes.portraits,
+        routes.events
+
+    ]
+
+
+    
+
+
     
 
 
@@ -66,6 +79,7 @@ const PortfolioPresentation: React.FunctionComponent<{
                                 offset={offsets[index]}
                                 parentRef={ref}
                                 deviceSize={deviceSize}
+                                route={portfolioRoutes[index]}
                             />
 
                             {
@@ -127,10 +141,12 @@ const AnimatedImage: React.FunctionComponent<{
     offset: number;
     parentRef: React.RefObject<HTMLDivElement>;
     deviceSize: "small" | "medium" | "large";
+    route: any;
 }> = (props)=>{
 
-    const {imgAlt, imgSrc, offset, parentRef, deviceSize} = props;
+    const {imgAlt, imgSrc, offset, parentRef, deviceSize, route} = props;
     const ref: React.RefObject<HTMLImageElement> = useRef<HTMLImageElement>(null);
+
 
 
 
@@ -146,6 +162,9 @@ const AnimatedImage: React.FunctionComponent<{
 
     return(
         <img 
+            {
+                ...route().link
+            }
 
             ref={ref}
             width="333px"

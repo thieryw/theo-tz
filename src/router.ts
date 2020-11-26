@@ -4,7 +4,8 @@ import {createRouter, defineRoute, RouterOpts} from "type-route";
 
 
 const opts: RouterOpts = {
-    scrollToTop: false
+    scrollToTop: false,
+    
 }
 
 
