@@ -11,6 +11,8 @@ import {France} from "./France/France";
 import {routes} from "../../router";
 import {createGroup, Route} from "type-route";
 import {Antilles} from "./Antilles/Antilles"
+import {Reunion} from "./Reunion/Reunion";
+import {Canada} from "./Canada/Canada";
 
 export const natureRouteGroup = createGroup([
     routes.naturalism,
@@ -96,8 +98,8 @@ export const Naturalism: React.FunctionComponent<{
                     
                     {route.name === "france" && <France />}
                     {route.name === "antilles" && <Antilles />}
-                    {route.name === "canada" && <h1>Canada</h1>}
-                    {route.name === "reunion" && <h1>Reunion</h1>}
+                    {route.name === "canada" && <Canada />}
+                    {route.name === "reunion" && <Reunion />}
 
 
                 </div>
