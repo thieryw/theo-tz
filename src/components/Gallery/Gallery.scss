@@ -19,14 +19,14 @@
         opacity: 0;
         z-index: 3;
         transition: opacity 500ms;
-        padding: 7%;
+        padding: 3%;
         .close-button{
             border-radius: 100%;
             padding: 6px;
             order: 4;
             position: absolute;
-            top: 30px; 
-            right: 30px;
+            top: 10px; 
+            right: 10px;
             transition: transform 300ms;
             z-index: 4;
             svg{
