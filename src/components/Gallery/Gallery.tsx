@@ -135,13 +135,19 @@ const LightBox: React.FunctionComponent<{
 
     useEffect(()=>{
 
-        if(!lightBoxRef.current){
-            return;
-        }
+        (async()=>{
+            if(!lightBoxRef.current){
+                return;
+            }
+
+            await new Promise<void>(resolve => setTimeout(resolve, 300));
 
 
 
-        lightBoxRef.current.style.opacity = "1";
+            lightBoxRef.current.style.opacity = "1";
+        })();
+
+        
 
 
 
