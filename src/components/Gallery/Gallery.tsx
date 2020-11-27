@@ -1,6 +1,7 @@
 import React, {useRef, useEffect, useCallback, useState} from "react";
 import {Cancel, Next} from "../../iconComponents";
 import "./Gallery.scss";
+import {useLazyImageLoad} from "../../customHooks/useLazyImageLoad";
 
 
 
@@ -13,6 +14,9 @@ export const Gallery: React.FunctionComponent<{
 
     const {imageUrls, imageTitles, initialImageHeight} = props;
     const [zoomedImageNumber, setZoomedImageNumber] = useState<number | undefined>(undefined);
+
+
+    useLazyImageLoad({});
 
 
 
@@ -102,7 +106,7 @@ const Image: React.FunctionComponent<{
                 width="300" 
                 height="200" 
                 ref={imgRef} 
-                src={imgUrl} 
+                data-src={imgUrl} 
                 alt={imageTitle ? imageTitle : "non descried"}
             />
             <div className="title">
@@ -258,39 +262,67 @@ const LightBoxImg: React.FunctionComponent<{
 }> = props =>{
     const {imgUrl, imgTitle, isCurrentlyForShow} = props;
     const ref = useRef<HTMLImageElement>(null);
+    const LoadingRef = useRef<HTMLDivElement>(null);
+    const [isImageLoading, setIsImageLoading] = useState(true);
 
     useEffect(()=>{
 
+        
+
         (async()=>{
-            if(!ref.current){
+            if(!ref.current || !LoadingRef.current){
                 return;
             }
 
-            const {style} = ref.current;
+            const {style: imgStyle} = ref.current;
+            const {style: loadingStyle}  = LoadingRef.current;
 
             if(!isCurrentlyForShow){
-                style.display = "none";
-                style.opacity = "0.2";
+                imgStyle.display = "none";
+                imgStyle.opacity = "0.2";
+                loadingStyle.display = "none";
+                
                 return;
             }
 
+            if(isImageLoading){
+                loadingStyle.display="block";
+                imgStyle.display = "none";
+                return;
+            }
 
-            style.display = "block";
+            loadingStyle.display="none";
+
+            imgStyle.display = "block";
 
             await new Promise<void>(resolve => setTimeout(resolve, 20));
 
-            style.opacity = "1";
+            
+
+            imgStyle.opacity = "1";
 
 
         })();
 
+
+
         
 
 
-    },[isCurrentlyForShow]);
+    },[isCurrentlyForShow, isImageLoading]);
+
+    
 
     return(
-        <img ref={ref} src={imgUrl} alt={imgTitle ? imgTitle : "non descried"}/>
+        <>
+            <div ref={LoadingRef} className="loader">...loading</div>
+            <img 
+                ref={ref} 
+                src={imgUrl} 
+                alt={imgTitle ? imgTitle : "non descried"}
+                onLoad={()=> setIsImageLoading(false)}
+            />
+        </>
 
     )
 }
