@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "@loadable/component": "^5.14.1",
-    "evt": "^1.9.2",
+    "evt": "2.0.0-beta.5",
     "gh-pages": "^3.1.0",
     "react": "^17.0.1",
     "react-async-hook": "^3.6.2",
@@ -14,7 +14,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "predeploy": "npm run build && cd build && mv index.html 404.html",
+    "predeploy": "npm run build && hack-gh-pages src/routeDefs.ts",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -51,6 +51,7 @@
     "@types/react-lazyload": "^3.0.0",
     "node-sass": "4.14.1",
     "react-scripts": "4.0.0",
-    "typescript": "^4.0.3"
+    "typescript": "^4.0.3",
+    "github-pages-plugin-for-type-route": "file:../github-pages-plugin-for-type-route"
   }
 }
