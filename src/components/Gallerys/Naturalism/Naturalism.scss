@@ -1,0 +1,46 @@
+.Naturalism{
+    header{
+
+        width: 100vw;
+        height: 100vh;
+        min-height: 550px;
+        .background{
+            background: url("./media/background-min.jpg");
+        }
+        
+    }
+
+    section{
+        >div{
+            -webkit-box-shadow: 2px 0px 14px 9px rgba(0,0,0,0.58); 
+            box-shadow: 2px 0px 14px 9px rgba(0,0,0,0.58);
+            margin-top: -200px;
+            z-index: 2;
+            background-color: white;
+        
+            p{
+                padding: 50px;
+                text-align: justify;
+                span{
+                    position: relative;
+                    top: 15px;
+                    color: black;
+                    font-size: 4em;
+                    float: left;
+                    margin-bottom: 20px;
+                    margin-right: 10px;
+                }
+                @media screen and (max-width: 500px){
+                    text-align: left;
+                    padding: 20px;
+                }
+            }
+
+            img{
+                justify-self: center;
+            }
+        }
+        
+
+    }
+}

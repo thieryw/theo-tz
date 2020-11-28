@@ -1,18 +1,18 @@
 import React, {useState, useEffect} from "react";
-import logoUrl from "./media/signature.png";
 import "./Naturalism.scss";
 //@ts-ignore
 import text from "./Texts/text.txt";
 import brush from "./media/brush1.png";
-
-import {fetchTextData} from "../../logic";
+import {GalleryLinks, GalleryBanner} from "../GalleryHeading/GalleryHeading";
+import {fetchTextData} from "../../../logic";
 import {useAsync} from "react-async-hook";
 import {France} from "./France/France";
-import {routes} from "../../router";
+import {routes} from "../../../router";
 import {createGroup, Route} from "type-route";
 import {Antilles} from "./Antilles/Antilles"
 import {Reunion} from "./Reunion/Reunion";
 import {Canada} from "./Canada/Canada";
+import "../main.scss";
 
 export const natureRouteGroup = createGroup([
     routes.naturalism,
@@ -62,12 +62,10 @@ export const Naturalism: React.FunctionComponent<{
 
 
     return(
-        <div className="Naturalism">
-            <header>
-                <img src={logoUrl} alt="logo"/>
-                <h3>naturalism</h3>
 
-            </header>
+        <div className="gallery-main Naturalism">
+
+            <GalleryBanner galleryName="naturalism" />
 
             <section>
                 <div>
@@ -108,20 +106,5 @@ export const Naturalism: React.FunctionComponent<{
     )
 }
 
-const GalleryLinks: React.FunctionComponent<{
-    route: any;
-    name: string;
-    activeGallery: Name;
-    routeName: Name;
-}> = props =>{
-    const {route, name, activeGallery, routeName} = props;
-    
-    return(
-        <h3 
-           className={activeGallery === routeName ? "active" : ""} 
-           {...route().link}>{name}
-        </h3>
-    )
 
-}
 

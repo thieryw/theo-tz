@@ -1,7 +1,7 @@
 import React from "react";
 import {images} from "./images";
-import {Gallery} from "../../Gallery/Gallery";
-import {fetchTextData} from "../../../logic";
+import {Gallery} from "../../../FlexGallery/FlexGallery";
+import {fetchTextData} from "../../../../logic";
 import {useAsync} from "react-async-hook";
 //@ts-ignore
 import imageTitles from "./imageTitles.txt";

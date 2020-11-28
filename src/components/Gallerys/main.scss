@@ -1,0 +1,14 @@
+.gallery-main{
+    section{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 100px;
+
+        >div{
+            position: relative;
+            width: 1300px;
+            text-align: center;
+            max-width: 100vw;
+        }
+    }
+}

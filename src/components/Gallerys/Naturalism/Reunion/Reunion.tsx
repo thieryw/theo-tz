@@ -1,13 +1,13 @@
 import React from "react";
 import {images} from "./images";
-import {Gallery} from "../../Gallery/Gallery";
-import {fetchTextData} from "../../../logic";
+import {Gallery} from "../../../FlexGallery/FlexGallery";
+import {fetchTextData} from "../../../../logic";
 import {useAsync} from "react-async-hook";
 //@ts-ignore
 import imageTitles from "./imageTitles.txt";
 
 
-export const Canada: React.FunctionComponent = ()=>{
+export const Reunion: React.FunctionComponent = ()=>{
 
 
     const asyncImageTitles = useAsync(fetchTextData, [imageTitles]);
@@ -15,6 +15,6 @@ export const Canada: React.FunctionComponent = ()=>{
     return(
         <Gallery imageTitles={
             asyncImageTitles.loading || !asyncImageTitles.result ? "" : asyncImageTitles.result
-        } imageUrls={images} initialImageHeight={300} />
+        } imageUrls={images} initialImageHeight={200} />
     )
 }

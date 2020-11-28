@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useCallback, useState} from "react";
 import {Cancel, Next} from "../../iconComponents";
-import "./Gallery.scss";
+import "./FlexGallery.scss";
 import {useLazyImageLoad} from "../../customHooks/useLazyImageLoad";
 
 
