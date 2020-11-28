@@ -5439,10 +5439,10 @@ gh-pages@^3.1.0:
     fs-extra "^8.1.0"
     globby "^6.1.0"
 
-github-pages-plugin-for-type-route@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/github-pages-plugin-for-type-route/-/github-pages-plugin-for-type-route-0.0.1.tgz#2f92d6fd388e80ccc7c3cae65513468c32eac98c"
-  integrity sha512-WrJu+g6ezwfKPbOb9aQJvUNotMHb22YL5iEIVsrwUUlSV634Jl/Rp9lm84JFjcCo3Lo/O29HSMnC2hTF7tVTZw==
+github-pages-plugin-for-type-route@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/github-pages-plugin-for-type-route/-/github-pages-plugin-for-type-route-0.0.5.tgz#1d617d99e142e391d9da86879ef26c2dfa75fdce"
+  integrity sha512-FHsoL5qw/0UywkSIinYHSjldXKMx/BbVAP+QSBvWhYFeYnfJIM++yt0JhOi4ZoKOl6SlGcKZoaqQM2Of+rKDng==
   dependencies:
     scripting-tools "^0.19.13"
 
@@ -11262,10 +11262,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^4.0.3:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.1.2.tgz#6369ef22516fe5e10304aae5a5c4862db55380e9"
-  integrity sha512-thGloWsGH3SOxv1SoY7QojKi0tc+8FnOmiarEGMbd/lar7QOEd3hvlx3Fp5y6FlDUGl9L+pd4n2e+oToGMmhRQ==
+typescript@4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.0.5.tgz#ae9dddfd1069f1cb5beb3ef3b2170dd7c1332389"
+  integrity sha512-ywmr/VrTVCmNTJ6iV2LwIrfG1P+lv6luD8sUJs+2eI9NLGigaN+nUQc13iHqisq7bra9lnmUSYqbJvegraBOPQ==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"

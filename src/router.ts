@@ -1,5 +1,5 @@
 import { createRouter, defineRoute } from "type-route";
-import { makeThisModuleAnExecutableRouteLister } from "github-pages-plugin-for-type-route";
+import { makeThisModuleAnExecutableRouteLister } from "github-pages-plugin-for-type-route";
 
 const root = defineRoute(process.env["PUBLIC_URL"]);
 const naturalism = root.extend("/naturalisme");
@@ -19,8 +19,6 @@ export const routeDefs = {
 makeThisModuleAnExecutableRouteLister(routeDefs);
 
 export const { RouteProvider, useRoute, routes } = createRouter(
-    {
-        "scrollToTop": false
-    },
+    { "scrollToTop": false },
     routeDefs
 );
