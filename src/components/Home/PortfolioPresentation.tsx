@@ -30,8 +30,8 @@ const PortfolioPresentation: React.FunctionComponent<{
 
     const portfolioRoutes = [
         routes.france,
-        routes.portraits,
-        routes.events
+        routes.etienne,
+        routes.airStep
 
     ]
 
