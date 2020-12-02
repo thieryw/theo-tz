@@ -101,7 +101,7 @@ const ListElement: React.FunctionComponent<{
     const subRoutes = [
         routes.france,
         routes.etienne,
-        routes.events
+        routes.airStep
     ]
 
     const subListRef = useRef<HTMLUListElement>(null);

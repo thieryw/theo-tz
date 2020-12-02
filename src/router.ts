@@ -4,6 +4,7 @@ import { makeThisModuleAnExecutableRouteLister } from "github-pages-plugin-for-t
 const root = defineRoute(process.env["PUBLIC_URL"]);
 const naturalism = root.extend("/naturalisme");
 const portraits = root.extend("/portraits");
+const events = root.extend("/evenements")
 
 export const routeDefs = {
     "home": root,
@@ -19,7 +20,9 @@ export const routeDefs = {
     "reunion": naturalism.extend("/reunion"),
     "canada": naturalism.extend("/ouest-canadien"),
     "france": naturalism.extend("/france"),
-    "events": root.extend("/evenements")
+    events,
+    "airStep": events.extend("/air-step"),
+    "loveMe": events.extend("/love-me-tender")
 };
 
 makeThisModuleAnExecutableRouteLister(routeDefs);
