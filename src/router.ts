@@ -3,11 +3,17 @@ import { makeThisModuleAnExecutableRouteLister } from "github-pages-plugin-for-t
 
 const root = defineRoute(process.env["PUBLIC_URL"]);
 const naturalism = root.extend("/naturalisme");
+const portraits = root.extend("/portraits");
 
 export const routeDefs = {
     "home": root,
     "author": root.extend("/auteur"),
-    "portraits": root.extend("/portraits"),
+    portraits,
+    "annaAndJonathan": portraits.extend("/anna-jonathan"),
+    "claire": portraits.extend("/claire"),
+    "melodie": portraits.extend("/melodie"),
+    "confluence": portraits.extend("/confluence"),
+    "etienne": portraits.extend("/etienne"),
     naturalism,
     "antilles": naturalism.extend("/antilles"),
     "reunion": naturalism.extend("/reunion"),

@@ -100,7 +100,7 @@ const ListElement: React.FunctionComponent<{
 
     const subRoutes = [
         routes.france,
-        routes.portraits,
+        routes.etienne,
         routes.events
     ]
 

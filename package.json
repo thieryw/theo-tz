@@ -20,7 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "generateIcons": "npx  @svgr/cli src/SVG --out-dir src/iconComponents --icon --typescript --replace-attr-values \"#000=currentColor\""
+    "generateIcons": "npx  @svgr/cli src/SVG --out-dir src/iconComponents --icon --typescript --replace-attr-values \"#000=currentColor\"",
+    "exportImages": "node ./src/scripts/imageExporter/imageExporter.js"
   },
   "eslintConfig": {
     "extends": [

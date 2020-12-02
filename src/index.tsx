@@ -8,7 +8,7 @@ import {Nav} from "./components/Nav/Nav";
 import {useRoute, RouteProvider} from "./router";
 import {Author} from "./components/Author/Author";
 import {Naturalism, natureRouteGroup} from "./components/Gallerys/Naturalism/Naturalism";
-import {Portraits} from "./components/Gallerys/Portraits/Portraits";
+import {Portraits, portraitRouteGroup} from "./components/Gallerys/Portraits/Portraits";
 
 
 
@@ -31,7 +31,7 @@ function App() {
       {route.name === "home" && <Home/>}
       {route.name === "author" && <Author/>}
       {natureRouteGroup.has(route) && <Naturalism route={route}/>}
-      {route.name === "portraits" && <Portraits/>}
+      {portraitRouteGroup.has(route) && <Portraits route={route}/>}
 
 
       <Footer routeName={route.name as string}/>

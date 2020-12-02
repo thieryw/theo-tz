@@ -41,7 +41,6 @@ export const Footer: React.FunctionComponent<{
 
     },[]);
 
-    console.log(props.routeName);
 
 
     return(
