@@ -1,7 +1,7 @@
-import React, {useRef, useCallback} from "react";
+import React from "react";
 import signatureUrl from "../Home/media/signature.png";
 import blackSignatureUrl from "./black-signature.png";
-import {Facebook, Instagram} from "../../iconComponents/index";
+import {Facebook, Instagram, Email} from "../../iconComponents/index";
 import "./Footer.scss";
 
 
@@ -10,38 +10,7 @@ export const Footer: React.FunctionComponent<{
     routeName?: string;
 }> = props=>{
 
-    const emailRef= useRef<HTMLParagraphElement>(null);
-    const copyMessageRef = useRef<HTMLElement>(null);
-
-
-    const handleEmailClick = useCallback(()=>{
-
-        if(!emailRef.current || !copyMessageRef.current){
-            return;
-        }
-
-        const range = document.createRange();
-        range.selectNode(emailRef.current);
-        window.getSelection()?.removeAllRanges();
-        window.getSelection()?.addRange(range);
-        document.execCommand("copy");
-        window.getSelection()?.removeAllRanges();
-
-        copyMessageRef.current.style.opacity = "100";
-
-        setTimeout(()=>{
-            if(!copyMessageRef.current){
-                return;
-            }
-
-            copyMessageRef.current.style.opacity = "0";
-        },5000)
-
-
-
-    },[]);
-
-
+    
 
     return(
         <footer className={props.routeName ? `${props.routeName}-footer` : ""}>
@@ -60,22 +29,12 @@ export const Footer: React.FunctionComponent<{
                         <Instagram />
                     </a>
 
+                    <a href="mailto:theo.tzelepoglou@gmail.com">
+                        <Email />
+                    </a>
+
                 </div>
-
-                <span>
-                    <p 
-                        className="general-text"
-                        ref={emailRef}
-                        onClick={handleEmailClick}
-                    >
-                        theo.tzelepoglou@gmail.com
-                    </p>
-
-                    <em ref={copyMessageRef}>
-                        Email copié dans le press papier !
-                    </em>
-
-                </span>
+                
 
             </div>
 

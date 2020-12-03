@@ -6,6 +6,9 @@
         min-height: 550px;
         .background{
             background: url("./media/background-min.jpg");
+            background-position-y: 60%;
+            background-position-x: center;
+            filter: brightness(0.7);
         }
         
     }

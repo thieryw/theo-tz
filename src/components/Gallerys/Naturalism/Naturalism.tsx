@@ -65,7 +65,7 @@ export const Naturalism: React.FunctionComponent<{
 
         <div className="gallery-main Naturalism">
 
-            <GalleryBanner galleryName="naturalism" />
+            <GalleryBanner galleryName="naturalisme" />
 
             <section>
                 <div>

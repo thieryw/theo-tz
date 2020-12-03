@@ -72,7 +72,7 @@ footer{
         }
 
 
-        span{
+        /*span{
             display: flex;
             position: relative;
             p{
@@ -98,7 +98,7 @@ footer{
             em:hover{
                 cursor: default;
             }
-        }
+        }*/
 
         
         
@@ -108,7 +108,7 @@ footer{
             justify-content: center;
             svg{
                 fill: white;
-                font-size: 3em;
+                font-size: 2.5em;
                 transition: fill 300ms, transform 300ms;
             }
 
@@ -127,10 +127,15 @@ footer{
             
             a:nth-child(2) svg{
                 margin-left: 10px;
+                margin-right: 20px;
             }
 
             a:nth-child(2) svg:hover{
                 fill: lightcoral;
+            }
+
+            a:nth-child(3) svg:hover{
+                fill: lightgreen;
             }
         }
     }
