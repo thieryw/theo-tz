@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/theo-tz/static/css/main.6364f1fb.chunk.css",
+    "main.css": "/theo-tz/static/css/main.2c1e405f.chunk.css",
     "main.js": "/theo-tz/static/js/main.67360735.chunk.js",
     "main.js.map": "/theo-tz/static/js/main.67360735.chunk.js.map",
     "runtime-main.js": "/theo-tz/static/js/runtime-main.33d1ca83.js",
@@ -10,7 +10,7 @@
     "static/js/3.f1933374.chunk.js": "/theo-tz/static/js/3.f1933374.chunk.js",
     "static/js/3.f1933374.chunk.js.map": "/theo-tz/static/js/3.f1933374.chunk.js.map",
     "index.html": "/theo-tz/index.html",
-    "static/css/main.6364f1fb.chunk.css.map": "/theo-tz/static/css/main.6364f1fb.chunk.css.map",
+    "static/css/main.2c1e405f.chunk.css.map": "/theo-tz/static/css/main.2c1e405f.chunk.css.map",
     "static/js/2.2f9af7e9.chunk.js.LICENSE.txt": "/theo-tz/static/js/2.2f9af7e9.chunk.js.LICENSE.txt",
     "static/media/a-min.1ab17a65.jpg": "/theo-tz/static/media/a-min.1ab17a65.jpg",
     "static/media/a-min.52bccf68.jpg": "/theo-tz/static/media/a-min.52bccf68.jpg",
@@ -235,7 +235,7 @@
   "entrypoints": [
     "static/js/runtime-main.33d1ca83.js",
     "static/js/2.2f9af7e9.chunk.js",
-    "static/css/main.6364f1fb.chunk.css",
+    "static/css/main.2c1e405f.chunk.css",
     "static/js/main.67360735.chunk.js"
   ]
 }
