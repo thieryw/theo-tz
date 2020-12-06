@@ -45,7 +45,9 @@ export const ServicePresentation: React.FunctionComponent = ()=>{
 
             </div>
 
-            <input className="button" type="button" value="contact"/>
+            <a href="mailto:theo.tzelepoglou@gmail.com">
+                <input className="button" type="button" value="contact"/>
+            </a>
 
             <div className="skew-1"></div>
 

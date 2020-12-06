@@ -10,7 +10,7 @@ import {BackgroundParallax} from "./BackgroundParallax";
 import {AuthorPresentation} from "./AuthorPresentation";
 import {ServicePresentation} from "./ServicePresentation";
 import {useWindowResize} from "../../customHooks/useWindowResize";
-import BackgroundSlideShow from "./BackgroundSlideShow";
+import {BackgroundSlideShow} from "./BackgroundSlideShow";
 import PortfolioPresentation from "./PortfolioPresentation";
 
 
@@ -66,7 +66,7 @@ export const Home: React.FunctionComponent = ()=>{
                     }}></div> :
                     <BackgroundSlideShow 
                         animationDuration={9000}
-                        backgroundImageUrls={[background1, background2, background3]}
+                        backgroundImageUrls={[background1, background3, background2]}
                     />
 
                 }
