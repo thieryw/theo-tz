@@ -1,10 +1,16 @@
 import { createRouter, defineRoute } from "type-route";
 import { makeThisModuleAnExecutableRouteLister } from "github-pages-plugin-for-type-route";
 
+/*
 const root = defineRoute(process.env["PUBLIC_URL"]);
 const naturalism = root.extend("/naturalisme");
 const portraits = root.extend("/portraits");
-const events = root.extend("/evenements")
+const events = root.extend("/evenements");
+*/
+
+const naturalism = defineRoute("/naturalisme");
+const portraits = defineRoute("/portraits");
+const events = defineRoute("/evenements");
 
 export const routeDefs = {
     "home": root,
