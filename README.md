@@ -6,7 +6,7 @@
 
 # Site Url
 
-http://thieryw.github.io/theo-tz
+https://theo-tz.com
 
 
 # Getting Started with Create React App
