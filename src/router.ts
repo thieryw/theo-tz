@@ -13,8 +13,12 @@ const portraits = defineRoute("/portraits");
 const events = defineRoute("/evenements");
 
 export const routeDefs = {
+    /*
     "home": root,
     "author": root.extend("/auteur"),
+    */
+    "home": defineRoute("/"),
+    "author": defineRoute("/auteur"),
     portraits,
     "annaAndJonathan": portraits.extend("/anna-jonathan"),
     "claire": portraits.extend("/claire"),
