@@ -9,8 +9,27 @@
     <meta name="author" content="William Thiery" />
     <meta
       name="description"
-      content="Un site de photographie mettant en valeur l’oeuvre de Théo Tzélépoglou. Ce dernier aborde une multitude de thèmes, tels que le naturalisme, les portraits ou encore, l’évènementiel."
+      content="%REACT_APP_DESCRIPTION%"
     />
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="%REACT_APP_TITLE%">
+    <meta itemprop="description" content="%REACT_APP_DESCRIPTION%">
+    <meta itemprop="image" content="%PUBLIC_URL%/preview.jpg">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="%PUBLIC_URL%">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="%REACT_APP_TITLE%">
+    <meta property="og:description" content="%REACT_APP_DESCRIPTION%">
+    <meta property="og:image" content="%PUBLIC_URL%/preview.jpg">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="%REACT_APP_TITLE%">
+    <meta name="twitter:description" content="%REACT_APP_DESCRIPTION%">
+    <meta name="twitter:image" content="%PUBLIC_URL%/preview.jpg">
+
+
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -26,7 +45,8 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Théo Tzélépoglou photographie</title>
+    <title>%REACT_APP_TITLE%</title>
+
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
