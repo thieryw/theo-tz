@@ -1,7 +1,7 @@
 {
   "homepage": "https://theo-tz.com",
   "name": "theo-tz",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@loadable/component": "^5.14.1",
