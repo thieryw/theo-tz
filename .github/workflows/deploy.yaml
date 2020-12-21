@@ -2,7 +2,7 @@
 on:
   push:
     branches:
-      - master
+      - never # Todo comment back to master
 
 jobs:
   all:
