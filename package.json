@@ -4,8 +4,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@loadable/component": "^5.14.1",
-    "evt": "2.0.0-beta.5",
+    "evt": "2.0.0-beta.6",
     "gh-pages": "^3.1.0",
     "react": "^17.0.1",
     "react-async-hook": "^3.6.2",
@@ -17,11 +16,12 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build && hack-gh-pages src/router.ts",
+    "build": "react-scripts build && hack-gh-pages src/router.ts && dist/bin/generateGallery.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "generateIcons": "npx  @svgr/cli src/SVG --out-dir src/iconComponents --icon --typescript --replace-attr-values \"#000=currentColor\"",
-    "exportImages": "node ./src/scripts/imageExporter/imageExporter.js"
+    "generateIcons": "@svgr/cli src/SVG --out-dir src/iconComponents --icon --typescript",
+    "exportImages": "node ./src/scripts/imageExporter/imageExporter.js",
+    "postinstall": "ts-node --skip-project src/bin/main.ts"
   },
   "eslintConfig": {
     "extends": [
@@ -50,9 +50,11 @@
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
     "@types/react-lazyload": "^3.0.0",
+    "github-pages-plugin-for-type-route": "^0.0.5",
+    "minimal-polyfills": "2.1.6",
     "node-sass": "4.14.1",
     "react-scripts": "4.0.0",
-    "typescript": "4.0.5",
-    "github-pages-plugin-for-type-route": "^0.0.5"
+    "ts-node": "^9.1.1",
+    "typescript": "4.0.5"
   }
 }

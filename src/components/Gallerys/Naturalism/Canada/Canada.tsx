@@ -14,7 +14,7 @@ export const Canada: React.FunctionComponent = ()=>{
 
     return(
         <Gallery imageTitles={
-            asyncImageTitles.loading || !asyncImageTitles.result ? "" : asyncImageTitles.result
+            (asyncImageTitles.loading || !asyncImageTitles.result) ? "" : asyncImageTitles.result
         } imageUrls={images} initialImageHeight={300} />
     )
 }
