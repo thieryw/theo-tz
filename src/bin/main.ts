@@ -11,18 +11,17 @@ const srcDirectoryPath = "src";
 
 const galleryDirectoryPath = pathJoin(srcDirectoryPath, "assets", "gallery");
 
-const arrayOfPath = crawl(galleryDirectoryPath)
-    .map(pathRelativeToGalleryDirectory => pathJoin(
-        pathRelative(srcDirectoryPath, galleryDirectoryPath),
-        pathRelativeToGalleryDirectory
-    ));
+const arrayOfPath = crawl(galleryDirectoryPath);
 
 const directoryObject = arrayOfPathToDirectoryObject({ arrayOfPath });
 
 const {
     parsedImagesDirectoryObject,
     imagesImportStatements
-} = directoryObjectOfParsedImagesDirectoryObject({ directoryObject });
+} = directoryObjectOfParsedImagesDirectoryObject({ 
+    directoryObject, 
+    "importPathPrefix": pathRelative(srcDirectoryPath, galleryDirectoryPath) 
+});
 
 const { sourceCode } = stringifyToSourceCodeParsedImageDirectoryObject({
     parsedImagesDirectoryObject,
@@ -40,6 +39,7 @@ fs.writeFileSync(
     Buffer.from(
         [
             `// This file have been automatically generated do not edit manually`,
+            `/* cSpell:disable */`,
             sourceCode,
         ].join("\n"),
         "utf8"

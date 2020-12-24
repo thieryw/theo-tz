@@ -11,14 +11,6 @@ import {Naturalism, natureRouteGroup} from "./components/Gallerys/Naturalism/Nat
 import {Portraits, portraitRouteGroup} from "./components/Gallerys/Portraits/Portraits";
 import {Events, eventsRouteGroup} from "./components/Gallerys/Events/Events";
 
-
-
-
-
-
-
-
-
 function App() {
 
   const route = useRoute();

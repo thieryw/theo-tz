@@ -2,6 +2,7 @@
 import { basename as pathBasename } from "path";
 import { getCount } from "./utils/getCount";
 import { assert } from "evt/tools/typeSafety/assert";
+import { join as pathJoin } from "path";
 
 export type ParsedImage = { title: string; urlToken: string; };
 
@@ -41,13 +42,14 @@ arrOut
 export function arrayOfImagePathToParsedImages(
     params: {
         arrayOfImagePath: string[];
+        importPathPrefix: string;
     }
 ): {
     imagesImportStatements: string;
     parsedImages: ParsedImage[];
 } {
 
-    const { arrayOfImagePath } = params;
+    const { arrayOfImagePath, importPathPrefix } = params;
 
     const urlTokenByPath = new Map<string, string>();
 
@@ -81,7 +83,7 @@ export function arrayOfImagePathToParsedImages(
             .sort(({ order: a }, { order: b }) => a - b)
             .map(({ order, ...rest }) => rest),
         "imagesImportStatements": arrayOfImagePath
-            .map(imagePath => `import ${urlTokenByPath.get(imagePath)} from "${imagePath}";`)
+            .map(imagePath => `import ${urlTokenByPath.get(imagePath)} from "${pathJoin(importPathPrefix, imagePath)}";`)
             .join("\n"),
 
     };

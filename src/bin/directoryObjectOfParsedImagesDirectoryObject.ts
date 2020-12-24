@@ -9,48 +9,75 @@ export type ParsedImagesDirectoryObject = {
     directories: Record<string, ParsedImagesDirectoryObject>;
 };
 
-export function directoryObjectOfParsedImagesDirectoryObjectRec(
+export function directoryObjectOfParsedImagesDirectoryObjectRecFactory(
     params: {
-        directoryObject: DirectoryObject;
-        arrOfImagesImportStatements: string[];
+        importPathPrefix: string;
     }
-): ParsedImagesDirectoryObject {
+) {
 
-    const { directoryObject, arrOfImagesImportStatements } = params;
+    const { importPathPrefix } = params;
 
-    const { files, directories } = directoryObject;
+    function directoryObjectOfParsedImagesDirectoryObjectRec(
+        params: {
+            directoryObject: DirectoryObject;
+            arrOfImagesImportStatements: string[];
+        }
+    ): ParsedImagesDirectoryObject {
 
-    const { imagesImportStatements, parsedImages } = arrayOfImagePathToParsedImages({
-        "arrayOfImagePath": files
-    });
+        const { directoryObject, arrOfImagesImportStatements } = params;
 
-    arrOfImagesImportStatements.push(imagesImportStatements);
+        const { files, directories } = directoryObject;
 
-    return {
-        parsedImages,
-        "directories":
-            fromEntries(
-                Object.entries(directories)
-                    .map(([directoryBasename, directoryObject]) => [
-                        directoryBasename,
-                        directoryObjectOfParsedImagesDirectoryObjectRec({ directoryObject, arrOfImagesImportStatements })
-                    ])
-            )
-    };
+        const { imagesImportStatements, parsedImages } = arrayOfImagePathToParsedImages({
+            "arrayOfImagePath": files,
+            importPathPrefix
+        });
+
+        if (imagesImportStatements !== "") {
+
+            arrOfImagesImportStatements.push(imagesImportStatements);
+
+        }
+
+        return {
+            parsedImages,
+            "directories":
+                fromEntries(
+                    Object.entries(directories)
+                        .map(([directoryBasename, directoryObject]) => [
+                            directoryBasename,
+                            directoryObjectOfParsedImagesDirectoryObjectRec({
+                                directoryObject,
+                                arrOfImagesImportStatements
+                            })
+                        ])
+                )
+        };
+
+    }
+
+    return { directoryObjectOfParsedImagesDirectoryObjectRec };
 
 }
 
 
+
 export function directoryObjectOfParsedImagesDirectoryObject(
-    params: { directoryObject: DirectoryObject }
+    params: {
+        directoryObject: DirectoryObject;
+        importPathPrefix: string;
+    }
 ): {
     imagesImportStatements: string;
     parsedImagesDirectoryObject: ParsedImagesDirectoryObject;
 } {
 
-    const { directoryObject } = params;
+    const { directoryObject, importPathPrefix } = params;
 
     const arrOfImagesImportStatements: string[] = [];
+
+    const { directoryObjectOfParsedImagesDirectoryObjectRec} = 
+        directoryObjectOfParsedImagesDirectoryObjectRecFactory({ importPathPrefix });
 
     const parsedImagesDirectoryObject = directoryObjectOfParsedImagesDirectoryObjectRec({
         directoryObject,

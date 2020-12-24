@@ -17,24 +17,24 @@ export function stringifyToSourceCodeParsedImageDirectoryObject(
         parsedImagesDirectoryObject,
         (key, value) => {
 
-            if( 
-                key === "parsedImages" && 
-                value.length === 0 
+            if (
+                key === "parsedImages" &&
+                value.length === 0
             ) {
                 return undefined;
             }
 
-            if( 
+            if (
                 key === "directories" &&
                 Object.keys(value).length === 0
             ) {
                 return undefined;
             }
 
-            if( 
-                key === "title" && 
+            if (
+                key === "title" &&
                 value === ""
-            ){
+            ) {
                 return undefined;
             }
 
@@ -53,15 +53,15 @@ export function stringifyToSourceCodeParsedImageDirectoryObject(
             break;
         }
 
-        const [,group]= match;
+        const [, group] = match;
 
         sourceCode = sourceCode.replace(group, group.replace(/"/g, ""))
 
     }
 
-    sourceCode= sourceCode
+    sourceCode = sourceCode
         .split("\n")
-        .map(line=> {
+        .map(line => {
 
             if (!/^\s*"title": /.test(line)) {
                 return line;
