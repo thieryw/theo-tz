@@ -5,16 +5,11 @@ import { arrayOfPathToDirectoryObject } from "./utils/arrayOfPathToDirectoryObje
 import { directoryObjectOfParsedImagesDirectoryObject } from "./directoryObjectOfParsedImagesDirectoryObject";
 import { stringifyToSourceCodeParsedImageDirectoryObject } from "./stringifyToSourceCodeParsedImageDirectoryObject";
 import * as fs from "fs";
-
-
-
 import { join as pathJoin } from "path";
 
 const directoryPath = pathJoin("src", "assets", "gallery");
 
 const arrayOfPath = crawl(directoryPath);
-
-console.log(arrayOfPath);
 
 const directoryObject = arrayOfPathToDirectoryObject({ arrayOfPath });
 
