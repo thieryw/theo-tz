@@ -8,6 +8,15 @@
 
 https://theo-tz.com
 
+# Generate `src/generated/galleryAssets.ts` 
+
+```bash
+yarn run postinstall
+```
+Note that this script will be automatically run after each `yarn install` 
+
+![video](https://filedn.com/lYPEPucNMheV19aDu23lK0Q/misc/script_gallery_will.mov)
+
 
 # Getting Started with Create React App
 
