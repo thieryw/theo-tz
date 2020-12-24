@@ -29,8 +29,14 @@ const { sourceCode } = stringifyToSourceCodeParsedImageDirectoryObject({
     imagesImportStatements
 });
 
+const generatedDirPath = pathJoin("src", "generated");
+
+if (!fs.existsSync(generatedDirPath)) {
+    fs.mkdirSync(generatedDirPath);
+}
+
 fs.writeFileSync(
-    pathJoin("src", "generatedGalleryAsset.ts"),
+    pathJoin(generatedDirPath, "galleryAssets.ts"),
     Buffer.from(
         [
             `// This file have been automatically generated do not edit manually`,
