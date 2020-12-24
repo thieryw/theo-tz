@@ -13,7 +13,36 @@ export function stringifyToSourceCodeParsedImageDirectoryObject(
         parsedImagesDirectoryObject
     } = params;
 
-    let sourceCode = JSON.stringify(parsedImagesDirectoryObject, null, 2)
+    let sourceCode = JSON.stringify(
+        parsedImagesDirectoryObject,
+        (key, value) => {
+
+            if( 
+                key === "parsedImages" && 
+                value.length === 0 
+            ) {
+                return undefined;
+            }
+
+            if( 
+                key === "directories" &&
+                Object.keys(value).length === 0
+            ) {
+                return undefined;
+            }
+
+            if( 
+                key === "title" && 
+                value === ""
+            ){
+                return undefined;
+            }
+
+            return value;
+
+        },
+        2
+    )
         .replace(/"urlToken":/g, `"url":`);
 
     while (true) {
@@ -29,7 +58,7 @@ export function stringifyToSourceCodeParsedImageDirectoryObject(
     }
 
     sourceCode = [
-        imagesImportStatements, 
+        imagesImportStatements,
         `export const generatedGalleryAsset = ${sourceCode} as const;`
     ].join("\n\n");
 

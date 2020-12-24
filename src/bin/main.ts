@@ -33,8 +33,8 @@ fs.writeFileSync(
     pathJoin("src", "generatedGalleryAsset.ts"),
     Buffer.from(
         [
-        `// This file have been automatically generated do not edit manually`,
-        sourceCode, 
+            `// This file have been automatically generated do not edit manually`,
+            sourceCode,
         ].join("\n"),
         "utf8"
     )
