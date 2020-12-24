@@ -53,9 +53,24 @@ export function stringifyToSourceCodeParsedImageDirectoryObject(
             break;
         }
 
-        sourceCode = sourceCode.replace(match[1], match[1].replace(/"/g, ""))
+        const [,group]= match;
+
+        sourceCode = sourceCode.replace(group, group.replace(/"/g, ""))
 
     }
+
+    sourceCode= sourceCode
+        .split("\n")
+        .map(line=> {
+
+            if (!/^\s*"title": /.test(line)) {
+                return line;
+            }
+
+            return line.replace(/,$/, " as const,");
+
+        })
+        .join("\n");
 
     sourceCode = [
         imagesImportStatements,
