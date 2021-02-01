@@ -83,7 +83,8 @@ $boxShadow: -1px 0px 15px 0px rgba(0,0,0,0.52);
             transition: border 300ms, box-shadow 300ms, opacity 300ms, transform 800ms !important;
 
             svg{
-                font-size: 3em;
+                width: 50px;
+                height: 50px;
                 fill: grey;
                 transition: fill 300ms, transform 300ms;
             }

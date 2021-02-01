@@ -84,7 +84,7 @@ export function arrayOfImagePathToParsedImages(
             .map(({ order, ...rest }) => rest),
         "imagesImportStatements": arrayOfImagePath
             .map(imagePath => `import ${urlTokenByPath.get(imagePath)} from "${pathJoin(importPathPrefix, imagePath)}";`)
-            .join("\n"),
+            .join("\n")
 
     };
 

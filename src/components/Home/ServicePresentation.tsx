@@ -1,9 +1,15 @@
 import React, {useRef} from "react";
-import {Camera, Portraits, Printing, PenTool} from "../../iconComponents/index";
+import {ReactComponent as Camera} from "../../assets/SVG/camera.svg";
+import {ReactComponent as Printing} from "../../assets/SVG/printing.svg";
+import {ReactComponent as Portraits} from "../../assets/SVG/portraits.svg";
+import {ReactComponent as PenTool} from "../../assets/SVG/pen-tool.svg";
+
 import {portrait, photoReport, journalism, impression} from "./texts";
 import {useAnimation} from "../../customHooks/useAnimation";
 import {useScroll} from "../../customHooks/useScroll";
 import brush from "./media/brush.png";
+
+
 
 export const ServicePresentation: React.FunctionComponent = ()=>{
 

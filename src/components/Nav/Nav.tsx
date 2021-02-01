@@ -1,6 +1,6 @@
 import React, {useState, useRef, useCallback, useEffect} from "react";
 import {useWindowResize} from "../../customHooks/useWindowResize";
-import {Menu} from "../../iconComponents/index";
+import {ReactComponent as Menu} from "../../assets/SVG/menu.svg";
 import "./Nav.scss";
 import {routes} from "../../router";
 
@@ -99,9 +99,9 @@ const ListElement: React.FunctionComponent<{
     const [isSubListExpanded, setIsSubListExpanded] = useState(false);
 
     const subRoutes = [
-        routes.france,
-        routes.etienne,
-        routes.airStep
+        routes.naturalism,
+        routes.portraits,
+        routes.events
     ]
 
     const subListRef = useRef<HTMLUListElement>(null);

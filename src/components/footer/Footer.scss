@@ -71,36 +71,6 @@ footer{
             display: none;
         }
 
-
-        /*span{
-            display: flex;
-            position: relative;
-            p{
-                color: white !important;
-                text-decoration: underline;
-                padding: 0 5px 0 5px;
-            }
-            p:hover{
-                cursor: pointer;
-            }
-
-
-            em{
-                position: absolute;
-                opacity: 0;
-                bottom: -40px;
-                border: solid white 1px;
-                padding: 10px;
-                background-color: rgba(32, 30, 30, 0.836);
-                transition: opacity 300ms;
-
-            }
-            em:hover{
-                cursor: default;
-            }
-        }*/
-
-        
         
         div{
             margin: 0 80px 0 80px;
@@ -108,7 +78,8 @@ footer{
             justify-content: center;
             svg{
                 fill: white;
-                font-size: 2.5em;
+                width: 40px;
+                height: 40px;
                 transition: fill 300ms, transform 300ms;
             }
 
@@ -160,7 +131,7 @@ footer{
     }
 }
 
-.france-footer, .antilles-footer, .reunion-footer, .canada-footer, .etienne-footer, .melodie-footer, .confluence-footer, .annaAndJonathan-footer, .claire-footer, .airStep-footer, .loveMe-footer{
+.naturalism-footer, .portraits-footer, .events-footer{
     color: black;
     .background{
         background: none;

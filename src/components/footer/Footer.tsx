@@ -1,7 +1,9 @@
 import React from "react";
 import signatureUrl from "../Home/media/signature.png";
 import blackSignatureUrl from "./black-signature.png";
-import {Facebook, Instagram, Email} from "../../iconComponents/index";
+import {ReactComponent as Facebook} from "../../assets/SVG/facebook.svg";
+import {ReactComponent as Instagram} from "../../assets/SVG/instagram.svg";
+import {ReactComponent as Email} from "../../assets/SVG/email.svg";
 import "./Footer.scss";
 
 

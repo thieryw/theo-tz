@@ -19,8 +19,6 @@
     "build": "react-scripts build && hack-gh-pages src/router.ts && dist/bin/generateGallery.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "generateIcons": "@svgr/cli src/SVG --out-dir src/iconComponents --icon --typescript",
-    "exportImages": "node ./src/scripts/imageExporter/imageExporter.js",
     "postinstall": "ts-node --skip-project src/bin/main.ts"
   },
   "eslintConfig": {

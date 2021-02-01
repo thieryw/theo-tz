@@ -31,7 +31,7 @@
             z-index: 4;
             svg{
                 fill: white;
-                font-size: 2em;
+                width: 40px;
                 transition: fill 300ms;
             }
         }
@@ -41,7 +41,7 @@
             transition: transform 300ms;
             svg{
                 fill: white;
-                font-size: 2.5em;
+                width: 50px;
             }
         }
 
