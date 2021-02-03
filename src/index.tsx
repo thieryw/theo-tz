@@ -18,6 +18,8 @@ import eventsBackground from "./assets/galleryBanners/events/events-background.j
 import {description as naturalismDescription} from "./assets/galleryBanners/naturalism/description";
 import logoUrl from "./assets/galleryBanners/signature.png";
 
+import {NavMenu} from "./components/NavMenu/NavMenu";
+import type {MenuProps} from "./components/NavMenu/NavMenu";
 
 function App() {
 
@@ -74,6 +76,34 @@ function App() {
           initialImageHeights={[300, 451]}
           backgroundBrightness={0.6}
         
+        />
+      }
+
+      {
+        route.name === "france" && <NavMenu 
+          menuItems={[
+            {
+              routeName:"route 1",
+              subMenu: [
+                "route 1 1",
+                "route 1 2",
+                "route 1 3",
+              ]
+            },
+            {
+              routeName: "route 2",
+              subMenu: [
+                "route 2 1"
+              ]
+              
+            },
+            {
+              routeName: "route 3"
+            }
+
+          ]}
+          
+
         />
       }
      
