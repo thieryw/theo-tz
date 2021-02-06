@@ -3,9 +3,25 @@ import {makeStyles, createStyles} from "@material-ui/core";
 import {Evt} from "evt";
 import {useEvt} from "evt/hooks"
 
-
 const evtActiveSubMenu = Evt.create<{index: number | undefined}>
     ({"index": undefined});
+
+const evtClickedAway = Evt.create();
+
+
+window.addEventListener("click", (event)=>{
+    const menuElements = document.getElementsByClassName("menu-element");
+
+    for(let i = 0; i < menuElements.length; i++){
+        if(menuElements[i] === event.target){
+            return;
+        }
+    }
+        
+
+    evtClickedAway.post();
+})
+
 
 
 const useStyle = makeStyles(
@@ -65,6 +81,8 @@ type ItemProps = {
 }
 
 
+
+
 const MenuItem = (props: ItemProps)=>{
 
     const {item, index} = props;
@@ -73,35 +91,38 @@ const MenuItem = (props: ItemProps)=>{
     useState<boolean | undefined>(item.subMenu === undefined ? undefined : false);
 
 
+
+
     const toggleSubMenu = useCallback(()=>{
 
 
-        
+        setIsSubMenuDisplayed(!isSubMenuDisplayed);
+                
         evtActiveSubMenu.post({
             "index": index,
         });
 
-    }, [index])
+
+    }, [index, isSubMenuDisplayed])
+
+    useEvt(ctx=>{
+        evtActiveSubMenu.attach(ctx, ()=>{
+            if(evtActiveSubMenu.state.index !== index && isSubMenuDisplayed){
+                setIsSubMenuDisplayed(false);
+            }
+        })
+    },[isSubMenuDisplayed])
+
 
     useEvt(ctx =>{
-        evtActiveSubMenu.attach(
-            ctx,
-            ()=> {
-
-                
-                if(index !== evtActiveSubMenu.state.index){
-                    setIsSubMenuDisplayed(false);
-                    return;
-                }
-
-               
-
-                setIsSubMenuDisplayed(true);
-
+        evtClickedAway.attach(ctx, ()=>{
+            if(isSubMenuDisplayed){
+                setIsSubMenuDisplayed(false);
             }
-        )
+        })
 
-    },[isSubMenuDisplayed, index])
+    },[isSubMenuDisplayed])
+
 
     const classes = useStyle({
         isSubMenuDisplayed: isSubMenuDisplayed === undefined ?
@@ -109,28 +130,30 @@ const MenuItem = (props: ItemProps)=>{
     })
 
 
+
+
     return (
-        <li>
-            <p onClick={toggleSubMenu}>
-                {
-                    item.routeName
-                }
-            </p>
-            {
-                item.subMenu === undefined ? "" : 
-                <ul className={classes["sub-menu"]}>
+            <li >
+                <p className="menu-element" onClick={toggleSubMenu}>
                     {
-                        item.subMenu.map(subItem => <li key={subItem}>
-                            <p>
-                                {
-                                    subItem
-                                }
-                            </p>
-                        </li>)
+                        item.routeName
                     }
-                </ul>
-            }
-        </li>
+                </p>
+                {
+                    item.subMenu === undefined ? "" : 
+                    <ul className={classes["sub-menu"]}>
+                        {
+                            item.subMenu.map(subItem => <li key={subItem}>
+                                <p>
+                                    {
+                                        subItem
+                                    }
+                                </p>
+                            </li>)
+                        }
+                    </ul>
+                }
+            </li>
     )
 }
 
