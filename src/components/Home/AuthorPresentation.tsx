@@ -54,7 +54,7 @@ export const AuthorPresentation:React.FunctionComponent = ()=>{
                         {authorText}
 
 
-                    <span {...routes.author().link}>Lire la suite</span>
+                    <span {...routes.auteur().link}>Lire la suite</span>
                     </p>
                 </div>
 

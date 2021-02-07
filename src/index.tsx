@@ -4,7 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {Home} from "./components/Home/Home";
 import {Footer} from "./components/footer/Footer";
-import {Nav} from "./components/Nav/Nav";
+//import {Nav} from "./components/Nav/Nav";
 import {useRoute, RouteProvider} from "./router";
 import {Author} from "./components/Author/Author";
 /*import {Naturalism, natureRouteGroup} from "./components/Gallerys/Naturalism/Naturalism";
@@ -19,7 +19,7 @@ import {description as naturalismDescription} from "./assets/galleryBanners/natu
 import logoUrl from "./assets/galleryBanners/signature.png";
 
 import {NavMenu} from "./components/NavMenu/NavMenu";
-import type {MenuProps} from "./components/NavMenu/NavMenu";
+import {routes} from "./router";
 
 function App() {
 
@@ -30,15 +30,36 @@ function App() {
   return (
     <div className="App">
 
+      <NavMenu 
+        menuItems={[
+          {
+            routeName: routes.accueil,
+    
+          },
+          {
+            routeName: "portfolio",
+            subMenu: [
+              routes.naturalisme,
+              routes.portraits,
+              routes.evènements
+            ]
+    
+          },
+          {
+            routeName: routes.auteur
+          }
 
-      <Nav routeName={route.name} />
+        ]}
+    
 
-      {route.name === "home" && <Home/>}
-      {route.name === "author" && <Author/>}
+      />
+
+      {route.name === "accueil" && <Home/>}
+      {route.name === "auteur" && <Author/>}
       {/*natureRouteGroup.has(route) && <Naturalism route={route}/>*/}
       {/*portraitRouteGroup.has(route) && <Portraits route={route}/>*/}
       {/*eventsRouteGroup.has(route) && <Events route={route} />*/}
-      {route.name === "naturalism" && <Portfolio
+      {route.name === "naturalisme" && <Portfolio
         assets={generatedGalleryAsset.directories.naturalism.directories}
         backgroundImageUrl={naturalismBackground}
         title="naturalisme"
@@ -65,7 +86,7 @@ function App() {
       }
 
       {
-        route.name === "events" && <Portfolio 
+        route.name === "evènements" && <Portfolio 
 
           assets={generatedGalleryAsset.directories.evenements.directories}
           backgroundImageUrl={eventsBackground}
@@ -79,33 +100,7 @@ function App() {
         />
       }
 
-      {
-        route.name === "france" && <NavMenu 
-          menuItems={[
-            {
-              routeName:"route 1",
-              subMenu: [
-                "route 1 1",
-                "route 1 2",
-                "route 1 3",
-              ]
-            },
-            {
-              routeName: "route 2",
-              subMenu: [
-                "route 2 1"
-              ]
-              
-            },
-            {
-              routeName: "route 3"
-            }
 
-          ]}
-          
-
-        />
-      }
      
 
       

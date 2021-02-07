@@ -74,13 +74,13 @@ export const Nav: React.FunctionComponent<{
             <div onClick={toggleMenu}><Menu /></div>
 
             <ul ref={menuRef}>
-                <ListElement route={routes.home} name="ACCUEIL"/>
+                <ListElement route={routes.accueil} name="ACCUEIL"/>
                 <ListElement name="PORTFOLIO" subListElements={
                     ["Naturalisme", "Portraits", "Evènements"]
 
                 }
                 />
-                <ListElement route={routes.author} name="AUTEUR"/>
+                <ListElement route={routes.auteur} name="AUTEUR"/>
 
                 
             </ul>
@@ -99,9 +99,9 @@ const ListElement: React.FunctionComponent<{
     const [isSubListExpanded, setIsSubListExpanded] = useState(false);
 
     const subRoutes = [
-        routes.naturalism,
+        routes.naturalisme,
         routes.portraits,
-        routes.events
+        routes.evènements
     ]
 
     const subListRef = useRef<HTMLUListElement>(null);
