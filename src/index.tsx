@@ -41,7 +41,7 @@ function App() {
             subMenu: [
               routes.naturalisme,
               routes.portraits,
-              routes.evènements
+              routes.evènements,
             ]
     
           },

@@ -2,11 +2,20 @@ import React, {useCallback, useState, useRef, useEffect} from "react";
 import {makeStyles, createStyles} from "@material-ui/core";
 import {Evt} from "evt";
 import {useEvt} from "evt/hooks";
+import {ReactComponent as Menu} from "./assets/menu.svg";
+import {useWindowResize} from "../../customHooks/index";
+
+type Item = {
+    routeName: any;
+    subMenu?: any[];
+}
 
 const evtActiveSubMenu = Evt.create<{index: number | undefined}>
     ({"index": undefined});
 
 const evtClickedAway = Evt.create();
+
+
 
 
 window.addEventListener("click", (event)=>{
@@ -31,16 +40,28 @@ const useStyle = makeStyles(
                       "sub-menu" | 
                       "sub-menu-item" |
                       "menu-text" |
-                      "sub-menu-text", {isSubMenuDisplayed?: boolean}
+                      "sub-menu-text" |
+                      "menu-icon", {
+                          isSubMenuDisplayed?: boolean, 
+                          item?: Item, 
+                          isMenuDisplayed?: boolean
+                        }
         >({
 
         "item": ()=>({
             listStyle: "none",
             margin: "0 35px 0 35px",
             marginBlockStart: "0",
+            [theme.breakpoints.down("xs")]: {
+                margin:"0"
+
+            }
+
+
+
             
         }),
-        "menu": ()=>({
+        "menu": ({isMenuDisplayed})=>({
             display: "flex",
             color: "white",
             justifyContent: "center",
@@ -48,39 +69,72 @@ const useStyle = makeStyles(
             width: "100vw",
             zIndex: 3,
             paddingInlineStart: 0,
-            [theme.breakpoints.down("sm")]: {
-                flexDirection: "column",
-                backgroundColor: "rgba(29,26,26,.87)"
-            }
-        }),
-        "sub-menu": ({isSubMenuDisplayed})=>({
-            opacity: `${isSubMenuDisplayed ? "1" : "0"}`,
+            opacity: `${isMenuDisplayed ? "1" : "0"}`,
             transition: "opacity 500ms",
+            [theme.breakpoints.down("xs")]: {
+                flexDirection: "column",
+                backgroundColor: "rgba(29,26,26,.87)",
+                top: "57px",
+            },
+        }),
+        "sub-menu": ({isSubMenuDisplayed, item})=>({
+            opacity: `${isSubMenuDisplayed ? "1" : "0"}`,
+            height: (()=>{
+
+                if(!isSubMenuDisplayed || 
+                    item === undefined || 
+                    item.subMenu === undefined
+                ){
+                    return "0";
+                }
+
+                return `${item.subMenu.length * 30}px`;
+
+            })(),
+            transition: "opacity 500ms, height 300ms",
             overflow: "hidden",
             paddingInlineStart: 0,
             backgroundColor: "rgba(63, 55, 55, .61)",
             borderRadius: "2px",
             marginTop: "30px",
-            [theme.breakpoints.down("sm")]: {
-                
-                opacity: 1,
-                height: "auto",
-                transition: "max-height 300ms"
-
+            paddingTop: "10px",
+            [theme.breakpoints.down("xs")]: {
+                backgroundColor: "rgba(0, 0, 0, 0.89)",
+                width: "100vw",
+                borderRadius: "0",
+                marginTop: "0",
+                position: "relative",
+                top: "5px"
             }
 
 
         }),
         "sub-menu-item": ()=>({
             listStyle: "none",
-            padding: "0 20px 0 10px"
+            padding: "0 20px 0 10px",
+            [theme.breakpoints.down("xs")]: {
+                padding: "0"
+            }
         }),
-        "menu-text": ()=>({
+        "menu-text": ({item})=>({
             cursor: "pointer",
             fontFamily: "'Open Sans', sans-serif",
             fontSize: "0.9em",
             letterSpacing: "0.05em",
             textTransform: "uppercase",
+            [theme.breakpoints.down("xs")]: {
+                textAlign: "center",
+                "& p": {
+                    marginBlockEnd: `${
+                        item === undefined ? "10px" : 
+                        item.subMenu === undefined ? "10px" : "0"
+                    }`,
+
+                    marginBlockStart: "10px"
+                }
+
+
+            },
             "& div": {
                 width: "100%",
                 transform: "scaleX(0)",
@@ -88,8 +142,8 @@ const useStyle = makeStyles(
                 borderTop: "solid white 1px",
                 pointerEvents: "none",
                 transition: "transform 200ms",
-                [theme.breakpoints.down("sm")]: {
-                    display: "none"
+                [theme.breakpoints.down("xs")]: {
+                    display: "none", 
                 }
 
             },
@@ -104,24 +158,40 @@ const useStyle = makeStyles(
             fontFamily: "'Open Sans', sans-serif",
             fontStyle: "italic",
             fontSize: "0.9em",
-            letterSpacing: "0.1em"
+            letterSpacing: "0.1em",
+            marginBlock: "0",
+            height: "30px",
+            [theme.breakpoints.down("xs")]:{
+                textAlign: "center"
+            }
 
 
+        }),
+        "menu-icon": ()=>({
+            position: "absolute",
+            left: "50%",
+            marginLeft: "-27px",
+            top: "15px",
+            zIndex: 4,
+            borderRadius: "5px",
+            backgroundColor: "black",
+            padding: "0 10px 5px 10px",
+            "& svg": {
+                width: "32px",
+                height: "30px",
+                fill: "white",
+                marginTop: "7px"
+
+            },
+            "@media (min-width: 600px)": {
+                display: "none",
+            }
         })
-
             
 
     })
 )
 
-
-
-
-
-type Item = {
-    routeName: any;
-    subMenu?: any[];
-}
 
 export type MenuProps = {
     menuItems: Item[];
@@ -131,22 +201,55 @@ export type MenuProps = {
 export const NavMenu = (props: MenuProps) =>{
     const {menuItems} = props;
 
-    const classes = useStyle({});
+    const [isMenuDisplayed, setIsMenuDisplayed] = useState(false);
+    const menuRef = useRef<HTMLUListElement>(null);
+
+    const classes = useStyle({isMenuDisplayed});
+
+    useEffect(()=>{
+        if(!menuRef.current){
+            return;
+        }
+
+        menuRef.current.style.pointerEvents = `${
+            !isMenuDisplayed ? "none" : "unset"
+        }`;
+
+    })
+
+    
+
+    useWindowResize(()=>{
+
+        if(window.innerWidth > 600){
+            setIsMenuDisplayed(true);
+            return;
+        }
+
+        setIsMenuDisplayed(false);
+    })
 
 
     return(
-        <ul className={classes.menu}>
-            {
-                menuItems.map((item, index) => <MenuItem 
-                    index={index} 
-                    item={item}
-                    key={item.subMenu === undefined ? 
-                        item.routeName.name : item.routeName
-                    }
-                />) 
-            }
+        <>
+            <div onClick={
+                useCallback(()=>{
+                    setIsMenuDisplayed(!isMenuDisplayed);
+                },[isMenuDisplayed])
+            } className={classes["menu-icon"]}><Menu /></div>
+            <ul ref={menuRef} className={classes.menu}>
+                {
+                    menuItems.map((item, index) => <MenuItem 
+                        index={index} 
+                        item={item}
+                        key={item.subMenu === undefined ? 
+                            item.routeName.name : item.routeName
+                        }
+                    />) 
+                }
 
-        </ul>
+            </ul>
+        </>
 
     )
 }
@@ -170,22 +273,14 @@ const MenuItem = (props: ItemProps)=>{
 
 
     useEffect(()=>{
-        if(!subMenuRef.current){
+        if(!subMenuRef.current || item.subMenu === undefined){
             return;
         }
 
         subMenuRef.current.style.pointerEvents = 
             `${!isSubMenuDisplayed ? "none" : "unset"}`;
 
-        if(window.screen.width <= 959.95){
-            subMenuRef.current.style.maxHeight = 
-                `${!isSubMenuDisplayed ? "0" : "600px"}`;
-        }
-        
-
     })
-
-
 
 
     const toggleSubMenu = useCallback(()=>{
@@ -222,8 +317,10 @@ const MenuItem = (props: ItemProps)=>{
 
 
     const classes = useStyle({
-        isSubMenuDisplayed: isSubMenuDisplayed === undefined ?
-        true : isSubMenuDisplayed
+        "isSubMenuDisplayed": isSubMenuDisplayed === undefined ?
+        true : isSubMenuDisplayed,
+
+        "item": item
     })
 
 
