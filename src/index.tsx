@@ -4,12 +4,8 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {Home} from "./components/Home/Home";
 import {Footer} from "./components/footer/Footer";
-//import {Nav} from "./components/Nav/Nav";
 import {useRoute, RouteProvider} from "./router";
 import {Author} from "./components/Author/Author";
-/*import {Naturalism, natureRouteGroup} from "./components/Gallerys/Naturalism/Naturalism";
-import {Portraits, portraitRouteGroup} from "./components/Gallerys/Portraits/Portraits";
-import {Events, eventsRouteGroup} from "./components/Gallerys/Events/Events";*/
 import {generatedGalleryAsset} from "./generated/galleryAssets";
 import {Portfolio} from "./components/Portfolio/Portfolio";
 import naturalismBackground from "./assets/galleryBanners/naturalism/background-min.jpg"
@@ -50,15 +46,20 @@ function App() {
           }
 
         ]}
+
+        mobileMenuButtonPosition={(()=>{
+          if(route.name === "accueil"){
+            return "center";
+          }
+          return "right";
+        })()}
+
     
 
       />
 
       {route.name === "accueil" && <Home/>}
       {route.name === "auteur" && <Author/>}
-      {/*natureRouteGroup.has(route) && <Naturalism route={route}/>*/}
-      {/*portraitRouteGroup.has(route) && <Portraits route={route}/>*/}
-      {/*eventsRouteGroup.has(route) && <Events route={route} />*/}
       {route.name === "naturalisme" && <Portfolio
         assets={generatedGalleryAsset.directories.naturalism.directories}
         backgroundImageUrl={naturalismBackground}
