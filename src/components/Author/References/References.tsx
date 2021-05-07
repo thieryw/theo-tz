@@ -51,7 +51,7 @@ export const References: React.FunctionComponent = ()=>{
 
                     <ul>
                         {
-                            [3,4].map(
+                            [3].map(
                                 textNumber => 
                                 <ListItem 
                                     asyncFunction={asyncExtractText}
@@ -64,7 +64,7 @@ export const References: React.FunctionComponent = ()=>{
                         <img src={brushDivider} alt="brush divider"/>
                  
                         {
-                            [5,6].map(
+                            [4,5,6,7].map(
                                 textNumber => 
                                 <ListItem 
                                     asyncFunction={asyncExtractText}

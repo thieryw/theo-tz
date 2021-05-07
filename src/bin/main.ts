@@ -11,7 +11,7 @@ const srcDirectoryPath = "src";
 
 const galleryDirectoryPath = pathJoin(srcDirectoryPath, "assets", "gallery");
 
-const arrayOfPath = crawl(galleryDirectoryPath);
+const arrayOfPath = crawl(galleryDirectoryPath).filter(path => !path.includes(".DS_Store"));
 
 const directoryObject = arrayOfPathToDirectoryObject({ arrayOfPath });
 
