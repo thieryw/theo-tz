@@ -17,7 +17,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build && hack-gh-pages src/router.ts && dist/bin/generateGallery.js",
+    "build": "react-scripts build && hack-gh-pages src/router.ts",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "postinstall": "ts-node --skip-project src/bin/main.ts"
