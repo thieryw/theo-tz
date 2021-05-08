@@ -12,7 +12,6 @@ export const Footer: React.FunctionComponent<{
     routeName?: string;
 }> = props=>{
 
-    
 
     return(
         <footer className={props.routeName ? `${props.routeName}-footer` : ""}>

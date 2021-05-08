@@ -82,6 +82,7 @@ function App() {
           initialImageHeights={[400, 300, 335, 470, 400]}
           logoUrl={logoUrl}
           backgroundBrightness={0.5}
+          backgroundPosition="center 0"
           
         />
       }
@@ -92,8 +93,8 @@ function App() {
           assets={generatedGalleryAsset.directories.evenements.directories}
           backgroundImageUrl={eventsBackground}
           title="évènements"
-          bannerHeight={70}
-          backgroundPosition="0 -300px"
+          bannerHeight={85}
+          backgroundPosition="center"
           logoUrl={logoUrl}
           initialImageHeights={[300, 451]}
           backgroundBrightness={0.6}

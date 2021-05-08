@@ -234,22 +234,12 @@ export const NavMenu = (props: MenuProps) =>{
 
     const classes = useStyle({isMenuDisplayed, mobileMenuButtonPosition});
 
-    /*useEffect(()=>{
-        if(!menuRef.current){
-            return;
-        }
-
-        menuRef.current.style.pointerEvents = window.innerWidth > 600 ? "unset" :
-            !isMenuDisplayed ? "none" : "unset";
-        
-
-    });*/
+  
 
     useEvt(ctx=>{
         evtClickedAway.attach(ctx, ()=>{
 
             if(!isMenuDisplayed){
-                console.log("ok1");
                 return;
             }
 
