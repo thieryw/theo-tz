@@ -1,9 +1,10 @@
-import React, {useCallback, useState, useRef} from "react";
+import React, {useCallback, useState, useRef, memo} from "react";
 import {makeStyles, createStyles} from "@material-ui/core";
 import {Evt} from "evt";
 import {useEvt} from "evt/hooks";
 import {ReactComponent as Menu} from "./assets/menu.svg";
 import {useWindowResize} from "../../customHooks/index";
+
 
 type Item = {
     routeName: any;
@@ -226,7 +227,7 @@ export type MenuProps = {
 }
 
 
-export const NavMenu = (props: MenuProps) =>{
+export const NavMenu = memo((props: MenuProps) =>{
     const {menuItems, mobileMenuButtonPosition} = props;
 
     const [isMenuDisplayed, setIsMenuDisplayed] = useState(false);
@@ -283,125 +284,131 @@ export const NavMenu = (props: MenuProps) =>{
         </>
 
     )
-}
-
-type ItemProps = {
-    item: Item;
-    index: number;
-}
+});
 
 
+const { MenuItem } = (()=>{
+
+    type Props = {
+        item: Item;
+        index: number;
+    }
+
+    const MenuItem = memo((props: Props)=>{
+
+        const {item, index} = props;
+
+        const [isSubMenuDisplayed, setIsSubMenuDisplayed] = 
+        useState<boolean | undefined>(item.subMenu === undefined ? undefined : false);
 
 
-const MenuItem = (props: ItemProps)=>{
-
-    const {item, index} = props;
-
-    const [isSubMenuDisplayed, setIsSubMenuDisplayed] = 
-    useState<boolean | undefined>(item.subMenu === undefined ? undefined : false);
 
 
 
-    
 
+        const toggleSubMenu = useCallback(()=>{
 
-    const toggleSubMenu = useCallback(()=>{
-
-        if(isSubMenuDisplayed === undefined){
-            return;
-        }
-
-        setIsSubMenuDisplayed(!isSubMenuDisplayed);
-                
-        evtActiveSubMenu.post({
-            "index": index,
-        });
-
-    }, [index, isSubMenuDisplayed])
-
-    useEvt(ctx=>{
-        evtActiveSubMenu.attach(ctx, ()=>{
-            if(evtActiveSubMenu.state.index !== index && isSubMenuDisplayed){
-                setIsSubMenuDisplayed(false);
-            }
-        })
-    },[isSubMenuDisplayed])
-
-
-    useEvt(ctx =>{
-        evtClickedAway.attach(ctx, ()=>{
-            if(!isSubMenuDisplayed){
+            if(isSubMenuDisplayed === undefined){
                 return;
             }
-            setIsSubMenuDisplayed(false);
-        })
 
-    },[isSubMenuDisplayed])
+            setIsSubMenuDisplayed(!isSubMenuDisplayed);
 
+            evtActiveSubMenu.post({
+                "index": index,
+            });
 
-    const classes = useStyle({
-        "isSubMenuDisplayed": isSubMenuDisplayed === undefined ?
-        true : isSubMenuDisplayed,
+        }, [index, isSubMenuDisplayed])
 
-        "item": item
-    })
-
-
-
-
-    return (
-            <li className={classes.item} >
-                {
-                    item.subMenu === undefined ? <div className={classes["menu-text"]}>
-                        <p 
-
-                            {...item.routeName().link}
-                        >
-                        {item.routeName.name}
-                    </p>
-                        <div></div>
-                    </div> : 
-                    <div className={classes["menu-text"]}>
-                        <p className="menu-element" onClick={toggleSubMenu}>
-                            {
-                                item.routeName
-                            }
-                            <span style={{
-                                position: "relative",
-                                top: "-4px",
-                                left: "15px"
+        useEvt(ctx=>{
+            evtActiveSubMenu.attach(ctx, ()=>{
+                if(evtActiveSubMenu.state.index !== index && isSubMenuDisplayed){
+                    setIsSubMenuDisplayed(false);
+                }
+            })
+        },[isSubMenuDisplayed])
 
 
-                            }}>⌄</span>
+        useEvt(ctx =>{
+            evtClickedAway.attach(ctx, ()=>{
+                if(!isSubMenuDisplayed){
+                    return;
+                }
+                setIsSubMenuDisplayed(false);
+            })
+
+        },[isSubMenuDisplayed])
+
+
+        const classes = useStyle({
+            "isSubMenuDisplayed": isSubMenuDisplayed === undefined ?
+            true : isSubMenuDisplayed,
+
+            "item": item
+        });
+
+
+
+
+        return (
+                <li className={classes.item} >
+                    {
+                        item.subMenu === undefined ? <div className={classes["menu-text"]}>
+                            <p 
+                                {...item.routeName().link}
+                            >
+                            {item.routeName.name}
                         </p>
+                            <div></div>
+                        </div> : 
+                        <div className={classes["menu-text"]}>
+                            <p className="menu-element" onClick={toggleSubMenu}>
+                                {
+                                    item.routeName
+                                }
+                                <span style={{
+                                    position: "relative",
+                                    top: "-4px",
+                                    left: "15px"
 
-                        <div></div>
-                    </div>
-                }
 
-                
-                {
-                    item.subMenu === undefined ? "" : 
-                    <ul className={classes["sub-menu"]}>
-                        {
-                            item.subMenu.map(subItem => <li className={classes["sub-menu-item"]} key={
-                                subItem.name
-                            }>
-                                <p className={classes["sub-menu-text"]} {...subItem().link}>
-                                    <span style={{textTransform: "uppercase"}}>
+                                }}>⌄</span>
+                            </p>
+
+                            <div></div>
+                        </div>
+                    }
+
+
+                    {
+                        item.subMenu === undefined ? "" : 
+                        <ul className={classes["sub-menu"]}>
+                            {
+                                item.subMenu.map(subItem => <li className={classes["sub-menu-item"]} key={
+                                    subItem.name
+                                }>
+                                    <p className={classes["sub-menu-text"]} {...subItem().link}>
+                                        <span style={{textTransform: "uppercase"}}>
+                                            {
+                                                subItem.name.charAt(0)
+                                            }
+                                        </span>
                                         {
-                                            subItem.name.charAt(0)
+                                            subItem.name.substring(1)
                                         }
-                                    </span>
-                                    {
-                                        subItem.name.substring(1)
-                                    }
-                                </p>
-                            </li>)
-                        }
-                    </ul>
-                }
-            </li>
-    )
-}
+                                    </p>
+                                </li>)
+                            }
+                        </ul>
+                    }
+                </li>
+        )
+    });
+    return {MenuItem}
+
+
+})();
+
+
+
 

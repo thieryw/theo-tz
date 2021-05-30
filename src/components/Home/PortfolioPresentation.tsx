@@ -29,29 +29,13 @@ const PortfolioPresentation: React.FunctionComponent<{
     const titlePositions: TitlePosition[]= ["top", "bottom", "top"];
 
     const portfolioRoutes = [
-        routes.france,
-        routes.etienne,
-        routes.airStep
+        routes.naturalisme,
+        routes.portraits,
+        routes.evènements
 
     ]
 
-
-    
-
-
-    
-
-
     useScroll(ref);
-
-
-
-
-
-
-
-
-
 
     return(
         <div 

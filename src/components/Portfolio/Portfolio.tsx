@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import "./main.scss";
 import brush from "./media/brush1.png";
 
@@ -45,6 +45,9 @@ export const Portfolio = (props: Props)=>{
         setActiveGalleryName
     ] = useState(Object.keys(assets)[0]);
 
+    useEffect(()=>{
+        window.scrollTo(0,0);
+    },[])
   
 
     return(
