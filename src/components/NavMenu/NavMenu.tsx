@@ -168,6 +168,7 @@ const useStyle = makeStyles(
             letterSpacing: "0.1em",
             marginBlock: "0",
             height: "30px",
+            margin: 0,
             [theme.breakpoints.down("xs")]:{
                 textAlign: "center"
             }
