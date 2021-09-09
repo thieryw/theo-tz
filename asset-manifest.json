@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.312f0bff.chunk.css",
-    "main.js": "/static/js/main.e9499b12.chunk.js",
-    "main.js.map": "/static/js/main.e9499b12.chunk.js.map",
+    "main.css": "/static/css/main.bdf07147.chunk.css",
+    "main.js": "/static/js/main.ec3d959b.chunk.js",
+    "main.js.map": "/static/js/main.ec3d959b.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.494beac3.js",
     "runtime-main.js.map": "/static/js/runtime-main.494beac3.js.map",
-    "static/js/2.e4ffbb4c.chunk.js": "/static/js/2.e4ffbb4c.chunk.js",
-    "static/js/2.e4ffbb4c.chunk.js.map": "/static/js/2.e4ffbb4c.chunk.js.map",
+    "static/js/2.14c4770a.chunk.js": "/static/js/2.14c4770a.chunk.js",
+    "static/js/2.14c4770a.chunk.js.map": "/static/js/2.14c4770a.chunk.js.map",
     "static/js/3.83030c43.chunk.js": "/static/js/3.83030c43.chunk.js",
     "static/js/3.83030c43.chunk.js.map": "/static/js/3.83030c43.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.312f0bff.chunk.css.map": "/static/css/main.312f0bff.chunk.css.map",
-    "static/js/2.e4ffbb4c.chunk.js.LICENSE.txt": "/static/js/2.e4ffbb4c.chunk.js.LICENSE.txt",
+    "static/css/main.bdf07147.chunk.css.map": "/static/css/main.bdf07147.chunk.css.map",
+    "static/js/2.14c4770a.chunk.js.LICENSE.txt": "/static/js/2.14c4770a.chunk.js.LICENSE.txt",
     "static/media/1-.52bccf68.jpg": "/static/media/1-.52bccf68.jpg",
     "static/media/1-.a8b1cbf5.jpg": "/static/media/1-.a8b1cbf5.jpg",
     "static/media/1-.bf19d598.jpg": "/static/media/1-.bf19d598.jpg",
@@ -230,7 +230,6 @@
     "static/media/portrait-background.bc4a503d.jpg": "/static/media/portrait-background.bc4a503d.jpg",
     "static/media/portraits.b1ae9938.svg": "/static/media/portraits.b1ae9938.svg",
     "static/media/printing.5b99709c.svg": "/static/media/printing.5b99709c.svg",
-    "static/media/references.1fd353d2.txt": "/static/media/references.1fd353d2.txt",
     "static/media/signature.146106dd.png": "/static/media/signature.146106dd.png",
     "static/media/signature.f01214a2.png": "/static/media/signature.f01214a2.png",
     "static/media/small-device-background.fde72eaa.jpg": "/static/media/small-device-background.fde72eaa.jpg",
@@ -238,8 +237,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.494beac3.js",
-    "static/js/2.e4ffbb4c.chunk.js",
-    "static/css/main.312f0bff.chunk.css",
-    "static/js/main.e9499b12.chunk.js"
+    "static/js/2.14c4770a.chunk.js",
+    "static/css/main.bdf07147.chunk.css",
+    "static/js/main.ec3d959b.chunk.js"
   ]
 }
