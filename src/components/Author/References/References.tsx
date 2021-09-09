@@ -1,22 +1,16 @@
-import React, {useRef} from "react";
+import React, {useRef, memo} from "react";
 import "./References.scss";
 import brushDivider from "../media/brush1.png";
 import {useAnimation} from "../../../customHooks/useAnimation";
 import {useScroll} from "../../../customHooks/useScroll";
-import {useAsync, UseAsyncReturn} from "react-async-hook";
-import {fetchTextData} from "../../../logic";
-//@ts-ignore
-import text from "./texts/references.txt";
 
 
 
 
-export const References: React.FunctionComponent = ()=>{
+export const References = memo(()=>{
 
     const ref = useRef<HTMLElement>(null);
     const childRef = useRef<HTMLDivElement>(null);
-
-    const asyncExtractText = useAsync(fetchTextData, [text]);
 
     useScroll(ref);
 
@@ -26,54 +20,32 @@ export const References: React.FunctionComponent = ()=>{
         "fadeDuration": 800
     })
 
-
     return(
         <section ref={ref} className="References">
             <div ref={childRef}>
                 <div>
-                    <h2>Références</h2>
+                    <h2>Références et distinctions</h2>
                     <img src={brushDivider} alt="brush divider"/>
                 </div>
 
                 <div>
                     <ul>
+                        <ListItem 
+                            text="Portfolio d'articles"
+                            link={{
+                                "href": "https://ginkio.com/theo-tz"
+                            }}
+                        />
                         {
-                            [0,1,2].map(
-                                textNumber => 
-                                <ListItem 
-                                    asyncFunction={asyncExtractText}
-                                    textNumber={textNumber}
-                                    key={textNumber}
-                                />
-                            )
+                            [
+                                "Prix du public- Festival de l'oiseau et de la Nature 2021",
+                                "Premier prix catégorie meilleure photo - concours Anticlichés 2021",
+                                "Premier prix catégorie Golden Hour & Deuxième prix catégorie Invisible/Visible – Concours ANUMA 2020",
+                                "Prix “coup de cœur” – Concours photo du Salon De l’Écologie 2018"
+                            ].map(text => <ListItem key={text} text={text} className="awards"/>)
                         }
                     </ul>
 
-                    <ul>
-                        {
-                            [3].map(
-                                textNumber => 
-                                <ListItem 
-                                    asyncFunction={asyncExtractText}
-                                    textNumber={textNumber}
-                                    key={textNumber}
-                                />
-                            )
-                        }
-
-                        <img src={brushDivider} alt="brush divider"/>
-                 
-                        {
-                            [4,5,6,7].map(
-                                textNumber => 
-                                <ListItem 
-                                    asyncFunction={asyncExtractText}
-                                    textNumber={textNumber}
-                                    key={textNumber}
-                                />
-                            )
-                        }
-                    </ul>
                 </div>
 
 
@@ -83,22 +55,39 @@ export const References: React.FunctionComponent = ()=>{
             <span className="skew"></span>
         </section>
     )
-}
+});
 
+const { ListItem } = (() => {
 
-const ListItem: React.FunctionComponent<{
-    textNumber: number;
-    asyncFunction: UseAsyncReturn<string[], [url: any]>;
+    type Props = {
+        className?: string;
+        text: string;
+        link?: {
+            href: string;
+            onClick?: ()=> void;
+        }
+    }
 
-}> = props =>{
-    const {asyncFunction, textNumber} = props;
-    return(
-        <li><p className="general-text">
-            {
-                asyncFunction.loading || !asyncFunction.result ?
-                "Chargement..." : asyncFunction.result[textNumber]
-            }
+    const ListItem = memo((props: Props) => {
+        const { text, link, className } = props;
+        return (
+            <li className={className}><p 
+                onClick={
+                    link === undefined ? 
+                    undefined : 
+                    link.onClick ?? 
+                    (()=>(window.location.href = link.href))
+                }
+                className={`general-text ${link !== undefined ? "referenceLink" : ""}`}
+            >
+                {
+                    text
+                }
 
-        </p></li>
-    )
-}
+            </p></li>
+        )
+    });
+
+    return {ListItem};
+})();
+
