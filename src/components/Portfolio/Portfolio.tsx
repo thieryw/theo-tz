@@ -102,7 +102,7 @@ export const Portfolio = (props: Props)=>{
                                     key={galleryName}
                                 >
                                     {
-                                        galleryName
+                                        galleryName.replace(/^\d+-/g, "")
                                     }
 
                                 </h3>
