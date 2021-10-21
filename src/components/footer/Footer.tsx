@@ -26,7 +26,7 @@ export const Footer: React.FunctionComponent<{
                         <Facebook />
                     </a>
 
-                    <a href="https://www.instagram.com/theo_tzele/">
+                    <a href="https://www.instagram.com/theo_tz_wildlife/">
                         <Instagram />
                     </a>
 
