@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.e080f776.chunk.css",
-    "main.js": "/static/js/main.9f3a1e2a.chunk.js",
-    "main.js.map": "/static/js/main.9f3a1e2a.chunk.js.map",
+    "main.js": "/static/js/main.819c731b.chunk.js",
+    "main.js.map": "/static/js/main.819c731b.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.494beac3.js",
     "runtime-main.js.map": "/static/js/runtime-main.494beac3.js.map",
     "static/js/2.d2c4f54f.chunk.js": "/static/js/2.d2c4f54f.chunk.js",
@@ -12,6 +12,10 @@
     "index.html": "/index.html",
     "static/css/main.e080f776.chunk.css.map": "/static/css/main.e080f776.chunk.css.map",
     "static/js/2.d2c4f54f.chunk.js.LICENSE.txt": "/static/js/2.d2c4f54f.chunk.js.LICENSE.txt",
+    "static/media/0.994-.79c57088.jpg": "/static/media/0.994-.79c57088.jpg",
+    "static/media/0.995-.af70840f.jpg": "/static/media/0.995-.af70840f.jpg",
+    "static/media/0.996-.06e5b047.jpg": "/static/media/0.996-.06e5b047.jpg",
+    "static/media/0.997-.a4961c52.jpg": "/static/media/0.997-.a4961c52.jpg",
     "static/media/1-.098e56d5.jpg": "/static/media/1-.098e56d5.jpg",
     "static/media/1-.52bccf68.jpg": "/static/media/1-.52bccf68.jpg",
     "static/media/1-.a8b1cbf5.jpg": "/static/media/1-.a8b1cbf5.jpg",
@@ -233,7 +237,7 @@
     "static/media/acceuil-1-min.9c8ea67f.jpg": "/static/media/acceuil-1-min.9c8ea67f.jpg",
     "static/media/acceuil-2-min.17944fef.jpg": "/static/media/acceuil-2-min.17944fef.jpg",
     "static/media/acceuil-3-min.25034ad9.jpg": "/static/media/acceuil-3-min.25034ad9.jpg",
-    "static/media/author-portrait-min.7496a8f5.jpg": "/static/media/author-portrait-min.7496a8f5.jpg",
+    "static/media/author-portrait-min.40791685.jpg": "/static/media/author-portrait-min.40791685.jpg",
     "static/media/authorPresentation.4aafe631.txt": "/static/media/authorPresentation.4aafe631.txt",
     "static/media/background-min.96755352.jpg": "/static/media/background-min.96755352.jpg",
     "static/media/Author.scss": "/static/media/bannier.29b327c8.jpg",
@@ -265,6 +269,6 @@
     "static/js/runtime-main.494beac3.js",
     "static/js/2.d2c4f54f.chunk.js",
     "static/css/main.e080f776.chunk.css",
-    "static/js/main.9f3a1e2a.chunk.js"
+    "static/js/main.819c731b.chunk.js"
   ]
 }
